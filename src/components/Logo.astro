@@ -1,0 +1,21 @@
+---
+// 로고: 장부 한 장에 형광펜 한 줄. 마감일을 표시해 두는 사장님의 노트.
+interface Props {
+  size?: number;
+}
+const { size = 30 } = Astro.props;
+---
+
+<svg class="logo-mark" viewBox="0 0 32 32" width={size} height={size} aria-hidden="true">
+  <rect x="3" y="3" width="26" height="26" rx="5" fill="var(--ink)"></rect>
+  <rect x="7.5" y="17" width="17" height="5.5" rx="1" fill="#ffe45c"></rect>
+  <path d="M8.5 10h15" stroke="var(--paper)" stroke-width="2.6" stroke-linecap="round"></path>
+  <path d="M9.5 19.75h13" stroke="#1b2a41" stroke-width="2.6" stroke-linecap="round"></path>
+  <path d="M8.5 25h8" stroke="var(--paper)" stroke-width="2.6" stroke-linecap="round" opacity=".55"></path>
+</svg>
+
+<style>
+  .logo-mark {
+    flex: none;
+  }
+</style>

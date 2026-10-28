@@ -17,6 +17,12 @@ const posts = defineCollection({
       .min(1),
     // 글과 함께 보여줄 계산기 (선택)
     tool: z.enum(['vat', 'loan']).optional(),
+    // 글 맨 위 "한눈에 보기" 박스. 2~4줄 (예: 대상 / 금액 / 마감 / 신청처)
+    keyPoints: z
+      .array(z.object({ label: z.string().max(8), value: z.string().max(80) }))
+      .min(2)
+      .max(4)
+      .optional(),
   }),
 });
 

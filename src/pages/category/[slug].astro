@@ -18,7 +18,8 @@ const { cat, posts } = Astro.props;
 
 <Base title={cat.name} description={`${cat.name}: ${cat.blurb}. 공고 원문을 확인해 사장님 눈높이로 정리한 글 모음입니다.`}>
   <div class="narrow">
-    <header class="head">
+    <header class="head" style={`--c:${cat.color};--c-dark:${cat.dark}`}>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d={cat.icon}></path></svg>
       <h1>{cat.name}</h1>
       <p>{cat.blurb}</p>
     </header>
@@ -29,7 +30,26 @@ const { cat, posts } = Astro.props;
 
 <style>
   .head {
+    --cc: var(--c);
     padding-block: 2.5rem 1.5rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme='light'])) .head {
+      --cc: var(--c-dark);
+    }
+  }
+  .head svg {
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0.5rem;
+    fill: none;
+    stroke: var(--cc);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    border: 2px solid var(--cc);
+    border-radius: 50%;
+    margin-bottom: 0.75rem;
   }
   .head h1 {
     font-size: var(--step-3);

@@ -2,10 +2,15 @@
 import Base from '../layouts/Base.astro';
 import DeadlineBoard from '../components/DeadlineBoard.astro';
 import PostList from '../components/PostList.astro';
+import VatCalculator from '../components/VatCalculator.astro';
 import { SITE, CATEGORIES, TOOLS } from '../site.config';
 import { getPublishedPosts } from '../lib/posts';
 
-const posts = (await getPublishedPosts()).slice(0, 12);
+const posts = (await getPublishedPosts()).slice(0, 10);
+
+// 다음 부가세 확정신고 달: 2~7월이면 7월(1기), 8~1월이면 1월(2기)
+const month = Number(new Intl.DateTimeFormat('en-US', { month: 'numeric', timeZone: 'Asia/Seoul' }).format(new Date()));
+const vatMonth = month >= 2 && month <= 7 ? 7 : 1;
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -21,64 +26,113 @@ const jsonLd = {
   <div class="wrap">
     <section class="intro">
       <h1>{SITE.tagline}</h1>
-      <p>공고 원문을 읽고, 사장님이 받을 수 있는 돈과 내야 할 세금을 쉬운 말로 정리합니다. 모든 글에 원문 링크를 붙입니다.</p>
+      <p>정책자금, 지원사업, 세금 신고 공고를 원문 그대로 읽고 사장님이 궁금한 것만 정리합니다. 모든 글에 원문 링크를 붙입니다.</p>
     </section>
 
     <DeadlineBoard />
+  </div>
 
-    <div class="grid">
-      <section aria-labelledby="latest">
-        <h2 id="latest" class="sec">새로 올라온 글</h2>
-        <PostList posts={posts} />
+  <section class="band" aria-labelledby="calc-title">
+    <div class="wrap">
+      <div class="band-head">
+        <h2 id="calc-title">{vatMonth}월 부가세, 얼마 나올지 미리 계산해 보세요</h2>
+        <p>매출, 카드매출, 매입만 넣으면 바로 나옵니다. 입력한 숫자는 어디에도 저장되지 않습니다.</p>
+      </div>
+      <VatCalculator />
+      <p class="band-more">상환 계획이 궁금하면 <a href="/tools/loan/">정책자금 월 상환액 계산기</a>도 써 보세요.</p>
+    </div>
+  </section>
+
+  <div class="wrap grid">
+    <section aria-labelledby="latest">
+      <h2 id="latest" class="sec">새로 올라온 글</h2>
+      <PostList posts={posts} />
+    </section>
+
+    <aside>
+      <section aria-labelledby="cats">
+        <h2 id="cats" class="sec">주제별로 보기</h2>
+        <ul class="cat-list">
+          {
+            CATEGORIES.map((c) => (
+              <li style={`--c:${c.color};--c-dark:${c.dark}`}>
+                <a href={`/category/${c.slug}/`}>
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d={c.icon} />
+                  </svg>
+                  <span class="name">{c.name}</span>
+                  <span class="blurb">{c.blurb}</span>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
       </section>
 
-      <aside>
-        <section aria-labelledby="tools">
-          <h2 id="tools" class="sec">바로 계산해 보기</h2>
-          <ul class="ledger-list tool-list">
-            {
-              TOOLS.map((t) => (
-                <li>
-                  <a href={t.href}>{t.name}</a>
-                  <span>{t.blurb}</span>
-                </li>
-              ))
-            }
-          </ul>
-        </section>
-
-        <section aria-labelledby="cats">
-          <h2 id="cats" class="sec">주제별로 보기</h2>
-          <ul class="ledger-list cat-list">
-            {
-              CATEGORIES.map((c) => (
-                <li>
-                  <a href={`/category/${c.slug}/`}>{c.name}</a>
-                  <span>{c.blurb}</span>
-                </li>
-              ))
-            }
-          </ul>
-        </section>
-      </aside>
-    </div>
+      <section aria-labelledby="tools">
+        <h2 id="tools" class="sec">계산기</h2>
+        <ul class="ledger-list tool-list">
+          {
+            TOOLS.map((t) => (
+              <li>
+                <a href={t.href}>{t.name}</a>
+                <span>{t.blurb}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </aside>
   </div>
 </Base>
 
 <style>
   .intro {
-    padding-block: 2.5rem 2rem;
-    max-width: 40rem;
+    padding-block: 2.75rem 2.25rem;
+    max-width: 44rem;
   }
   .intro h1 {
-    font-size: clamp(1.75rem, 5vw, var(--step-4));
+    font-size: clamp(1.9rem, 5.5vw, 3rem);
     font-weight: 800;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.045em;
+    line-height: 1.22;
   }
   .intro p {
     color: var(--ink-soft);
-    margin: 0.75rem 0 0;
+    margin: 1rem 0 0;
+    max-width: 38rem;
   }
+
+  .band {
+    margin-top: 3.5rem;
+    padding-block: 2.75rem 2.25rem;
+    background: var(--ledger);
+    border-block: 2px solid var(--ink);
+  }
+  .band-head {
+    margin-bottom: 1.75rem;
+    max-width: 40rem;
+  }
+  .band-head h2 {
+    font-size: clamp(1.4rem, 3.6vw, 1.9rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+  .band-head p {
+    margin: 0.5rem 0 0;
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+  }
+  .band :global(.result) {
+    background: var(--paper);
+    border: 2px solid var(--ink);
+  }
+  .band-more {
+    margin: 1.5rem 0 0;
+    font-size: var(--step--1);
+    color: var(--ink-soft);
+  }
+
   .grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 20rem;
@@ -94,25 +148,70 @@ const jsonLd = {
   aside section + section {
     margin-top: 2.5rem;
   }
-  .tool-list li,
+
+  .cat-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: 2px solid var(--ink);
+  }
   .cat-list li {
+    --cc: var(--c);
+    border-bottom: 1px solid var(--rule);
+  }
+  @media (prefers-color-scheme: dark) {
+    :global(:root:not([data-theme='light'])) .cat-list li {
+      --cc: var(--c-dark);
+    }
+  }
+  .cat-list a {
+    display: grid;
+    grid-template-columns: 2.25rem 1fr;
+    column-gap: 0.6rem;
+    padding-block: 0.85rem;
+    text-decoration: none;
+    color: var(--ink);
+  }
+  .cat-list svg {
+    grid-row: span 2;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0.4rem;
+    fill: none;
+    stroke: var(--cc);
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    border: 2px solid var(--cc);
+    border-radius: 50%;
+  }
+  .cat-list .name {
+    font-weight: 700;
+  }
+  .cat-list a:hover .name {
+    text-decoration: underline;
+  }
+  .cat-list .blurb {
+    font-size: 0.875rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .tool-list li {
     padding-block: 0.85rem;
   }
-  .tool-list a,
-  .cat-list a {
+  .tool-list a {
     display: block;
     font-weight: 700;
     color: var(--ink);
     text-decoration: none;
   }
-  .tool-list a:hover,
-  .cat-list a:hover {
+  .tool-list a:hover {
     text-decoration: underline;
   }
-  .tool-list span,
-  .cat-list span {
+  .tool-list span {
     display: block;
-    font-size: 0.9rem;
+    font-size: 0.875rem;
     color: var(--muted);
     line-height: 1.5;
   }

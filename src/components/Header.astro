@@ -1,15 +1,13 @@
 ---
 import { SITE, CATEGORIES } from '../site.config';
+import Logo from './Logo.astro';
 const path = Astro.url.pathname;
 ---
 
 <header class="site-header">
   <div class="wrap bar">
     <a href="/" class="brand" aria-label={`${SITE.name} 홈`}>
-      <svg viewBox="0 0 28 28" width="28" height="28" aria-hidden="true">
-        <rect x="3" y="3" width="22" height="22" rx="3" fill="none" stroke="currentColor" stroke-width="2.4"></rect>
-        <path d="M8 10h12M8 15h12M8 20h7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path>
-      </svg>
+      <Logo />
       <span>{SITE.name}</span>
     </a>
     <a href="/tools/" class="tools-link" aria-current={path.startsWith('/tools') ? 'page' : undefined}>계산기</a>
@@ -22,6 +20,7 @@ const path = Astro.url.pathname;
             <a
               href={`/category/${c.slug}/`}
               aria-current={path.startsWith(`/category/${c.slug}`) ? 'page' : undefined}
+              style={`--c:${c.color}`}
             >
               {c.name}
             </a>
@@ -86,7 +85,7 @@ const path = Astro.url.pathname;
   }
   .cats a[aria-current='page'] {
     color: var(--ink);
-    border-bottom-color: var(--ink);
+    border-bottom-color: var(--c, var(--ink));
   }
   .cats a:hover {
     color: var(--ink);

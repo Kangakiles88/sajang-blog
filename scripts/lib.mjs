@@ -61,6 +61,15 @@ export function validate(file) {
       if (!s?.title || !/^https?:\/\//.test(s?.url ?? '')) errors.push(`sources ${i + 1}번째 항목에 title과 http(s) url이 필요합니다.`);
     });
   if (d.tool && !['vat', 'loan'].includes(d.tool)) errors.push('tool은 vat 또는 loan만 쓸 수 있습니다.');
+  if (!d.keyPoints) warnings.push('keyPoints(한눈에 보기)가 없습니다. 2~4줄 넣는 것을 권장합니다.');
+  else if (!Array.isArray(d.keyPoints) || d.keyPoints.length < 2 || d.keyPoints.length > 4)
+    errors.push('keyPoints는 2~4개여야 합니다.');
+  else
+    d.keyPoints.forEach((k, i) => {
+      if (!k?.label || !k?.value) errors.push(`keyPoints ${i + 1}번째에 label과 value가 필요합니다.`);
+      else if (String(k.label).length > 8) errors.push(`keyPoints ${i + 1}번째 label은 8자 이내여야 합니다.`);
+      else if (String(k.value).length > 80) errors.push(`keyPoints ${i + 1}번째 value는 80자 이내여야 합니다.`);
+    });
 
   const unresolved = body.match(/\[확인 필요[^\]]*\]/g);
   if (unresolved) errors.push(`[확인 필요] 표시가 ${unresolved.length}곳 남아 있습니다. 원문과 대조해 고친 뒤 표시를 지우세요.`);

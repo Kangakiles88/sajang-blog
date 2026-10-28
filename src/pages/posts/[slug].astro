@@ -5,7 +5,9 @@ import AdSlot from '../../components/AdSlot.astro';
 import PostList from '../../components/PostList.astro';
 import VatCalculator from '../../components/VatCalculator.astro';
 import LoanCalculator from '../../components/LoanCalculator.astro';
-import { SITE, categoryName } from '../../site.config';
+import CategoryTag from '../../components/CategoryTag.astro';
+import KeyPoints from '../../components/KeyPoints.astro';
+import { SITE, categoryName, getCategory } from '../../site.config';
 import { formatDate, readingMinutes } from '../../lib/format';
 import { getPublishedPosts } from '../../lib/posts';
 
@@ -23,6 +25,8 @@ const d = post.data;
 const url = new URL(`/posts/${post.id}/`, Astro.site).href;
 const toc = headings.filter((h) => h.depth === 2);
 const minutes = readingMinutes(post.body ?? '');
+const cat = getCategory(d.category);
+const ogImage = new URL(`/og/${post.id}.png`, Astro.site).href;
 
 const jsonLd = [
   {
@@ -34,6 +38,7 @@ const jsonLd = [
     dateModified: (d.updatedDate ?? d.pubDate).toISOString(),
     inLanguage: 'ko-KR',
     mainEntityOfPage: url,
+    image: ogImage,
     author: { '@type': 'Organization', name: SITE.name, url: SITE.url },
     publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url },
   },
@@ -49,10 +54,10 @@ const jsonLd = [
 ];
 ---
 
-<Base title={d.title} description={d.description} type="article" jsonLd={jsonLd}>
+<Base title={d.title} description={d.description} type="article" jsonLd={jsonLd} image={post.id}>
   <article class="narrow">
     <header class="head">
-      <a href={`/category/${d.category}/`} class="cat">{categoryName(d.category)}</a>
+      <CategoryTag slug={d.category} size="md" />
       <h1>{d.title}</h1>
       <p class="lede">{d.description}</p>
       <p class="meta">
@@ -61,6 +66,8 @@ const jsonLd = [
         <span>{minutes}분 분량</span>
       </p>
     </header>
+
+    {d.keyPoints && <KeyPoints points={d.keyPoints} color={cat.color} dark={cat.dark} />}
 
     {
       toc.length >= 3 && (
@@ -118,12 +125,6 @@ const jsonLd = [
 <style>
   .head {
     padding-block: 2.5rem 1.5rem;
-  }
-  .cat {
-    font-size: var(--step--1);
-    font-weight: 700;
-    color: var(--ink-soft);
-    text-decoration: none;
   }
   .head h1 {
     font-size: clamp(1.6rem, 4.5vw, 2.4rem);

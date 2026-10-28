@@ -10,6 +10,8 @@ interface Props {
   type?: 'website' | 'article';
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   noindex?: boolean;
+  // 공유 이미지 이름 (/og/<image>.png). 없으면 기본 이미지.
+  image?: string;
 }
 
 const {
@@ -18,7 +20,9 @@ const {
   type = 'website',
   jsonLd,
   noindex = false,
+  image = 'default',
 } = Astro.props;
+const ogImage = new URL(`/og/${image}.png`, Astro.site).href;
 
 const fullTitle = title ? `${title} | ${SITE.name}` : `${SITE.name} — ${SITE.tagline}`;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
@@ -43,7 +47,11 @@ const googleVerify = import.meta.env.PUBLIC_GOOGLE_VERIFY;
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:locale" content={SITE.locale} />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content={ogImage} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="alternate" type="application/rss+xml" title={SITE.name} href="/rss.xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
