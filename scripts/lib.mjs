@@ -9,7 +9,7 @@ export const DRAFTS = path.join(ROOT, 'content', 'drafts');
 export const POSTS = path.join(ROOT, 'src', 'content', 'posts');
 export const QUEUE = path.join(ROOT, 'keywords', 'queue.md');
 
-const CATS = ['loan', 'support', 'tax', 'closing', 'marketing'];
+const CATS = ['loan', 'support', 'tax', 'closing'];
 
 export function readDoc(file) {
   const raw = fs.readFileSync(file, 'utf8').replace(/^﻿/, '');

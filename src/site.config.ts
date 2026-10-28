@@ -47,14 +47,6 @@ export const CATEGORIES = [
     dark: '#c3a5ee',
     icon: 'M4 10l2-6h12l2 6zM5 10v10h14V10M9 14h6M9 17h6',
   },
-  {
-    slug: 'marketing',
-    name: '가게 홍보',
-    blurb: '인스타, 네이버 플레이스, 온라인 판로 지원',
-    color: '#b0304f',
-    dark: '#f28aa3',
-    icon: 'M4 10v4h3l7 4V6l-7 4zM17.5 9a4 4 0 0 1 0 6M20 6.5a7.5 7.5 0 0 1 0 11',
-  },
 ] as const;
 
 export type CategorySlug = (typeof CATEGORIES)[number]['slug'];
