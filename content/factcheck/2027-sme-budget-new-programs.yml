@@ -1,0 +1,46 @@
+slug: 2027-sme-budget-new-programs
+title: "2027 소상공인 예산안 정리: 새로 생기는 지원과 달라지는 정책자금"
+publishedOn: 2026-10-28
+checkedAt: 2026-10-29
+note: 첫 발행 때는 언론 기사 기준이었고, 2026-10-29 중기부 정책브리핑 원문과 대조해 고쳤습니다. 원문에 없는 '소상공인 금융지원 4조 2,500억 원', '이차보전 2조 원', '2026년 본예산 16조 5,233억 원', '2026년 정책자금 3조 3,620억 원'은 본문에서 뺐습니다. '소상공인 정책보험'은 원문 명칭인 '청년창업안심보험'으로 바꿨습니다.
+items:
+  - claim: 2027년 중기부 예산안 총액
+    value: 18조 724억 원
+    source: https://www.korea.kr/news/policyNewsView.do?newsId=148971047
+    evidence: "정책브리핑(2026-09-02) '18조 724억 원 편성·9.4% 증액'"
+    status: 일치
+  - claim: 전년 대비 증가율
+    value: 9.4%
+    source: https://www.korea.kr/news/policyNewsView.do?newsId=148971047
+    evidence: "같은 문서 '9.4% 증액'"
+    status: 일치
+  - claim: 건강돌봄지원 예산
+    value: 2,050억 원
+    source: https://www.korea.kr/news/policyNewsView.do?newsId=148971047
+    evidence: "사회안전 항목 '건강돌봄지원: 2050억 원' (지원 내용은 원문에 없어 보도 기준으로 표시)"
+    status: 일치
+  - claim: 상생배달 앱 예산
+    value: 1,240억 원
+    source: https://www.korea.kr/news/policyNewsView.do?newsId=148971047
+    evidence: "상생협력 항목 '상생배달 앱: 1240억 원'"
+    status: 일치
+  - claim: 청년창업안심보험 예산
+    value: 300억 원
+    source: https://www.korea.kr/news/policyNewsView.do?newsId=148971047
+    evidence: "사회안전 항목 '청년창업안심보험: 300억 원'"
+    status: 일치
+  - claim: 소상공인 융자 예산
+    value: 2조 2,500억 원
+    source: https://www.korea.kr/news/policyNewsView.do?newsId=148971047
+    evidence: "금융안전 항목 '소상공인 융자: 2조 2500억 원'"
+    status: 일치
+  - claim: 재도전 성공학교 예산
+    value: 595억 원
+    source: https://www.korea.kr/news/policyNewsView.do?newsId=148971047
+    evidence: "'재도전 성공학교: 595억 원'"
+    status: 일치
+  - claim: 재도전 응원 프로젝트 예산
+    value: 334억 원
+    source: https://www.korea.kr/news/policyNewsView.do?newsId=148971047
+    evidence: "'재도전 응원 프로젝트: 334억 원'"
+    status: 일치
