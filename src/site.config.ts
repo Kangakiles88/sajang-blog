@@ -6,7 +6,7 @@ export const SITE = {
   description:
     '소상공인 정책자금, 지원사업 공고, 부가세·종소세 신고, 폐업 지원까지. 공고 원문을 확인해 쉽게 정리하고 계산기로 바로 따져볼 수 있게 만듭니다.',
   // 배포 주소. 빌드 환경변수 SITE_URL로 덮어씁니다 (도메인 연결 후 설정).
-  url: import.meta.env.SITE_URL ?? 'https://sajang-note.pages.dev',
+  url: import.meta.env.SITE_URL ?? 'https://sajang-note.com',
   // 사이트에 공개되는 문의 메일. 애드센스 신청 전 실제 주소로 바꾸세요.
   email: 'contact@example.com',
   locale: 'ko_KR',
