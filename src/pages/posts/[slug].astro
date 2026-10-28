@@ -1,0 +1,189 @@
+---
+import { render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import PostList from '../../components/PostList.astro';
+import VatCalculator from '../../components/VatCalculator.astro';
+import LoanCalculator from '../../components/LoanCalculator.astro';
+import { SITE, categoryName } from '../../site.config';
+import { formatDate, readingMinutes } from '../../lib/format';
+import { getPublishedPosts } from '../../lib/posts';
+
+export async function getStaticPaths() {
+  const posts = await getPublishedPosts();
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post, related: posts.filter((p) => p.id !== post.id && p.data.category === post.data.category).slice(0, 4) },
+  }));
+}
+
+const { post, related } = Astro.props;
+const { Content, headings } = await render(post);
+const d = post.data;
+const url = new URL(`/posts/${post.id}/`, Astro.site).href;
+const toc = headings.filter((h) => h.depth === 2);
+const minutes = readingMinutes(post.body ?? '');
+
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: d.title,
+    description: d.description,
+    datePublished: d.pubDate.toISOString(),
+    dateModified: (d.updatedDate ?? d.pubDate).toISOString(),
+    inLanguage: 'ko-KR',
+    mainEntityOfPage: url,
+    author: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+    publisher: { '@type': 'Organization', name: SITE.name, url: SITE.url },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: SITE.name, item: SITE.url },
+      { '@type': 'ListItem', position: 2, name: categoryName(d.category), item: new URL(`/category/${d.category}/`, Astro.site).href },
+      { '@type': 'ListItem', position: 3, name: d.title, item: url },
+    ],
+  },
+];
+---
+
+<Base title={d.title} description={d.description} type="article" jsonLd={jsonLd}>
+  <article class="narrow">
+    <header class="head">
+      <a href={`/category/${d.category}/`} class="cat">{categoryName(d.category)}</a>
+      <h1>{d.title}</h1>
+      <p class="lede">{d.description}</p>
+      <p class="meta">
+        <time datetime={d.pubDate.toISOString()}>{formatDate(d.pubDate)} 작성</time>
+        {d.updatedDate && <time datetime={d.updatedDate.toISOString()}>{formatDate(d.updatedDate)} 수정</time>}
+        <span>{minutes}분 분량</span>
+      </p>
+    </header>
+
+    {
+      toc.length >= 3 && (
+        <nav class="toc" aria-label="목차">
+          <p>이 글에서 다루는 것</p>
+          <ol>
+            {toc.map((h) => (
+              <li>
+                <a href={`#${h.slug}`}>{h.text}</a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      )
+    }
+
+    <AdSlot />
+
+    <div class="prose">
+      <Content />
+    </div>
+
+    {d.tool === 'vat' && <VatCalculator embedded />}
+    {d.tool === 'loan' && <LoanCalculator embedded />}
+
+    <AdSlot />
+
+    <section class="sources" aria-labelledby="src">
+      <h2 id="src">원문 확인하기</h2>
+      <p>이 글은 아래 자료를 바탕으로 정리했습니다. 금액·기한·자격은 바뀔 수 있으니 신청 전 원문을 꼭 확인하세요.</p>
+      <ul>
+        {
+          d.sources.map((s) => (
+            <li>
+              <a href={s.url} rel="nofollow noopener" target="_blank">
+                {s.title}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </article>
+
+  {
+    related.length > 0 && (
+      <section class="narrow related" aria-labelledby="rel">
+        <h2 id="rel">같은 주제의 다른 글</h2>
+        <PostList posts={related} showCategory={false} />
+      </section>
+    )
+  }
+</Base>
+
+<style>
+  .head {
+    padding-block: 2.5rem 1.5rem;
+  }
+  .cat {
+    font-size: var(--step--1);
+    font-weight: 700;
+    color: var(--ink-soft);
+    text-decoration: none;
+  }
+  .head h1 {
+    font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    margin-top: 0.5rem;
+  }
+  .lede {
+    font-size: var(--step-1);
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin: 1rem 0;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+    margin: 0;
+  }
+  .toc {
+    background: var(--ledger);
+    padding: 1.25rem 1.5rem;
+    margin-block: 1rem 2rem;
+  }
+  .toc p {
+    margin: 0 0 0.5rem;
+    font-weight: 700;
+    font-size: var(--step--1);
+  }
+  .toc ol {
+    margin: 0;
+    padding-left: 1.25rem;
+    font-size: var(--step--1);
+  }
+  .toc li {
+    margin-bottom: 0.25rem;
+  }
+  .sources {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--ink);
+    font-size: var(--step--1);
+  }
+  .sources h2 {
+    font-size: var(--step-1);
+  }
+  .sources p {
+    color: var(--muted);
+  }
+  .sources ul {
+    padding-left: 1.25rem;
+  }
+  .related {
+    margin-top: 4rem;
+  }
+  .related h2 {
+    font-size: var(--step--1);
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+</style>

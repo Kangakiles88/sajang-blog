@@ -1,0 +1,52 @@
+---
+import { SITE } from '../site.config';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="wrap inner">
+    <p class="note">
+      {SITE.name}의 글은 공고·법령 원문을 바탕으로 정리한 참고 정보입니다. 신청과 신고 전에는 반드시
+      각 글 하단의 원문 링크와 담당 기관에서 최신 내용을 확인하세요.
+    </p>
+    <ul class="links">
+      <li><a href="/about/">소개</a></li>
+      <li><a href="/privacy/">개인정보처리방침</a></li>
+      <li><a href="/disclaimer/">면책 고지</a></li>
+      <li><a href="/contact/">문의</a></li>
+      <li><a href="/rss.xml">RSS</a></li>
+    </ul>
+    <p class="copy">© {year} {SITE.name}</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    margin-top: 5rem;
+    border-top: 2px solid var(--ink);
+    background: var(--ledger);
+  }
+  .inner {
+    padding-block: 2rem 3rem;
+    font-size: var(--step--1);
+    color: var(--muted);
+  }
+  .note {
+    max-width: 40rem;
+    margin: 0 0 1.25rem;
+  }
+  .links {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
+  }
+  .links a {
+    color: var(--ink-soft);
+  }
+  .copy {
+    margin: 0;
+  }
+</style>

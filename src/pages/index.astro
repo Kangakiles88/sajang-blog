@@ -1,0 +1,125 @@
+---
+import Base from '../layouts/Base.astro';
+import DeadlineBoard from '../components/DeadlineBoard.astro';
+import PostList from '../components/PostList.astro';
+import { SITE, CATEGORIES, TOOLS } from '../site.config';
+import { getPublishedPosts } from '../lib/posts';
+
+const posts = (await getPublishedPosts()).slice(0, 12);
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE.name,
+  url: SITE.url,
+  description: SITE.description,
+  inLanguage: 'ko-KR',
+};
+---
+
+<Base jsonLd={jsonLd}>
+  <div class="wrap">
+    <section class="intro">
+      <h1>{SITE.tagline}</h1>
+      <p>공고 원문을 읽고, 사장님이 받을 수 있는 돈과 내야 할 세금을 쉬운 말로 정리합니다. 모든 글에 원문 링크를 붙입니다.</p>
+    </section>
+
+    <DeadlineBoard />
+
+    <div class="grid">
+      <section aria-labelledby="latest">
+        <h2 id="latest" class="sec">새로 올라온 글</h2>
+        <PostList posts={posts} />
+      </section>
+
+      <aside>
+        <section aria-labelledby="tools">
+          <h2 id="tools" class="sec">바로 계산해 보기</h2>
+          <ul class="ledger-list tool-list">
+            {
+              TOOLS.map((t) => (
+                <li>
+                  <a href={t.href}>{t.name}</a>
+                  <span>{t.blurb}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section aria-labelledby="cats">
+          <h2 id="cats" class="sec">주제별로 보기</h2>
+          <ul class="ledger-list cat-list">
+            {
+              CATEGORIES.map((c) => (
+                <li>
+                  <a href={`/category/${c.slug}/`}>{c.name}</a>
+                  <span>{c.blurb}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+      </aside>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .intro {
+    padding-block: 2.5rem 2rem;
+    max-width: 40rem;
+  }
+  .intro h1 {
+    font-size: clamp(1.75rem, 5vw, var(--step-4));
+    font-weight: 800;
+    letter-spacing: -0.04em;
+  }
+  .intro p {
+    color: var(--ink-soft);
+    margin: 0.75rem 0 0;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 20rem;
+    gap: 3rem;
+    margin-top: 3.5rem;
+  }
+  .sec {
+    font-size: var(--step--1);
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+  aside section + section {
+    margin-top: 2.5rem;
+  }
+  .tool-list li,
+  .cat-list li {
+    padding-block: 0.85rem;
+  }
+  .tool-list a,
+  .cat-list a {
+    display: block;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .tool-list a:hover,
+  .cat-list a:hover {
+    text-decoration: underline;
+  }
+  .tool-list span,
+  .cat-list span {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  @media (max-width: 56rem) {
+    .grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+  }
+</style>

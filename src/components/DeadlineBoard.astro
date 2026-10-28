@@ -1,0 +1,130 @@
+---
+// 다가오는 마감 일정. 빌드 시점 기준으로 그린 뒤, 방문자 브라우저에서 D-day를 다시 계산합니다.
+import deadlines from '../data/deadlines.json';
+import { daysUntil, todayKST } from '../lib/format';
+
+interface Props {
+  limit?: number;
+}
+const { limit = 4 } = Astro.props;
+const today = todayKST();
+
+const items = deadlines
+  .map((d) => ({ ...d, left: daysUntil(d.date, today) }))
+  .filter((d) => d.left >= 0)
+  .sort((a, b) => a.left - b.left)
+  .slice(0, limit);
+
+const md = (s: string) => {
+  const [, m, d] = s.split('-');
+  return `${Number(m)}월 ${Number(d)}일`;
+};
+const weekday = (s: string) =>
+  ['일', '월', '화', '수', '목', '금', '토'][new Date(s + 'T12:00:00Z').getUTCDay()];
+---
+
+<section class="board" aria-labelledby="board-title">
+  <h2 id="board-title">다가오는 마감</h2>
+  {
+    items.length === 0 ? (
+      <p class="empty">등록된 마감 일정이 없습니다.</p>
+    ) : (
+      <ol class="ledger-list">
+        {items.map((d) => (
+          <li class="row" data-date={d.date}>
+            <span class={`dday ${d.left <= 7 ? 'soon' : ''}`} aria-label={`${d.left}일 남음`}>
+              {d.left === 0 ? 'D-DAY' : `D-${d.left}`}
+            </span>
+            <span class="what">
+              <a href={d.href}>{d.title}</a>
+              <span class="who">{d.who}</span>
+            </span>
+            <time datetime={d.date} class="when">
+              <span class="mark">{md(d.date)}</span> ({weekday(d.date)})
+            </time>
+          </li>
+        ))}
+      </ol>
+    )
+  }
+</section>
+
+<script>
+  // 정적 페이지라 빌드 날짜가 지나면 D-day가 틀어지므로 방문 시점에 다시 계산
+  const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Seoul' }).format(new Date());
+  const t0 = Date.parse(today + 'T00:00:00Z');
+  document.querySelectorAll<HTMLElement>('.board .row').forEach((row) => {
+    const left = Math.round((Date.parse(row.dataset.date + 'T00:00:00Z') - t0) / 86400000);
+    if (left < 0) {
+      row.remove();
+      return;
+    }
+    const el = row.querySelector<HTMLElement>('.dday');
+    if (!el) return;
+    el.textContent = left === 0 ? 'D-DAY' : `D-${left}`;
+    el.setAttribute('aria-label', `${left}일 남음`);
+    el.classList.toggle('soon', left <= 7);
+  });
+</script>
+
+<style>
+  .board h2 {
+    font-size: var(--step--1);
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+  .row {
+    display: grid;
+    grid-template-columns: 6.5rem 1fr auto;
+    align-items: baseline;
+    gap: 0 1.25rem;
+    padding-block: 1rem;
+  }
+  .dday {
+    font-size: var(--step-3);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+  }
+  .dday.soon {
+    color: var(--due);
+  }
+  .what a {
+    font-size: var(--step-1);
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .what a:hover {
+    text-decoration: underline;
+  }
+  .who {
+    display: block;
+    font-size: var(--step--1);
+    color: var(--muted);
+  }
+  .when {
+    font-size: var(--step-0);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .empty {
+    color: var(--muted);
+  }
+  @media (max-width: 40rem) {
+    .row {
+      grid-template-columns: 5rem 1fr;
+      gap: 0.25rem 1rem;
+    }
+    .dday {
+      font-size: var(--step-2);
+      grid-row: span 2;
+    }
+    .when {
+      grid-column: 2;
+      font-size: var(--step--1);
+    }
+  }
+</style>

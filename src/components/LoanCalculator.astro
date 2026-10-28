@@ -1,0 +1,324 @@
+---
+// 정책자금 월 상환액 계산기: 거치기간(이자만 납부) 후 원금균등 또는 원리금균등 상환
+interface Props {
+  embedded?: boolean;
+}
+const { embedded = false } = Astro.props;
+---
+
+<section class={`calc ${embedded ? 'embedded' : ''}`} data-loan aria-labelledby="loan-title">
+  {embedded ? <h2 id="loan-title">내 상환액 바로 계산해 보기</h2> : <h2 id="loan-title" class="sr">입력</h2>}
+
+  <form class="form" novalidate>
+    <label class="field">
+      <span class="lab">대출 금액</span>
+      <span class="money"><input name="amount" inputmode="numeric" autocomplete="off" value="50,000,000" /><span>원</span></span>
+    </label>
+
+    <label class="field">
+      <span class="lab">연 금리</span>
+      <span class="money"><input name="rate" inputmode="decimal" autocomplete="off" value="3.0" data-plain /><span>%</span></span>
+      <span class="hint">공고에 나온 금리를 넣으세요. 정책자금은 분기마다 금리가 바뀌기도 합니다.</span>
+    </label>
+
+    <div class="two">
+      <label class="field">
+        <span class="lab">거치기간</span>
+        <select name="grace">
+          {[0, 12, 24, 36].map((m) => <option value={m} selected={m === 24}>{m === 0 ? '없음' : `${m / 12}년`}</option>)}
+        </select>
+      </label>
+      <label class="field">
+        <span class="lab">거치 후 상환기간</span>
+        <select name="term">
+          {[12, 24, 36, 48, 60, 72, 84].map((m) => <option value={m} selected={m === 36}>{m / 12}년</option>)}
+        </select>
+      </label>
+    </div>
+
+    <fieldset class="seg">
+      <legend>상환 방식</legend>
+      <label><input type="radio" name="method" value="principal" checked /> 원금균등</label>
+      <label><input type="radio" name="method" value="annuity" /> 원리금균등</label>
+    </fieldset>
+    <p class="hint">정책자금은 거치 후 원금균등 분할상환이 많습니다. 공고의 상환 방식을 확인하세요.</p>
+  </form>
+
+  <div class="result" aria-live="polite">
+    <dl class="kpis">
+      <div>
+        <dt>거치기간 중 매달</dt>
+        <dd data-grace-pay>0원</dd>
+      </div>
+      <div>
+        <dt data-first-label>상환 첫 달</dt>
+        <dd data-first-pay class="big">0원</dd>
+      </div>
+      <div>
+        <dt>총 이자</dt>
+        <dd data-interest>0원</dd>
+      </div>
+      <div>
+        <dt>총 상환액</dt>
+        <dd data-total>0원</dd>
+      </div>
+    </dl>
+    <details class="sched">
+      <summary>월별 상환표 보기</summary>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>회차</th><th>원금</th><th>이자</th><th>납입액</th><th>남은 원금</th></tr></thead>
+          <tbody data-sched></tbody>
+        </table>
+      </div>
+    </details>
+  </div>
+
+  <p class="fine">월 단위 단순 계산(연 금리 ÷ 12)이며 보증료·중도상환수수료는 포함하지 않습니다. 실제 금액은 대출 약정서를 따릅니다.</p>
+</section>
+
+<script>
+  const won = (n: number) => Math.round(n).toLocaleString('ko-KR') + '원';
+  const num = (s: string) => Number((s || '').replace(/[^0-9.]/g, '')) || 0;
+
+  document.querySelectorAll<HTMLElement>('[data-loan]').forEach((root) => {
+    const form = root.querySelector('form')!;
+    const $ = <T extends HTMLElement>(sel: string) => root.querySelector<T>(sel)!;
+
+    form.querySelectorAll<HTMLInputElement>('.money input:not([data-plain])').forEach((inp) => {
+      inp.addEventListener('input', () => {
+        const v = Number(inp.value.replace(/[^0-9]/g, ''));
+        inp.value = v ? v.toLocaleString('ko-KR') : '';
+      });
+    });
+
+    const calc = () => {
+      const f = new FormData(form);
+      const P = num(f.get('amount') as string);
+      const r = num(f.get('rate') as string) / 100 / 12;
+      const grace = Number(f.get('grace'));
+      const n = Number(f.get('term'));
+      const method = f.get('method') as string;
+
+      const rows: number[][] = [];
+      let bal = P;
+      let interestSum = 0;
+      for (let i = 1; i <= grace; i++) {
+        const it = bal * r;
+        interestSum += it;
+        rows.push([i, 0, it, it, bal]);
+      }
+      const annuity = r === 0 ? P / n : (P * r) / (1 - Math.pow(1 + r, -n));
+      for (let k = 1; k <= n; k++) {
+        const it = bal * r;
+        let pr = method === 'annuity' ? annuity - it : P / n;
+        if (k === n) pr = bal;
+        bal -= pr;
+        interestSum += it;
+        rows.push([grace + k, pr, it, pr + it, Math.max(0, bal)]);
+      }
+
+      const first = rows[grace];
+      $('[data-grace-pay]').textContent = grace ? won(P * r) + ' (이자만)' : '거치기간 없음';
+      $('[data-first-label]').textContent = method === 'annuity' ? '상환기간 중 매달' : '상환 첫 달 (이후 점점 줄어듦)';
+      $('[data-first-pay]').textContent = first ? won(first[3]) : '0원';
+      $('[data-interest]').textContent = won(interestSum);
+      $('[data-total]').textContent = won(P + interestSum);
+      $('[data-sched]').innerHTML = rows
+        .map(
+          (row) =>
+            `<tr${row[0] === grace + 1 ? ' class="start"' : ''}><td>${row[0]}</td><td>${won(row[1])}</td><td>${won(row[2])}</td><td>${won(row[3])}</td><td>${won(row[4])}</td></tr>`,
+        )
+        .join('');
+    };
+
+    form.addEventListener('input', calc);
+    form.addEventListener('change', calc);
+    calc();
+  });
+</script>
+
+<style>
+  .calc {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 1.5rem 2.5rem;
+    align-items: start;
+  }
+  .calc.embedded {
+    grid-template-columns: 1fr;
+    margin-block: 3rem;
+    padding: 1.5rem;
+    border: 2px solid var(--ink);
+  }
+  .calc > h2 {
+    grid-column: 1 / -1;
+    font-size: var(--step-1);
+  }
+  .sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  .form {
+    display: grid;
+    gap: 1.25rem;
+  }
+  .two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .field {
+    display: grid;
+    gap: 0.35rem;
+  }
+  .lab {
+    font-weight: 700;
+    font-size: var(--step--1);
+  }
+  .money {
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid var(--ink);
+  }
+  .money input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    font-size: var(--step-1);
+    font-weight: 700;
+    padding: 0.4rem 0;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .money span {
+    margin-left: 0.4rem;
+    color: var(--muted);
+  }
+  select {
+    font: inherit;
+    font-size: var(--step--1);
+    padding: 0.55rem;
+    border: 2px solid var(--rule-strong);
+    background: var(--paper);
+    color: var(--ink);
+    width: 100%;
+  }
+  .hint {
+    font-size: 0.875rem;
+    color: var(--muted);
+    margin: 0;
+  }
+  .seg {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 0.5rem;
+  }
+  .seg legend {
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    font-size: var(--step--1);
+  }
+  .seg label {
+    flex: 1;
+    position: relative;
+    text-align: center;
+    padding: 0.7rem;
+    border: 2px solid var(--rule-strong);
+    font-weight: 700;
+    cursor: pointer;
+  }
+  .seg input {
+    position: absolute;
+    opacity: 0;
+  }
+  .seg label:has(input:checked) {
+    border-color: var(--ink);
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .seg label:has(input:focus-visible) {
+    outline: 3px solid var(--focus);
+    outline-offset: 2px;
+  }
+  .result {
+    background: var(--ledger);
+    padding: 1.5rem;
+  }
+  .kpis {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem 1rem;
+  }
+  .kpis dt {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--ink-soft);
+  }
+  .kpis dd {
+    margin: 0.15rem 0 0;
+    font-size: var(--step-1);
+    font-weight: 800;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+  .kpis dd.big {
+    font-size: clamp(1.6rem, 5vw, 2.25rem);
+  }
+  .sched {
+    margin-top: 1.5rem;
+  }
+  .sched summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--link);
+    font-size: var(--step--1);
+  }
+  .scroll {
+    max-height: 22rem;
+    overflow: auto;
+    margin-top: 0.75rem;
+  }
+  .sched table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .sched th,
+  .sched :global(td) {
+    padding: 0.35rem 0.5rem;
+    text-align: right;
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+  .sched th {
+    position: sticky;
+    top: 0;
+    background: var(--ledger);
+    border-bottom: 2px solid var(--ink);
+  }
+  .sched :global(tr.start td) {
+    border-top: 2px solid var(--rule-strong);
+  }
+  .fine {
+    grid-column: 1 / -1;
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin: 0;
+  }
+  @media (max-width: 52rem) {
+    .calc {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

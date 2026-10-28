@@ -1,0 +1,59 @@
+---
+import Base from '../../layouts/Base.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import LoanCalculator from '../../components/LoanCalculator.astro';
+
+const title = '정책자금 월 상환액 계산기 (거치기간·원금균등)';
+const description =
+  '소상공인 정책자금 대출 금액, 금리, 거치기간만 넣으면 거치 중 이자와 상환기간 월 납입액, 총 이자를 바로 계산합니다. 월별 상환표 제공.';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: title,
+  description,
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'Any',
+  inLanguage: 'ko-KR',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'KRW' },
+};
+---
+
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <div class="wrap">
+    <header class="head">
+      <h1>정책자금 월 상환액 계산기</h1>
+      <p>거치기간 동안 내는 이자와, 원금을 갚기 시작한 뒤 매달 나가는 돈을 미리 확인하세요.</p>
+    </header>
+    <LoanCalculator />
+    <AdSlot />
+    <section class="narrow-text prose">
+      <h2>용어 정리</h2>
+      <h3>거치기간</h3>
+      <p>원금은 갚지 않고 이자만 내는 기간입니다. 예를 들어 "2년 거치 3년 분할상환"이면 처음 2년은 이자만, 이후 3년 동안 원금과 이자를 나눠 냅니다.</p>
+      <h3>원금균등 상환</h3>
+      <p>매달 같은 원금을 갚고, 남은 원금에 대한 이자를 더해 냅니다. 처음 부담이 가장 크고 갈수록 줄어듭니다. 총 이자는 원리금균등보다 적습니다.</p>
+      <h3>원리금균등 상환</h3>
+      <p>원금과 이자를 합친 금액이 매달 같습니다. 매달 나가는 돈이 일정해 자금 계획을 세우기 쉽습니다.</p>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .head {
+    padding-block: 2.5rem 2rem;
+    max-width: 40rem;
+  }
+  .head h1 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+  }
+  .head p {
+    color: var(--ink-soft);
+    margin: 0.5rem 0 0;
+  }
+  .narrow-text {
+    max-width: var(--measure);
+    margin-top: 3rem;
+  }
+</style>

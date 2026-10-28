@@ -1,0 +1,49 @@
+---
+import Base from '../../layouts/Base.astro';
+import { TOOLS } from '../../site.config';
+---
+
+<Base title="사장님 계산기" description="부가세 예상 납부액, 정책자금 월 상환액 등 사장님이 자주 따져보는 숫자를 바로 계산하세요.">
+  <div class="narrow">
+    <header class="head">
+      <h1>사장님 계산기</h1>
+      <p>입력하는 즉시 계산되고, 입력한 숫자는 어디에도 저장되지 않습니다.</p>
+    </header>
+    <ul class="ledger-list">
+      {
+        TOOLS.map((t) => (
+          <li class="item">
+            <a href={t.href}>{t.name}</a>
+            <p>{t.blurb}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</Base>
+
+<style>
+  .head {
+    padding-block: 2.5rem 1.5rem;
+  }
+  .head h1 {
+    font-size: var(--step-3);
+    font-weight: 800;
+  }
+  .head p {
+    color: var(--ink-soft);
+    margin: 0.5rem 0 0;
+  }
+  .item {
+    padding-block: 1.25rem;
+  }
+  .item a {
+    font-size: var(--step-1);
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .item p {
+    margin: 0.25rem 0 0;
+    color: var(--muted);
+  }
+</style>

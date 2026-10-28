@@ -1,0 +1,24 @@
+{
+  "name": "sajang-blog",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "소상공인 지원금·세금 정보 블로그 + 계산기",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "drafts": "node scripts/drafts.mjs",
+    "check-draft": "node scripts/validate.mjs",
+    "publish-draft": "node scripts/publish.mjs"
+  },
+  "dependencies": {
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.4.2",
+    "yaml": "^2.9.1"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

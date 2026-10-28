@@ -1,0 +1,226 @@
+/* 사장님노트 — 장부(ledger) 위에 형광펜으로 마감일을 긋는 느낌.
+   형광펜(--mark)은 마감일에만 씁니다. 다른 곳에 쓰지 마세요. */
+
+:root {
+  --ink: #1b2a41;
+  --ink-soft: #3c4a5e;
+  --muted: #5d6878;
+  --paper: #ffffff;
+  --ledger: #f1f5f2;
+  --rule: #d3ddd6;
+  --rule-strong: #9fb3a6;
+  --mark: #ffe45c;
+  --due: #b8261f;
+  --link: #1f5f8b;
+  --focus: #1f5f8b;
+
+  --font: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
+    'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+
+  --step--1: 0.9375rem;
+  --step-0: 1.0625rem;
+  --step-1: 1.25rem;
+  --step-2: 1.5rem;
+  --step-3: 2rem;
+  --step-4: 2.75rem;
+
+  --measure: 42rem;
+  --wide: 68rem;
+  --gutter: clamp(1rem, 4vw, 2rem);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --ink: #e8edf2;
+    --ink-soft: #c5cdd6;
+    --muted: #9aa6b3;
+    --paper: #12191f;
+    --ledger: #18222a;
+    --rule: #2a3741;
+    --rule-strong: #47596a;
+    --mark: #f2d23a;
+    --due: #ff7b72;
+    --link: #8cc4ef;
+    --focus: #8cc4ef;
+    color-scheme: dark;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: var(--step-0);
+  line-height: 1.75;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--link);
+  text-underline-offset: 0.18em;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.wrap {
+  max-width: var(--wide);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.narrow {
+  max-width: var(--measure);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+}
+.skip:focus {
+  left: 1rem;
+  top: 1rem;
+  background: var(--paper);
+  padding: 0.5rem 1rem;
+  z-index: 10;
+}
+
+/* 형광펜: 마감일 전용 */
+.mark {
+  background: linear-gradient(
+    100deg,
+    transparent 0 2%,
+    var(--mark) 2% 97%,
+    transparent 97%
+  );
+  background-size: 100% 0.62em;
+  background-repeat: no-repeat;
+  background-position: 0 88%;
+  padding-inline: 0.12em;
+  color: var(--ink);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .mark {
+    color: var(--ink);
+  }
+}
+
+/* 장부 줄: 리스트 행 구분 */
+.ledger-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 2px solid var(--ink);
+}
+.ledger-list > li {
+  border-bottom: 1px solid var(--rule);
+}
+
+.ad-slot {
+  margin-block: 2rem;
+  min-height: 100px;
+}
+
+/* 본문 */
+.prose {
+  font-size: 1.125rem;
+  line-height: 1.85;
+}
+.prose h2 {
+  font-size: var(--step-2);
+  margin-top: 3rem;
+  margin-bottom: 0.75rem;
+  padding-top: 0.5rem;
+  border-top: 2px solid var(--ink);
+}
+.prose h3 {
+  font-size: var(--step-1);
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+.prose p,
+.prose ul,
+.prose ol {
+  margin-block: 0 1.25rem;
+}
+.prose li {
+  margin-bottom: 0.35rem;
+}
+.prose strong {
+  font-weight: 700;
+}
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--step--1);
+  margin-block: 1.5rem;
+  display: block;
+  overflow-x: auto;
+}
+.prose th,
+.prose td {
+  border-bottom: 1px solid var(--rule);
+  padding: 0.6rem 0.75rem 0.6rem 0;
+  text-align: left;
+  vertical-align: top;
+  min-width: 6rem;
+}
+.prose th {
+  border-bottom: 2px solid var(--ink);
+  font-weight: 700;
+}
+.prose blockquote {
+  margin: 1.5rem 0;
+  padding: 1rem 1.25rem;
+  background: var(--ledger);
+  border-left: 4px solid var(--rule-strong);
+}
+.prose blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

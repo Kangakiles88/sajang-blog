@@ -1,0 +1,25 @@
+---
+// 애드센스 광고 자리. PUBLIC_ADSENSE_CLIENT와 슬롯 ID가 있을 때만 그려집니다.
+// 승인 전에는 아무것도 표시되지 않으므로 빈 광고 자리가 보이지 않습니다.
+interface Props {
+  slot?: string;
+}
+const client = import.meta.env.PUBLIC_ADSENSE_CLIENT;
+const slot = Astro.props.slot ?? import.meta.env.PUBLIC_ADSENSE_SLOT;
+---
+
+{
+  client && slot && (
+    <div class="ad-slot" aria-label="광고">
+      <ins
+        class="adsbygoogle"
+        style="display:block"
+        data-ad-client={client}
+        data-ad-slot={slot}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
+      <script is:inline>(window.adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+  )
+}

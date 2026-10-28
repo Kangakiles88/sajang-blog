@@ -1,0 +1,60 @@
+---
+import Base from '../../layouts/Base.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import VatCalculator from '../../components/VatCalculator.astro';
+
+const title = '부가세 예상 납부액 계산기 (일반·간이과세자)';
+const description =
+  '매출, 카드매출, 매입만 넣으면 이번 부가세 예상 납부액이 바로 나옵니다. 간이과세자 업종별 부가가치율과 카드매출 세액공제(2027년 개정안 포함)까지 반영합니다.';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: title,
+  description,
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'Any',
+  inLanguage: 'ko-KR',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'KRW' },
+};
+---
+
+<Base title={title} description={description} jsonLd={jsonLd}>
+  <div class="wrap">
+    <header class="head">
+      <h1>부가세 예상 납부액 계산기</h1>
+      <p>신고 전에 대략 얼마를 내야 할지 미리 확인하세요. 입력하는 즉시 계산됩니다.</p>
+    </header>
+    <VatCalculator />
+    <AdSlot />
+    <section class="narrow-text prose">
+      <h2>계산 방식</h2>
+      <h3>일반과세자</h3>
+      <p>매출세액(부가세 포함 매출의 10/110)에서 매입세액(부가세 포함 매입의 10/110)을 빼고, 카드·현금영수증 매출에 대한 세액공제를 한 번 더 뺍니다. 매입세액이 더 크면 환급을 받습니다.</p>
+      <h3>간이과세자</h3>
+      <p>매출(공급대가) × 업종별 부가가치율 × 10%로 세금을 구한 뒤, 매입의 0.5%와 카드매출 세액공제를 뺍니다. 공제액이 세금보다 커도 환급은 없습니다. 연 매출 4,800만 원 미만이면 납부의무가 면제됩니다.</p>
+      <h3>카드매출 세액공제가 2027년에 바뀔 수 있습니다</h3>
+      <p>현재는 카드·현금영수증 매출의 1.3%, 연 1,000만 원까지 공제됩니다(2026년 12월 31일 공급분까지). 2027년 세제개편 정부안은 공제율 1.2%, 연 한도 500만 원으로 줄이는 내용이며 국회 심의를 거쳐 확정됩니다. 계산기의 "카드매출 세액공제 조건 바꾸기"에서 두 기준을 비교해 볼 수 있습니다.</p>
+      <p>직전연도 공급가액이 10억 원을 넘는 개인사업자와 법인은 이 공제를 받을 수 없습니다.</p>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .head {
+    padding-block: 2.5rem 2rem;
+    max-width: 40rem;
+  }
+  .head h1 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+  }
+  .head p {
+    color: var(--ink-soft);
+    margin: 0.5rem 0 0;
+  }
+  .narrow-text {
+    max-width: var(--measure);
+    margin-top: 3rem;
+  }
+</style>

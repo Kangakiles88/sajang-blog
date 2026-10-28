@@ -1,0 +1,94 @@
+---
+import { SITE, CATEGORIES } from '../site.config';
+const path = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a href="/" class="brand" aria-label={`${SITE.name} 홈`}>
+      <svg viewBox="0 0 28 28" width="28" height="28" aria-hidden="true">
+        <rect x="3" y="3" width="22" height="22" rx="3" fill="none" stroke="currentColor" stroke-width="2.4"></rect>
+        <path d="M8 10h12M8 15h12M8 20h7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path>
+      </svg>
+      <span>{SITE.name}</span>
+    </a>
+    <a href="/tools/" class="tools-link" aria-current={path.startsWith('/tools') ? 'page' : undefined}>계산기</a>
+  </div>
+  <nav class="wrap cats" aria-label="카테고리">
+    <ul>
+      {
+        CATEGORIES.map((c) => (
+          <li>
+            <a
+              href={`/category/${c.slug}/`}
+              aria-current={path.startsWith(`/category/${c.slug}`) ? 'page' : undefined}
+            >
+              {c.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--rule);
+  }
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1rem 0.5rem;
+  }
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 1.3rem;
+    letter-spacing: -0.03em;
+  }
+  .tools-link {
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 0.35rem 0.85rem;
+    border: 2px solid var(--ink);
+    border-radius: 999px;
+    font-size: var(--step--1);
+  }
+  .tools-link[aria-current='page'] {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .cats ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0.25rem;
+    display: flex;
+    gap: 1.25rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .cats a {
+    display: block;
+    white-space: nowrap;
+    color: var(--ink-soft);
+    text-decoration: none;
+    padding-block: 0.5rem;
+    font-size: var(--step--1);
+    font-weight: 600;
+    border-bottom: 3px solid transparent;
+  }
+  .cats a[aria-current='page'] {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+  }
+  .cats a:hover {
+    color: var(--ink);
+  }
+</style>

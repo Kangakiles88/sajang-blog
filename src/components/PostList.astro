@@ -1,0 +1,78 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { categoryName } from '../site.config';
+import { formatDate } from '../lib/format';
+
+interface Props {
+  posts: CollectionEntry<'posts'>[];
+  showCategory?: boolean;
+}
+const { posts, showCategory = true } = Astro.props;
+---
+
+{
+  posts.length === 0 ? (
+    <p class="empty">아직 올라온 글이 없습니다. 곧 채워집니다.</p>
+  ) : (
+    <ul class="ledger-list">
+      {posts.map((p) => {
+        const d = p.data.updatedDate ?? p.data.pubDate;
+        return (
+          <li class="item">
+            <a href={`/posts/${p.id}/`} class="title">
+              {p.data.title}
+            </a>
+            <p class="desc">{p.data.description}</p>
+            <p class="meta">
+              {showCategory && (
+                <a href={`/category/${p.data.category}/`} class="cat">
+                  {categoryName(p.data.category)}
+                </a>
+              )}
+              <time datetime={d.toISOString()}>
+                {p.data.updatedDate ? `${formatDate(d)} 수정` : formatDate(d)}
+              </time>
+            </p>
+          </li>
+        );
+      })}
+    </ul>
+  )
+}
+
+<style>
+  .item {
+    padding-block: 1.25rem;
+  }
+  .title {
+    font-size: var(--step-1);
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+    line-height: 1.4;
+  }
+  .title:hover {
+    text-decoration: underline;
+  }
+  .desc {
+    margin: 0.35rem 0 0.5rem;
+    color: var(--ink-soft);
+    font-size: var(--step--1);
+    max-width: 40rem;
+  }
+  .meta {
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+    font-size: 0.875rem;
+    color: var(--muted);
+  }
+  .cat {
+    color: var(--ink-soft);
+    font-weight: 600;
+  }
+  .empty {
+    color: var(--muted);
+    padding-block: 1rem;
+  }
+</style>
