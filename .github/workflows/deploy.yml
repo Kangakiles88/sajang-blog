@@ -1,0 +1,36 @@
+# GitHub에 푸시할 때마다 사이트를 빌드해서 Cloudflare에 바로 배포합니다.
+# 매일 아침에도 한 번 배포해서, 날짜를 정해 둔 예약 글이 그날 공개되게 합니다.
+#
+# 필요한 설정 (GitHub 저장소 > Settings > Secrets and variables > Actions):
+#   CLOUDFLARE_API_TOKEN  : Cloudflare에서 "Edit Cloudflare Workers" 템플릿으로 만든 API 토큰
+#   CLOUDFLARE_ACCOUNT_ID : Cloudflare 대시보드 오른쪽에 보이는 계정 ID
+name: 배포
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '7 21 * * *' # 한국시간 매일 오전 6시 7분
+  workflow_dispatch:
+
+concurrency:
+  group: deploy
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Cloudflare에 배포
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy

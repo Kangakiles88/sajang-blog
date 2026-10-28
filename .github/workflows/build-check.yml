@@ -1,8 +1,7 @@
+# 풀 리퀘스트에서 빌드가 깨지지 않는지 확인합니다. (main 푸시는 deploy.yml이 빌드·배포까지 합니다)
 name: 빌드 확인
 
 on:
-  push:
-    branches: [main]
   pull_request:
 
 jobs:

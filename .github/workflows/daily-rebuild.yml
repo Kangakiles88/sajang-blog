@@ -1,24 +1,11 @@
-# 매일 아침 사이트를 다시 빌드합니다.
-# 예약 발행(--date로 미래 날짜를 준 글)이 그날 공개되도록 하기 위한 것입니다.
-# GitHub 저장소 Settings > Secrets and variables > Actions 에
-# CF_DEPLOY_HOOK (Cloudflare Pages > 설정 > 빌드 > 배포 후크 URL)을 넣으면 동작합니다.
-name: 매일 재빌드
+# 더 이상 쓰지 않습니다. 매일 재배포는 deploy.yml이 담당합니다. 이 파일은 지워도 됩니다.
+name: 매일 재빌드 (사용 안 함)
 
 on:
-  schedule:
-    - cron: '7 21 * * *' # 한국시간 매일 오전 6시 7분
   workflow_dispatch:
 
 jobs:
-  rebuild:
+  noop:
     runs-on: ubuntu-latest
     steps:
-      - name: Cloudflare Pages 배포 후크 호출
-        env:
-          HOOK: ${{ secrets.CF_DEPLOY_HOOK }}
-        run: |
-          if [ -z "$HOOK" ]; then
-            echo "CF_DEPLOY_HOOK 시크릿이 없어 건너뜁니다."
-            exit 0
-          fi
-          curl -fsS -X POST "$HOOK"
+      - run: echo "deploy.yml을 사용하세요."
