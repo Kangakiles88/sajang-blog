@@ -1,0 +1,11 @@
+// Cloudflare Workers 배포 설정 (정적 사이트).
+// 이 파일이 있으면 Cloudflare가 설정을 자동 추측(auto-config)하지 않고 dist 폴더를 그대로 올립니다.
+{
+  "name": "sajang-blog",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  }
+}
