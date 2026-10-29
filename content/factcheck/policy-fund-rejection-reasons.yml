@@ -1,0 +1,90 @@
+slug: policy-fund-rejection-reasons
+title: 소상공인 정책자금 거절 사유와 재신청 시점, 공고문 기준으로 정리
+publishedOn: 2026-10-29
+checkedAt: 2026-10-29
+items:
+  - claim: 기준 공고 번호와 공고일
+    value: 공고 제2025-656호, 2025년 12월 29일
+    source: https://t1.daumcdn.net/brunch/service/user/vhc/file/uK-Fn1VlFJHK84mjz1htGWOp2kg.pdf?download=
+    evidence: 1쪽 머리말 '중소벤처기업부 공고 제2025–656호', 1쪽 끝 '2025년 12월 29일'
+    status: 일치
+  - claim: "융자제한: 최근 지원 횟수"
+    value: 3회
+    source: https://t1.daumcdn.net/brunch/service/user/vhc/file/uK-Fn1VlFJHK84mjz1htGWOp2kg.pdf?download=
+    evidence: 4쪽 융자제한 ⑦ '최근 5년 이내 소상공인 정책자금 3회* 이상 지원받은 소상공인'
+    status: 일치
+  - claim: "3회 제한 예외: 횟수에서 빼는 자금"
+    value: 특별경영안정자금
+    source: https://t1.daumcdn.net/brunch/service/user/vhc/file/uK-Fn1VlFJHK84mjz1htGWOp2kg.pdf?download=
+    evidence: 4쪽 ⑦ 각주 '특별경영안정자금은 지원받은 횟수에 포함하지 않으며'
+    status: 일치
+  - claim: "3회 제한 예외: 추가 지원 횟수"
+    value: 1회
+    source: https://t1.daumcdn.net/brunch/service/user/vhc/file/uK-Fn1VlFJHK84mjz1htGWOp2kg.pdf?download=
+    evidence: 4쪽 ⑦ 각주 '시설자금 또는 직접대출 성실상환 … 3회 이상 지원받은 기업이더라도 1회 추가 지원 가능'
+    status: 일치
+  - claim: 직접대출 부결 후 재신청 대기 기간
+    value: 6개월
+    source: https://t1.daumcdn.net/brunch/service/user/vhc/file/uK-Fn1VlFJHK84mjz1htGWOp2kg.pdf?download=
+    evidence: 4쪽 융자제한 ⑧ '동일 연도 내에 동일한 자금을 신청하여 부결‧승인(승인 후 전액 포기 포함)된 후 6개월이 경과하지 않은 소상공인(※ 직접대출 한정)'
+    status: 일치
+  - claim: 업체당 융자한도(대출잔액 합산)
+    value: 5억 원
+    source: https://t1.daumcdn.net/brunch/service/user/vhc/file/uK-Fn1VlFJHK84mjz1htGWOp2kg.pdf?download=
+    evidence: 2쪽 융자한도 '대출잔액과 신규 대출예정액을 합산하여 기업당 운전자금 5억원 이내 … (시설자금 포함 시 10억원 이내)'
+    status: 일치
+  - claim: 일반경영안정자금 대출한도
+    value: 연간 7천만 원
+    source: https://t1.daumcdn.net/brunch/service/user/vhc/file/uK-Fn1VlFJHK84mjz1htGWOp2kg.pdf?download=
+    evidence: "6쪽 일반경영안정자금 '대출한도 : 연간 7천만원'"
+    status: 일치
+  - claim: 신용취약소상공인자금 신용점수 기준
+    value: 839점
+    source: https://t1.daumcdn.net/brunch/service/user/vhc/file/uK-Fn1VlFJHK84mjz1htGWOp2kg.pdf?download=
+    evidence: 10쪽 '신용관리 교육을 사전 이수한 중‧저신용(NCB 839점 이하) 소상공인'
+    status: 일치
+  - claim: 신용취약소상공인자금 대출한도
+    value: 3천만 원
+    source: https://t1.daumcdn.net/brunch/service/user/vhc/file/uK-Fn1VlFJHK84mjz1htGWOp2kg.pdf?download=
+    evidence: "10쪽 '대출한도 : 3천만원*', 각주 '’23~’26년 해당 자금 대출잔액 합산'"
+    status: 일치
+  - claim: 오프라인 접수처 수
+    value: 78곳
+    source: https://t1.daumcdn.net/brunch/service/user/vhc/file/uK-Fn1VlFJHK84mjz1htGWOp2kg.pdf?download=
+    evidence: 3쪽 신청·접수 '소상공인시장진흥공단 지역센터(전국 78곳)에 방문하여 접수'
+    status: 일치
+  - claim: 문의 전화번호
+    value: 1533-0100
+    source: https://t1.daumcdn.net/brunch/service/user/vhc/file/uK-Fn1VlFJHK84mjz1htGWOp2kg.pdf?download=
+    evidence: 5쪽 '중소기업통합콜센터(1357) 또는 소상공인통합콜센터(1533-0100)'
+    status: 일치
+  - claim: 업체당 융자한도(시설자금 포함)
+    value: 10억 원
+    source: https://t1.daumcdn.net/brunch/service/user/vhc/file/uK-Fn1VlFJHK84mjz1htGWOp2kg.pdf?download=
+    evidence: 2쪽 융자한도 '(시설자금 포함 시 10억원 이내)'
+    status: 일치
+  - claim: 중소기업통합콜센터 번호
+    value: "1357"
+    source: https://t1.daumcdn.net/brunch/service/user/vhc/file/uK-Fn1VlFJHK84mjz1htGWOp2kg.pdf?download=
+    evidence: 5쪽 '중소기업통합콜센터(1357)'
+    status: 일치
+  - claim: 5차 변경 공고(제2026-576호)에서 융자제한 조항 재확인
+    value: 6개월
+    source: https://t1.daumcdn.net/brunch/service/user/vhc/file/uK-Fn1VlFJHK84mjz1htGWOp2kg.pdf?download=
+    evidence: "5차 변경 공고(제2026-576호, 사장님 확인) PDF(전 30쪽) 4쪽 화면 캡처(2026-10-29): 융자제한 ①~⑧ 문구가 원공고와 같음, ⑦ 5년 3회·⑧ 6개월 그대로"
+    status: 일치
+  - claim: "직접대출 성실상환 소상공인 정의: 기간"
+    value: 최근 3년
+    source: https://t1.daumcdn.net/brunch/service/user/vhc/file/uK-Fn1VlFJHK84mjz1htGWOp2kg.pdf?download=
+    evidence: 사장님 확인본 4쪽 박스 '대출신청일 기준 최근 3년 이내 연속 10일 이상 연체이력 없이 원금분할상환 중이거나 완제한 소상공인'
+    status: 일치
+  - claim: "직접대출 성실상환 소상공인 정의: 연체 기준"
+    value: 10일
+    source: https://t1.daumcdn.net/brunch/service/user/vhc/file/uK-Fn1VlFJHK84mjz1htGWOp2kg.pdf?download=
+    evidence: 사장님 확인본 4쪽 박스 '연속 10일 이상 연체이력 없이'
+    status: 일치
+  - claim: 2026년 특별경영안정자금 목록
+    value: 청년고용연계자금, 신용취약소상공인자금, 재도전특별자금, 긴급경영안정자금, 장애인기업지원자금, 대환대출
+    source: https://t1.daumcdn.net/brunch/service/user/vhc/file/uK-Fn1VlFJHK84mjz1htGWOp2kg.pdf?download=
+    evidence: "사장님 확인본 4쪽 박스 '’26년 특별경영안정자금 : 청년고용연계자금, 신용취약소상공인자금, 재도전특별자금, 긴급경영안정자금, 장애인기업지원자금, 대환대출'"
+    status: 일치
