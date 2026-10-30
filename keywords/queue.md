@@ -11,7 +11,7 @@
 
 - [x] 2027-sme-budget-new-programs | support | 2027 소상공인 예산안 신규 사업 | 정부안 기준. 12월 국회 확정 후 수정
 - [x] policy-fund-rejection-reasons | loan | 소상공인 정책자금 거절 사유 재신청 | 거절 사유별 대처, 재신청 가능 시점
-- [ ] low-credit-policy-fund | loan | 신용점수 낮은 소상공인 정책자금 신용취약소상공인자금 | 신용 기준, 직접대출 절차
+- [x] low-credit-policy-fund | loan | 신용점수 낮은 소상공인 정책자금 신용취약소상공인자금 | 신용 기준, 직접대출 절차
 - [ ] sme-refinancing-loan | loan | 소상공인 대환대출 조건 신청 | 대상 대출, 한도, 금리, tool: loan
 - [ ] simplified-vs-general-taxpayer | tax | 간이과세자 일반과세자 기준 전환 | 기준금액, 전환 시점, 장단점, tool: vat
 - [ ] hope-return-package-demolition | closing | 희망리턴패키지 점포 철거비 신청 | 폐업 신고 전 신청 필수 강조

@@ -1,0 +1,130 @@
+slug: low-credit-policy-fund
+title: 신용점수 낮은 소상공인 정책자금, 신용취약소상공인자금 조건과 신청 절차
+publishedOn: 2026-10-30
+checkedAt: 2026-10-30
+items:
+  - claim: 기준 공고 번호와 공고일
+    value: 공고 제2025-656호, 2025년 12월 29일
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354&parentSeq=1064354
+    evidence: 1쪽 머리말 '공고 제2025–656호', 1쪽 끝 '2025년 12월 29일'
+    status: 일치
+  - claim: 신용취약소상공인자금 융자규모
+    value: 6,000억 원 내외
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354&parentSeq=1064354
+    evidence: "10쪽 신용취약소상공인자금 '융자규모 : 6,000억원 내외'"
+    status: 일치
+  - claim: 신청대상 신용점수 기준
+    value: NCB 839점 이하
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354&parentSeq=1064354
+    evidence: 10쪽 신청대상 '중‧저신용(NCB 839점 이하) 소상공인', '대출신청시점 조회한 NICE평가정보 개인신용점수 적용'
+    status: 일치
+  - claim: 신용관리 교육 사전 이수 요건
+    value: 신용관리 교육
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354&parentSeq=1064354
+    evidence: 10쪽 신청대상 '소상공인 지식배움터(http://edu.sbiz.or.kr) 내 신용관리 교육을 사전 이수한'
+    status: 일치
+  - claim: 소상공인 상시근로자 기준(광업·제조업·건설업·운수업)
+    value: 10명 미만
+    source: https://www.law.go.kr/LSW//lsLinkCommonInfo.do?lspttninfSeq=164825&chrClsCd=010202
+    evidence: "시행령 제3조제1항제1호 '광업ㆍ제조업ㆍ건설업 및 운수업: 10명 미만' (시행 2026.2.1., 대통령령 제36055호)"
+    status: 일치
+  - claim: 소상공인 상시근로자 기준(그 밖의 업종)
+    value: 5명 미만
+    source: https://www.law.go.kr/LSW//lsLinkCommonInfo.do?lspttninfSeq=164825&chrClsCd=010202
+    evidence: "시행령 제3조제1항제2호 '제1호 외의 업종: 5명 미만'"
+    status: 일치
+  - claim: 상시근로자에서 빼는 단시간근로자 기준
+    value: 월 소정근로시간 60시간 미만
+    source: https://www.law.go.kr/LSW//lsLinkCommonInfo.do?lspttninfSeq=164825&chrClsCd=010202
+    evidence: 시행령 제3조제3항 '1개월 동안의 소정근로시간이 60시간 미만인 사람'
+    status: 일치
+  - claim: 대출한도
+    value: 3천만 원
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354&parentSeq=1064354
+    evidence: "10쪽 '대출한도 : 3천만원*'"
+    status: 일치
+  - claim: 대출한도 잔액 합산 범위
+    value: 2023년 소상공인·전통시장자금, 2024년 저신용 소상공인 자금, 2025~2026년 신용취약소상공인자금
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354&parentSeq=1064354
+    evidence: 10쪽 대출한도 각주 '신용취약소상공인자금(‘23년 소상공인·전통시장자금, ’24년 저신용 소상공인 자금, ‘25년 신용취약소상공인자금, ’26년 신용취약소상공인자금) 대출잔액 합산'. 1차 초안의 '2023~2026년 신용취약소상공인자금'은 연도별 자금명이 달라 불일치 → 본문·keyPoints를 '해당 자금'과 연도별 자금명으로 수정
+    status: 일치
+  - claim: 대출금리 가산폭
+    value: 정책자금 기준금리 +1.6%p, 변동금리
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354&parentSeq=1064354
+    evidence: 10쪽 대출금리 '정책자금 기준금리 + 1.6%p' 변동금리
+    status: 일치
+  - claim: 정책자금 기준금리 성격·공지처
+    value: 분기마다 바뀌는 변동금리
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354&parentSeq=1064354
+    evidence: 2쪽 대출금리 '정책자금 기준금리(분기별 변동금리)', 분기별 대출금리 www.semas.or.kr 공지
+    status: 일치
+  - claim: 대출기간
+    value: 5년 이내
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354&parentSeq=1064354
+    evidence: "10쪽 '대출기간 : 5년 이내(거치기간 2년 포함)'"
+    status: 일치
+  - claim: 거치기간
+    value: 2년
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354&parentSeq=1064354
+    evidence: 10쪽 '5년 이내(거치기간 2년 포함)'
+    status: 일치
+  - claim: "금리인하 신청: 대출 후 경과 기간"
+    value: 1년
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354&parentSeq=1064354
+    evidence: 10쪽 '대출 후 1년 경과 시 … ‘금리인하제도’ 신청 가능'
+    status: 일치
+  - claim: "금리인하 요건: 신용점수 상승폭"
+    value: 70점 이상
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354&parentSeq=1064354
+    evidence: 10쪽 '신용점수가 70점 이상 상승했거나'
+    status: 일치
+  - claim: "금리인하 요건: 회복 점수"
+    value: 840점 이상
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354&parentSeq=1064354
+    evidence: 10쪽 '840점 이상으로 회복한 경우'
+    status: 일치
+  - claim: 금리인하 폭
+    value: 0.5%p
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354&parentSeq=1064354
+    evidence: 10쪽 '대출금리를 0.5%p 낮춰주는'
+    status: 일치
+  - claim: 융자방식
+    value: 소진공 직접대출
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354&parentSeq=1064354
+    evidence: "10쪽 '융자방식 : 소진공을 통한 직접대출'; 3쪽 직접대출 절차 적격 여부 판단→사업성 등 평가로 한도 산정→약정·실행"
+    status: 일치
+  - claim: "융자제한: 같은 해 같은 자금 부결·승인 후 재신청 대기"
+    value: 6개월
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354&parentSeq=1064354
+    evidence: 4쪽 융자제한 ⑧ '동일 연도 내 … 부결‧승인(승인 후 전액 포기 포함)된 후 6개월이 경과하지 않은 소상공인(※ 직접대출 한정)'
+    status: 일치
+  - claim: "융자제한: 최근 지원 횟수와 특별경영안정자금 예외"
+    value: 최근 5년 이내 정책자금 3회 이상
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354&parentSeq=1064354
+    evidence: 4쪽 ⑦ '최근 5년 이내 … 3회 이상', 각주 '특별경영안정자금은 지원받은 횟수에 포함하지 않으며', '26년 특별경영안정자금 목록에 신용취약소상공인자금 포함
+    status: 일치
+  - claim: 선착순 방식으로 운영한 기간
+    value: 1~3월
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1068466&parentSeq=1068466
+    evidence: 보도자료 PDF 1쪽 본문 '선착순 방식'으로 운영, 1쪽 우측 도표 '선착순 방식(1~3월)', '시작 5분 만에 마감'
+    status: 일치
+  - claim: 선착순 시절 마감 사례
+    value: 5분
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1068466&parentSeq=1068466
+    evidence: 보도자료 PDF 1쪽 '시작 5분 만에 마감되거나 정책자금 누리집 접속 장애'
+    status: 일치
+  - claim: 정책 우선도 평가 첫 적용 접수
+    value: 4월 20~21일
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1068466&parentSeq=1068466
+    evidence: 보도자료 PDF 1쪽 우측 '중기부는 4월 20일부터 21일까지 2일간 처음으로 정책 우선도 평가 방식을 적용해 신청을 받았으며'; 평가 요소 '신용도, 정책자금 수혜이력, 소재지(비수도권 및 인구감소지역), 업력 등을 종합적으로 평가' (보도시점 2026.5.22 조간, 5.21 12:00)
+    status: 일치
+  - claim: 보도 당시 대출금리
+    value: 5.04%
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=86&bcIdx=1068466&parentSeq=1068466
+    evidence: 보도자료 PDF 1쪽 '최대 3천만 원까지, 5.04%(’26년 2분기 기준) 금리로 지원'
+    status: 일치
+  - claim: 소상공인통합콜센터 번호
+    value: 1533-0100
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354&parentSeq=1064354
+    evidence: 5쪽 '소상공인통합콜센터(1533-0100)'
+    status: 일치
