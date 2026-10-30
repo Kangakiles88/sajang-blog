@@ -5,8 +5,10 @@ import { daysUntil, todayKST } from '../lib/format';
 
 interface Props {
   limit?: number;
+  // compact: 홈 옆칸용 작은 목록
+  compact?: boolean;
 }
-const { limit = 4 } = Astro.props;
+const { limit = 4, compact = false } = Astro.props;
 const today = todayKST();
 
 const items = deadlines
@@ -23,7 +25,7 @@ const weekday = (s: string) =>
   ['일', '월', '화', '수', '목', '금', '토'][new Date(s + 'T12:00:00Z').getUTCDay()];
 ---
 
-<section class="board" aria-labelledby="board-title">
+<section class={`board ${compact ? 'compact' : ''}`} aria-labelledby="board-title">
   <h2 id="board-title">다가오는 마감</h2>
   {
     items.length === 0 ? (
@@ -40,7 +42,7 @@ const weekday = (s: string) =>
               <span class="who">{d.who}</span>
             </span>
             <time datetime={d.date} class="when">
-              <span class="mark">{md(d.date)}</span> ({weekday(d.date)})
+              {compact ? md(d.date) : <span class="mark">{md(d.date)}</span>} ({weekday(d.date)})
             </time>
           </li>
         ))}
@@ -113,16 +115,63 @@ const weekday = (s: string) =>
   .empty {
     color: var(--muted);
   }
+  /* 홈 옆칸: 연한 포인트 색 카드 */
+  .compact {
+    background: var(--accent-soft);
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem 0.4rem;
+  }
+  .compact h2 {
+    color: var(--accent);
+    font-weight: 800;
+  }
+  .compact .ledger-list {
+    border-top: 0;
+  }
+  .compact .ledger-list > li {
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 15%, transparent);
+  }
+  .compact .ledger-list > li:last-child {
+    border-bottom: 0;
+  }
+  .compact .row {
+    grid-template-columns: 3.75rem 1fr;
+    gap: 0.1rem 0.75rem;
+    padding-block: 0.8rem;
+  }
+  .compact .dday {
+    font-size: var(--step--1);
+    font-weight: 800;
+    grid-row: span 2;
+    color: var(--accent);
+  }
+  .compact .dday.soon {
+    color: var(--due);
+  }
+  .compact .what a {
+    font-size: var(--step--1);
+    line-height: 1.45;
+    display: block;
+  }
+  .compact .who {
+    display: none;
+  }
+  .compact .when {
+    grid-column: 2;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    color: var(--muted);
+  }
   @media (max-width: 40rem) {
-    .row {
+    .board:not(.compact) .row {
       grid-template-columns: 5rem 1fr;
       gap: 0.25rem 1rem;
     }
-    .dday {
+    .board:not(.compact) .dday {
       font-size: var(--step-2);
       grid-row: span 2;
     }
-    .when {
+    .board:not(.compact) .when {
       grid-column: 2;
       font-size: var(--step--1);
     }

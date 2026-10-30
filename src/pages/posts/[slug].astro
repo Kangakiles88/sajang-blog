@@ -55,7 +55,7 @@ const jsonLd = [
 ---
 
 <Base title={d.title} description={d.description} type="article" jsonLd={jsonLd} image={post.id}>
-  <article class="narrow">
+  <article class="narrow" style={`--c:${cat.color}`}>
     <header class="head">
       <CategoryTag slug={d.category} size="md" />
       <h1>{d.title}</h1>
@@ -166,8 +166,8 @@ const jsonLd = [
   }
   .sources {
     margin-top: 3rem;
-    padding-top: 1rem;
-    border-top: 2px solid var(--ink);
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
     font-size: var(--step--1);
   }
   .sources h2 {

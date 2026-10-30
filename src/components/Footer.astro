@@ -11,6 +11,7 @@ const year = new Date().getFullYear();
     </p>
     <ul class="links">
       <li><a href="/about/">소개</a></li>
+      <li><a href="/tools/">계산기</a></li>
       <li><a href="/privacy/">개인정보처리방침</a></li>
       <li><a href="/disclaimer/">면책 고지</a></li>
       <li><a href="/contact/">문의</a></li>
@@ -21,15 +22,15 @@ const year = new Date().getFullYear();
 </footer>
 
 <style>
+  /* 짙은 초록 바닥글 */
   .site-footer {
     margin-top: 5rem;
-    border-top: 2px solid var(--ink);
-    background: var(--ledger);
+    background: var(--accent-deep);
   }
   .inner {
-    padding-block: 2rem 3rem;
+    padding-block: 2.5rem 3rem;
     font-size: var(--step--1);
-    color: var(--muted);
+    color: rgb(255 255 255 / 0.7);
   }
   .note {
     max-width: 40rem;
@@ -44,7 +45,12 @@ const year = new Date().getFullYear();
     gap: 0.5rem 1.25rem;
   }
   .links a {
-    color: var(--ink-soft);
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .links a:hover {
+    text-decoration: underline;
   }
   .copy {
     margin: 0;

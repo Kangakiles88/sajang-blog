@@ -16,6 +16,10 @@
   --due: #b8261f;
   --link: #1f5f8b;
   --focus: #1f5f8b;
+  /* 포인트 색 (다른 시안: 남색 #33507d / #eef2f7 / #1b2a41, 주황 #e0682f / #fdf1ea / #4a2a1a): 머리글 줄, 섹션 제목, 마감 상자 등 */
+  --accent: #3a6fd8;
+  --accent-soft: #eef3fc;
+  --accent-deep: #1f3b70; /* 바닥글 배경 */
 
   --font: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont,
     'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
@@ -152,7 +156,7 @@ h3 {
   list-style: none;
   margin: 0;
   padding: 0;
-  border-top: 2px solid var(--ink);
+  border-top: 1px solid var(--rule);
 }
 .ledger-list > li {
   border-bottom: 1px solid var(--rule);
@@ -168,12 +172,19 @@ h3 {
   font-size: 1.125rem;
   line-height: 1.85;
 }
+.prose h2::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--c, var(--accent));
+  margin-bottom: 0.9rem;
+}
 .prose h2 {
   font-size: var(--step-2);
-  margin-top: 3rem;
+  margin-top: 3.25rem;
   margin-bottom: 0.75rem;
-  padding-top: 0.5rem;
-  border-top: 2px solid var(--ink);
 }
 .prose h3 {
   font-size: var(--step-1);
@@ -208,14 +219,14 @@ h3 {
   min-width: 6rem;
 }
 .prose th {
-  border-bottom: 2px solid var(--ink);
+  border-bottom: 1px solid var(--rule-strong);
   font-weight: 700;
 }
 .prose blockquote {
   margin: 1.5rem 0;
   padding: 1rem 1.25rem;
-  background: var(--ledger);
-  border-left: 4px solid var(--rule-strong);
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
 }
 .prose blockquote p:last-child {
   margin-bottom: 0;

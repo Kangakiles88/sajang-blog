@@ -10,84 +10,89 @@ const path = Astro.url.pathname;
       <Logo />
       <span>{SITE.name}</span>
     </a>
-    <a href="/tools/" class="tools-link" aria-current={path.startsWith('/tools') ? 'page' : undefined}>계산기</a>
+    <nav class="cats" aria-label="카테고리">
+      <ul>
+        {
+          CATEGORIES.map((c) => (
+            <li>
+              <a
+                href={`/category/${c.slug}/`}
+                aria-current={path.startsWith(`/category/${c.slug}`) ? 'page' : undefined}
+                style={`--c:${c.color}`}
+              >
+                {c.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
   </div>
-  <nav class="wrap cats" aria-label="카테고리">
-    <ul>
-      {
-        CATEGORIES.map((c) => (
-          <li>
-            <a
-              href={`/category/${c.slug}/`}
-              aria-current={path.startsWith(`/category/${c.slug}`) ? 'page' : undefined}
-              style={`--c:${c.color}`}
-            >
-              {c.name}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </nav>
 </header>
 
 <style>
+  /* 초록 네브바 */
   .site-header {
-    border-bottom: 1px solid var(--rule);
+    background: var(--accent);
   }
   .bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-block: 1rem 0.5rem;
+    gap: 0.5rem 2rem;
+    padding-block: 0.9rem;
   }
   .brand {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--ink);
+    color: #fff;
     text-decoration: none;
     font-weight: 800;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     letter-spacing: -0.03em;
+    flex: none;
   }
-  .tools-link {
-    font-weight: 700;
-    color: var(--ink);
-    text-decoration: none;
-    padding: 0.35rem 0.85rem;
-    border: 2px solid var(--ink);
-    border-radius: 999px;
-    font-size: var(--step--1);
-  }
-  .tools-link[aria-current='page'] {
-    background: var(--ink);
-    color: var(--paper);
+  .cats {
+    min-width: 0;
   }
   .cats ul {
     list-style: none;
     margin: 0;
-    padding: 0 0 0.25rem;
+    padding: 0;
     display: flex;
-    gap: 1.25rem;
+    gap: 1.5rem;
     overflow-x: auto;
     scrollbar-width: none;
   }
   .cats a {
     display: block;
     white-space: nowrap;
-    color: var(--ink-soft);
+    color: rgb(255 255 255 / 0.78);
     text-decoration: none;
-    padding-block: 0.5rem;
     font-size: var(--step--1);
     font-weight: 600;
-    border-bottom: 3px solid transparent;
-  }
-  .cats a[aria-current='page'] {
-    color: var(--ink);
-    border-bottom-color: var(--c, var(--ink));
+    padding-block: 0.2rem;
+    border-bottom: 2px solid transparent;
   }
   .cats a:hover {
-    color: var(--ink);
+    color: #fff;
+  }
+  .cats a[aria-current='page'] {
+    color: #fff;
+    border-bottom-color: var(--mark);
+  }
+  @media (max-width: 48rem) {
+    .bar {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-block: 0.9rem 0.75rem;
+    }
+    .cats {
+      width: 100%;
+    }
+    .cats ul {
+      gap: 1.25rem;
+    }
   }
 </style>
