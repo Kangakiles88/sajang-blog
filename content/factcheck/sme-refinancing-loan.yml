@@ -1,0 +1,100 @@
+slug: sme-refinancing-loan
+title: 소상공인 대환대출 조건과 신청, 7% 이상 고금리 대출을 연 4.5%로
+publishedOn: 2026-10-31
+checkedAt: 2026-10-31
+items:
+  - claim: 기준 공고 번호와 공고일
+    value: 제2026-576호, 2026년 10월 1일
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: 5차 변경 공고 PDF(문서뷰어) 1쪽 '중소벤처기업부 공고 제2026–576호', '2026년 10월 1일'
+    status: 일치
+  - claim: 대환대출 신청 대상 신용점수
+    value: 919점 이하
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: "5차 변경 공고 PDF(문서뷰어) 11쪽 '신청대상 : 중‧저신용(NCB 919점 이하) 소상공인'"
+    status: 일치
+  - claim: 대환대출 금리
+    value: 연 4.5% 고정금리
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: "5차 변경 공고 PDF(문서뷰어) 12쪽 '대출금리 : 연 4.5% 고정금리'"
+    status: 일치
+  - claim: 대환대출 한도
+    value: 5천만 원
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: "5차 변경 공고 PDF(문서뷰어) 12쪽 '대출한도 : 5천만원*'"
+    status: 일치
+  - claim: 대환대출 기간
+    value: 10년
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: "5차 변경 공고 PDF(문서뷰어) 12쪽 '대출기간 : 10년 (2년 거치·8년분할상환 또는 10년 분할상환 중 택1)'"
+    status: 일치
+  - claim: 거치 선택 시 분할상환 기간
+    value: 2년 거치 후 8년 분할상환
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: 5차 변경 공고 PDF(문서뷰어) 12쪽 '2년 거치·8년분할상환 또는 10년 분할상환 중 택1'
+    status: 일치
+  - claim: 대환 대상 채무 기준일
+    value: 2025년 6월 30일 이전
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: 5차 변경 공고 PDF(문서뷰어) 11쪽 '’25.6.30. 이전에 받은 대출(사업자대출, 사업용도 가계대출)'
+    status: 일치
+  - claim: 고금리 기준
+    value: 7% 이상
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: 5차 변경 공고 PDF(문서뷰어) 11쪽 '(고금리) 은행․비은행권의 7% 이상 대출'
+    status: 일치
+  - claim: 대환대출 규모
+    value: 3,000억 원 내외
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: "5차 변경 공고 PDF(문서뷰어) 11쪽 '융자규모 : 3,000억원 내외'; 1쪽 운용규모표 대환대출 3,000(억원)"
+    status: 일치
+  - claim: 만기연장 애로 확인서 발급 협조 은행 수
+    value: 15곳
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: "5차 변경 공고 PDF(문서뷰어) 11쪽 각주 '‘대출금 만기연장 애로 확인서’ 발급 협조가 가능한 대리대출 취급은행(15곳): 하나, 신한, 국민, 우리, SC제일, 경남, 광주, 아이엠(대구), 부산, 전북, 제주, 농협, 수협, 기업, 산업'"
+    status: 일치
+  - claim: "신용점수 미적용 예외①: 연체 없는 기간"
+    value: 10일
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: 5차 변경 공고 PDF(문서뷰어) 11쪽 ① '상환연장제도를 지원받고 연속 10일 이상 연체이력이 없이 3회차 이상 상환 중이거나 완제한 소상공인'
+    status: 일치
+  - claim: "신용점수 미적용 예외①: 상환 회차"
+    value: 3회차
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: 5차 변경 공고 PDF(문서뷰어) 11쪽 ① '3회차 이상 상환 중이거나 완제한'
+    status: 일치
+  - claim: "신용점수 미적용 예외②: 경과 기간"
+    value: 1년
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: 5차 변경 공고 PDF(문서뷰어) 11쪽 ② '‘24년 저신용 소상공인자금’, ‘25년 신용취약소상공인자금’을 지원받고 1년 후'
+    status: 일치
+  - claim: "신용점수 미적용 예외②: 점수 상승폭"
+    value: 70점
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: 5차 변경 공고 PDF(문서뷰어) 11쪽 ② '신용점수(NCB 기준)가 70점 이상 상승한 소상공인'
+    status: 일치
+  - claim: 한도 차감 대상 소진공 대환 연도
+    value: 2022년, 2024~2026년
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: 5차 변경 공고 PDF(문서뷰어) 12쪽 각주 '’22년, ’24~’26년 소상공인시장진흥공단 대환대출'
+    status: 일치
+  - claim: 한도 차감 대상 신보 대환 연도
+    value: 2022~2024년
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: 5차 변경 공고 PDF(문서뷰어) 12쪽 각주 '’22~’24년 신용보증기금 저금리 대환 프로그램을 이용한 경우, 대출한도에서 기존 대환실행액 차감'
+    status: 일치
+  - claim: 고정금리 상품 우대금리 제외
+    value: 고정금리
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: 5차 변경 공고 PDF(문서뷰어) 2쪽 우대금리표 각주 '고정금리(장애인기업지원자금, 긴급경영안정자금 내 재해자금, 대환대출 등) 상품 제외'
+    status: 일치
+  - claim: 5년 3회 제한에서 대환대출 횟수 제외
+    value: 최근 5년 이내 정책자금 3회 이상
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: 5차 변경 공고 PDF(문서뷰어) 4쪽 ⑦ '최근 5년 이내 소상공인 정책자금 3회 이상', 각주 '특별경영안정자금은 지원받은 횟수에 포함하지 않으며', ’26년 특별경영안정자금 목록에 대환대출 포함
+    status: 일치
+  - claim: 소상공인통합콜센터 번호
+    value: 1533-0100
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: 5차 변경 공고 PDF(문서뷰어) 5쪽 '소상공인통합콜센터(1533-0100)'
+    status: 일치
