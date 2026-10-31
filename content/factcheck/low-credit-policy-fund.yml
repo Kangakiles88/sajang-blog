@@ -9,9 +9,9 @@ items:
     evidence: 1쪽 머리말 '공고 제2025–656호', 1쪽 끝 '2025년 12월 29일'
     status: 일치
   - claim: 신용취약소상공인자금 융자규모
-    value: 6,000억 원 내외
-    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1064354&parentSeq=1064354
-    evidence: "10쪽 신용취약소상공인자금 '융자규모 : 6,000억원 내외'"
+    value: 7,000억 원 내외
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: "5차 변경 공고(제2026-576호, 2026.10.1) 10쪽 '융자규모 : 7,000억원 내외'. 원공고(제2025-656호)의 6,000억원에서 변경돼 2026-10-31 수정"
     status: 일치
   - claim: 신청대상 신용점수 기준
     value: NCB 839점 이하

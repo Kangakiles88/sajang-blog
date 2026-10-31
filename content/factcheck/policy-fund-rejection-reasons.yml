@@ -49,9 +49,9 @@ items:
     evidence: "10쪽 '대출한도 : 3천만원*', 각주 '’23~’26년 해당 자금 대출잔액 합산'"
     status: 일치
   - claim: 오프라인 접수처 수
-    value: 78곳
-    source: https://t1.daumcdn.net/brunch/service/user/vhc/file/uK-Fn1VlFJHK84mjz1htGWOp2kg.pdf?download=
-    evidence: 3쪽 신청·접수 '소상공인시장진흥공단 지역센터(전국 78곳)에 방문하여 접수'
+    value: 80곳
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: "5차 변경 공고(제2026-576호, 2026.10.1) 3쪽 '소상공인시장진흥공단 지역센터(전국 80곳)'. 원공고의 78곳에서 변경돼 2026-10-31 수정"
     status: 일치
   - claim: 문의 전화번호
     value: 1533-0100
