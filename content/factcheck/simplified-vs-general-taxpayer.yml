@@ -1,0 +1,150 @@
+slug: simplified-vs-general-taxpayer
+title: "간이과세자 일반과세자 기준과 전환 시점: 연 매출 1억 400만 원이 갈림길"
+publishedOn: 2026-11-01
+checkedAt: 2026-11-01
+items:
+  - claim: 간이과세 기준금액(직전 연도 공급대가)
+    value: 1억 400만 원 미만
+    source: https://www.law.go.kr/법령/부가가치세법시행령/제109조
+    evidence: "시행령 제109조①: '“대통령령으로 정하는 금액”이란 1억4백만원을 말한다' (시행 2026.2.27. 대통령령 제36133호 현행본)"
+    status: 일치
+  - claim: 법률상 기준금액 위임 범위
+    value: 8천만 원부터 그 130% 범위
+    source: https://www.law.go.kr/법령/부가가치세법/제61조
+    evidence: "법 제61조①: '8천만원부터 8천만원의 130퍼센트에 해당하는 금액까지의 범위에서 대통령령으로' (시행 2026.1.2. 법률 제21065호 현행본)"
+    status: 일치
+  - claim: 부동산임대업·과세유흥장소 간이과세 배제 기준
+    value: 4,800만 원 이상
+    source: https://www.law.go.kr/법령/부가가치세법/제61조
+    evidence: "법 제61조①3호: '해당 업종의 직전 연도의 공급대가의 합계액이 4천800만원 이상인 사업자'"
+    status: 일치
+  - claim: 사업장 2곳 이상이면 합계로 판단
+    value: 모든 사업장 매출을 합쳐서
+    source: https://www.law.go.kr/법령/부가가치세법/제61조
+    evidence: "법 제61조①4호: '둘 이상의 사업장의 직전 연도의 공급대가의 합계액이 … 금액 이상인 사업자'"
+    status: 일치
+  - claim: 과세유형 적용 기간
+    value: 다음 해 7월 1일
+    source: https://www.law.go.kr/법령/부가가치세법/제62조
+    evidence: "법 제62조①: '1월 1일부터 12월 31일까지의 공급대가 … 다음 해의 7월 1일부터 그 다음 해의 6월 30일까지'"
+    status: 일치
+  - claim: 전환 예시 연도
+    value: 2027년 7월 1일부터 일반과세자
+    source: https://www.law.go.kr/법령/부가가치세법/제62조
+    evidence: 법 제62조① 규정을 2026년에 적용한 예시(다음 해 7월 1일)
+    status: 일치
+  - claim: 세무서 통지 기한
+    value: 20일 전까지
+    source: https://www.law.go.kr/법령/부가가치세법시행령/제110조
+    evidence: "시행령 제110조①: '과세기간 개시 20일 전까지 그 사실을 통지하여야 하며'"
+    status: 일치
+  - claim: 통지 미수령 시 처리
+    value: 통지를 받은 날이 속하는 과세기간까지는 간이과세가 유지
+    source: https://www.law.go.kr/법령/부가가치세법시행령/제110조
+    evidence: 시행령 제110조②(통지와 관계없이 적용, 부동산임대업 단서), ③('통지를 받은 날이 속하는 과세기간까지는 … 간이과세자에 관한 규정을 적용')
+    status: 일치
+  - claim: 창업 연도 매출 환산
+    value: 12개월로 환산
+    source: https://www.law.go.kr/법령/부가가치세법/제61조
+    evidence: "법 제61조②: '사업 개시일부터 그 과세기간 종료일까지의 공급대가를 합한 금액을 12개월로 환산'"
+    status: 일치
+  - claim: 창업자 전환 시점
+    value: 다음 해 7월 1일부터 일반과세자가 됩니다
+    source: https://www.law.go.kr/법령/부가가치세법/제62조
+    evidence: "법 제62조②: '최초로 사업을 개시한 해의 다음 해의 7월 1일부터'"
+    status: 일치
+  - claim: 환산 예시
+    value: 1억 2,000만 원
+    source: https://www.law.go.kr/법령/부가가치세법/제61조
+    evidence: "법 제61조② 환산 방식 적용 계산: 4,000만 원 × 12/4 = 1억 2,000만 원 (계산 재확인)"
+    status: 일치
+  - claim: 일반과세자 세율
+    value: 10%
+    source: https://www.law.go.kr/법령/부가가치세법/제30조
+    evidence: "법 제30조: '부가가치세의 세율은 10퍼센트로 한다'"
+    status: 일치
+  - claim: 간이과세자 매입 공제율
+    value: 0.5%
+    source: https://www.law.go.kr/법령/부가가치세법/제63조
+    evidence: "법 제63조③1호: '공급대가에 0.5퍼센트를 곱한 금액'"
+    status: 일치
+  - claim: 간이과세자 환급 없음
+    value: 환급이 없습니다
+    source: https://www.law.go.kr/법령/부가가치세법/제63조
+    evidence: "법 제63조⑥: '그 초과하는 부분은 없는 것으로 본다'"
+    status: 일치
+  - claim: 업종별 부가가치율
+    value: "| 15% |"
+    source: https://www.law.go.kr/법령/부가가치세법시행령/제111조
+    evidence: "시행령 제111조② 표: 소매·음식점업 15퍼센트, 제조업 등 20퍼센트, 숙박업 25퍼센트, 건설·운수·정보통신업 30퍼센트, 금융·전문서비스·부동산임대업 등 40퍼센트, 그 밖의 서비스업 30퍼센트"
+    status: 일치
+  - claim: 간이과세자 실질 세율
+    value: 1.5~4%
+    source: https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7693&mi=22
+    evidence: "국세청 '부가가치세란?' 간이과세자 항목: '1.5%~4%의 낮은 세율이 적용되지만'"
+    status: 일치
+  - claim: 계산 예시(간이과세자)
+    value: 약 100만 원
+    source: https://www.law.go.kr/법령/부가가치세법시행령/제111조
+    evidence: 8,000만×15%(시행령 제111조②)×10%(법 제63조②)=120만, 4,000만×0.5%(법 제63조③)=20만 — 계산 재확인
+    status: 일치
+  - claim: 계산 예시(일반과세자)
+    value: 약 364만 원
+    source: https://www.law.go.kr/법령/부가가치세법/제30조
+    evidence: 8,000만×10/110=727.3만, 4,000만×10/110=363.6만, 차액 363.6만 — 세율 10%(법 제30조) 적용 계산 재확인
+    status: 일치
+  - claim: 간이과세자 납부의무 면제
+    value: 4,800만 원 미만
+    source: https://www.law.go.kr/법령/부가가치세법/제69조
+    evidence: "법 제69조①: '공급대가의 합계액이 4천800만원 미만이면 … 납부의무를 면제한다'"
+    status: 일치
+  - claim: 간이과세자 예정부과
+    value: 50만 원 미만
+    source: https://www.law.go.kr/법령/부가가치세법/제66조
+    evidence: "법 제66조①: '납부세액 … 의 50퍼센트', '예정부과기간이 끝난 후 25일 이내', 1호 '50만원 미만인 경우' 징수하지 않음"
+    status: 일치
+  - claim: 세금계산서 발급 불가 간이과세자
+    value: 세금계산서를 발급할 수 없고
+    source: https://www.law.go.kr/법령/부가가치세법/제36조
+    evidence: 법 제36조①2호 가목 '4천800만원 미만인 자', 나목 '간이과세자로 하는 최초의 과세기간 중에 있는 자'는 영수증 발급
+    status: 일치
+  - claim: 간이과세 포기 신고 기한
+    value: 달의 전달 마지막 날까지
+    source: https://www.law.go.kr/법령/부가가치세법/제70조
+    evidence: "법 제70조①: '적용받으려는 달의 전달의 마지막 날까지'"
+    status: 일치
+  - claim: 포기 후 재적용 제한
+    value: 3년이 되는 날이 속하는 과세기간까지
+    source: https://www.law.go.kr/법령/부가가치세법/제70조
+    evidence: "법 제70조③: '3년이 되는 날이 속하는 과세기간까지는 간이과세자에 관한 규정을 적용받지 못한다'"
+    status: 일치
+  - claim: 재적용 예외 대상
+    value: 4,800만 원 이상 1억 400만 원 미만
+    source: https://www.law.go.kr/법령/부가가치세법/제70조
+    evidence: "법 제70조④: '4천8백만원 이상 제61조제1항 … 금액 미만인 개인사업자 등' (금액은 시행령 제109조① 1억4백만원)"
+    status: 일치
+  - claim: 재적용 신고 기한
+    value: 10일 전까지
+    source: https://www.law.go.kr/법령/부가가치세법/제70조
+    evidence: "법 제70조⑤: '적용받으려는 과세기간 개시 10일 전까지'"
+    status: 일치
+  - claim: 간이→일반 전환 해 신고
+    value: 7월 25일까지
+    source: https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7693&mi=22
+    evidence: "국세청 '부가가치세란?': '과세유형전환 사업자(간이→일반)… 1.1.~6.30.을 과세기간으로 하여 7.25.까지 신고·납부'; 법 제5조④2호 '1월 1일부터 6월 30일까지'"
+    status: 일치
+  - claim: 일반과세자 확정신고 기한
+    value: 1월 25일까지
+    source: https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7693&mi=22
+    evidence: "국세청 '부가가치세란?' 표: 제1기 확정 7.1.~7.25., 제2기 확정 다음해 1.1.~1.25., '개인사업자는 2회 신고'"
+    status: 일치
+  - claim: 간이과세자 신고 횟수·기한
+    value: 1년에 1번(1월)
+    source: https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7693&mi=22
+    evidence: "국세청 '부가가치세란?': 간이과세자 과세기간 1.1.~12.31., 신고납부기간 다음해 1.1.~1.25.; 법 제67조① '과세기간이 끝난 후 25일'"
+    status: 일치
+  - claim: 국세청 상담 전화
+    value: 국번 없이 126
+    source: https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7693&mi=22
+    evidence: "국세청 페이지 하단: '국번 없이 126번(유료)'"
+    status: 일치
