@@ -1,15 +1,15 @@
 # 사장님노트
 
-소상공인 지원금·정책자금·세금 정보 블로그와 계산기. Astro로 만든 정적 사이트이고 Cloudflare Pages에 무료로 올립니다.
+소상공인 지원금·정책자금·세금 정보 블로그와 계산기. Astro로 만든 정적 사이트이고, GitHub Actions가 빌드해서 Cloudflare(Workers 정적 사이트)에 무료로 올립니다. 주소: https://sajang-note.com
 
 ```
 글감 대기열 ──(예약 작업: Claude가 조사·초안 작성)──> content/drafts/
                                                          │ 사람이 원문과 대조해 검토
                                                          ▼
                          npm run publish-draft -- <파일이름>
-                                                         │ 검사 → 이동 → 빌드 확인 → commit → push
+                                                         │ 검사 → 검증표 확인(y/N) → 이동 → 빌드 확인 → commit → push
                                                          ▼
-                              GitHub ──(자동)──> Cloudflare Pages ──> 사이트 반영
+               GitHub ──(GitHub Actions: 빌드 → wrangler deploy)──> Cloudflare ──> 사이트 반영
 ```
 
 ## 매일 하는 일 (5~15분)
@@ -18,11 +18,13 @@
 2. `npm run drafts` — 새 초안과 고칠 점을 봅니다.
 3. 초안 파일(`content/drafts/*.md`)을 열어 검토합니다.
    - 맨 위 `factCheck`(검증표)에 본문 숫자마다 원문 위치가 적혀 있습니다. 링크를 열어 숫자가 맞는지 대조하세요.
-   - `[확인 필요: ...]` 표시가 있는 숫자는 원문을 열어 확인하고 고친 뒤 표시를 지우고, 검증표 항목을 `일치`로 바꿉니다.
-   - `reviewNotes`에 Claude가 남긴 메모를 읽습니다.
+   - `reviewNotes`에 Claude가 남긴 메모를 읽습니다. 공식 사이트를 브라우저로 열어도 확인하지 못해 본문에서 "뺀 내용"이 있으면 여기 적혀 있습니다. 필요하면 직접 확인해서 본문과 검증표에 추가하세요.
+   - `[확인 필요: ...]` 표시는 원칙적으로 없습니다. 빼면 글이 성립하지 않을 때만 남아 있으니, 원문을 열어 확인하고 고친 뒤 표시를 지우고 검증표 항목을 `일치`로 바꿉니다. 표시가 남아 있으면 발행 스크립트가 거부합니다.
 4. `npm run publish-draft -- <파일이름>` — 검증표를 한 번 보여주고 "원문을 확인했나요? (y/N)"를 묻습니다. `y`를 누르면 발행되고 1~2분 뒤 사이트에 올라갑니다.
    - 검증표는 사이트에 보이지 않고 `content/factcheck/`에 보관됩니다.
-   - 날짜를 정해 공개: `npm run publish-draft -- <파일이름> --date 2026-11-10`
+   - 날짜를 정해 공개: `npm run publish-draft -- <파일이름> --date 2026-11-10` (그날 아침 6시 7분 자동 배포 때 나타납니다)
+
+초안은 Claude 데스크톱 앱의 예약 작업("사장님노트 초안 작성", 매일 저녁 7시 48분)이 씁니다. 지시문 사본은 `docs/SCHEDULED_TASK.md`에 있습니다.
 
 초안이 마음에 안 들면 파일을 지우고 `keywords/queue.md`에서 그 줄을 `[ ]`로 되돌리세요. 다음 실행 때 다시 씁니다.
 
@@ -38,45 +40,47 @@
 - 이 폴더에서 `npm install`
 - 미리보기: `npm run dev` 후 브라우저에서 http://localhost:4321
 
-### 2. Cloudflare Pages 연결
+### 2. 배포 (GitHub Actions → Cloudflare) — 설정 완료
 
-1. [Cloudflare](https://dash.cloudflare.com) 가입 → Workers & Pages → 만들기 → Pages → Git에 연결
-2. 이 GitHub 저장소 선택
-3. 빌드 설정
-   - 프레임워크 사전 설정: Astro
-   - 빌드 명령: `npm run build`
-   - 빌드 출력 디렉터리: `dist`
-   - 환경 변수: `NODE_VERSION` = `22`, `SITE_URL` = 배포 주소
-4. 저장하면 첫 배포가 시작됩니다. 주소는 `프로젝트이름.pages.dev`.
+`.github/workflows/deploy.yml`이 main에 push할 때마다, 그리고 매일 아침 6시 7분(한국 시간)에 사이트를 빌드해서 `wrangler deploy`로 Cloudflare에 올립니다. Cloudflare 쪽 설정은 `wrangler.jsonc`(dist 폴더를 그대로 올림)에 있습니다.
 
-### 3. 예약 발행용 매일 재빌드 (선택)
+- 필요한 비밀값: GitHub 저장소 → Settings → Secrets and variables → Actions → **Secrets** 탭
+  - `CLOUDFLARE_API_TOKEN`: Cloudflare API 토큰 (Workers 편집 권한)
+  - `CLOUDFLARE_ACCOUNT_ID`: Cloudflare 계정 ID (32자리)
+- 배포 결과는 GitHub 저장소 → Actions 탭에서 봅니다. 실패하면 빨간 표시와 함께 원인이 한 줄로 나옵니다.
+- 손으로 다시 배포: Actions → 배포 → Run workflow
+- `.github/workflows/daily-rebuild.yml`은 예전 방식(배포 후크)이라 쓰지 않습니다. 지워도 됩니다.
 
-미래 날짜로 발행한 글이 그날 나타나게 하려면:
-1. Cloudflare Pages 프로젝트 → 설정 → 빌드 → 배포 후크 추가 → URL 복사
-2. GitHub 저장소 → Settings → Secrets and variables → Actions → `CF_DEPLOY_HOOK` 이름으로 저장
+### 3. 도메인 — 설정 완료
 
-### 4. 도메인 (애드센스 신청 전 권장)
+`sajang-note.com`이 연결되어 있고, 코드의 기본 주소도 이 도메인입니다(`astro.config.mjs`, `src/site.config.ts`).
 
-`.pages.dev` 주소로도 사이트는 돌아가지만, 애드센스는 직접 소유한 도메인이 유리합니다. 도메인을 사서 Cloudflare Pages → 사용자 지정 도메인에 연결하고 `SITE_URL`을 바꾸세요.
+### 4. 문의 메일 — 설정 완료
 
-### 5. 검색 등록
+Cloudflare Email Routing으로 `contact@sajang-note.com`에 온 메일이 지메일로 전달됩니다(Cloudflare 대시보드 → Email Service → Email Routing). 받기 전용이라 답장은 지메일 주소로 나갑니다. 사이트에 보이는 주소는 `src/site.config.ts`의 `email`입니다.
 
-- [구글 서치 콘솔](https://search.google.com/search-console): 속성 추가 → HTML 태그 값을 `PUBLIC_GOOGLE_VERIFY` 환경 변수에 → `sitemap-index.xml` 제출
-- [네이버 서치어드바이저](https://searchadvisor.naver.com): 사이트 등록 → HTML 태그 값을 `PUBLIC_NAVER_VERIFY`에 → 사이트맵·RSS 제출
+### 5. 검색 등록·분석 — 설정 완료
+
+- 구글 서치 콘솔·네이버 서치어드바이저 소유 확인 값과 GA4 측정 ID(`G-1QF10LH23H`)는 `src/layouts/Base.astro`에 기본값으로 들어 있습니다.
+- 사이트맵: `https://sajang-note.com/sitemap-index.xml`, RSS: `https://sajang-note.com/rss.xml`
 
 ### 6. 애드센스
 
 1. 글이 **최소 20~30개** 쌓이고, 소개·개인정보처리방침·문의 페이지가 있는 상태에서 신청하세요(이미 만들어져 있습니다).
-2. `src/site.config.ts`의 `email`을 실제 문의 메일로 바꾸세요.
-3. 승인되면 Cloudflare 환경 변수에 `PUBLIC_ADSENSE_CLIENT`(ca-pub-...)와 `PUBLIC_ADSENSE_SLOT`을 넣고 재배포 → 광고와 `ads.txt`가 자동으로 켜집니다.
+2. 승인되면 GitHub 저장소 → Settings → Secrets and variables → Actions → **Variables** 탭에 아래 두 값을 넣고, Actions → 배포 → Run workflow로 다시 배포하세요. 광고와 `ads.txt`가 자동으로 켜집니다.
+   - `PUBLIC_ADSENSE_CLIENT`: `ca-pub-`로 시작하는 값
+   - `PUBLIC_ADSENSE_SLOT`: 디스플레이 광고 단위의 슬롯 ID(숫자)
+   - 사이트는 GitHub Actions에서 빌드되므로 Cloudflare 환경 변수에 넣으면 적용되지 않습니다.
 
 ## 자주 바꾸는 곳
 
 | 바꿀 것 | 파일 |
 |---|---|
-| 사이트 이름, 설명, 문의 메일, 카테고리 | `src/site.config.ts` |
+| 사이트 이름, 설명, 문의 메일, 카테고리(색·아이콘) | `src/site.config.ts` |
 | 홈의 "다가오는 마감" 일정 | `src/data/deadlines.json` |
-| 색상, 글꼴 | `src/styles/global.css` |
+| 포인트 색(파랑), 글꼴 | `src/styles/global.css` (`--accent` 등) |
+| 공유 썸네일 모양 | `src/lib/og.ts` |
+| 배포 방식 | `.github/workflows/deploy.yml`, `wrangler.jsonc` |
 | 글감 목록 | `keywords/queue.md` |
 | 초안 작성 규칙 | `docs/WRITING_GUIDE.md` |
 | 예약 작업에게 주는 지시 | `docs/SCHEDULED_TASK.md` |
