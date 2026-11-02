@@ -14,7 +14,7 @@
 - [x] low-credit-policy-fund | loan | 신용점수 낮은 소상공인 정책자금 신용취약소상공인자금 | 신용 기준, 직접대출 절차
 - [x] sme-refinancing-loan | loan | 소상공인 대환대출 조건 신청 | 대상 대출, 한도, 금리, tool: loan
 - [x] simplified-vs-general-taxpayer | tax | 간이과세자 일반과세자 기준 전환 | 기준금액, 전환 시점, 장단점, tool: vat
-- [ ] hope-return-package-demolition | closing | 희망리턴패키지 점포 철거비 신청 | 폐업 신고 전 신청 필수 강조
+- [x] hope-return-package-demolition | closing | 희망리턴패키지 점포 철거비 신청 | 폐업 신고 전 신청 필수 강조
 
 ## 12월에 준비할 것
 

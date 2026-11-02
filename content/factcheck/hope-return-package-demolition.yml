@@ -1,0 +1,75 @@
+slug: hope-return-package-demolition
+title: 희망리턴패키지 점포철거비 신청 조건과 서류 정리 (최대 600만 원, 2026년 공고 기준)
+publishedOn: 2026-11-02
+checkedAt: 2026-11-01
+items:
+  - claim: 점포철거비 최대 한도 (2025.7.11. 이후 폐업)
+    value: 600만 원
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117676
+    evidence: "2026.1.19. 공고(기업마당 문서뷰어) 4쪽 '점포철거비 지원' 표: ''25년 7월 11일 이후('25.7.11~) 600만원'"
+    status: 일치
+  - claim: 점포철거비 최대 한도 (폐업일 2023.1.1.~2025.7.10.)
+    value: 400만 원
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117676
+    evidence: "공고 4쪽 같은 표: ''25년 7월 11일 전('23.1.1~'25.7.10) 400만원'"
+    status: 일치
+  - claim: 한도 차등 기준일
+    value: 2025년 7월 11일
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117676
+    evidence: 공고 4쪽 '폐업일에 따라 지원한도 차등 적용 ('25년 7월 11일 기준)'
+    status: 일치
+  - claim: 면적 기준 한도
+    value: 전용면적 3.3㎡당 20만 원 이내
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117676
+    evidence: "공고 4쪽 표 '전용면적(3.3m²)당 한도: 20만원 이내'"
+    status: 일치
+  - claim: 부가세 지원 여부
+    value: 부가세는 지원하지 않는다
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117676
+    evidence: 공고 4쪽 각주 '전자세금계산서 상 공급가액만 지원하며(부가세 지원 제외)… 자력철거 시 지원불가'
+    status: 일치
+  - claim: 이미 폐업한 경우 폐업일 요건
+    value: 2023년 1월 1일 이후
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117676
+    evidence: 공고 4쪽 신청자격 ❶ '(기 폐업) 폐업일이 '23년 1월 1일 이후인 경우 지원'
+    status: 일치
+  - claim: 사업 운영 기간 요건
+    value: 60일 이상
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117676
+    evidence: 공고 4쪽 신청자격 ❷ '사업 운영기간 60일 이상'
+    status: 일치
+  - claim: 점포철거비 신청 가능 횟수
+    value: 주민등록번호 기준 1회
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117676
+    evidence: 공고 5쪽 참여제한 ② '점포철거비 지원을 이미 받은 경우(주민등록번호 기준 1회만 신청 가능)'
+    status: 일치
+  - claim: 같은 장소 재창업 제한 기간
+    value: 지원금 받은 날부터 3년
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117676
+    evidence: "공고 5쪽 참여제한 ⑤ '동일장소 재창업 제한 기간: 점포철거비 지원금 수혜일로부터 3년'"
+    status: 일치
+  - claim: 부정수급 제재부가금
+    value: 최대 5배
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117676
+    evidence: "공고 5쪽 '부정수급 관련 제재조치 안내' 상자: '제재부가금 부과(최대 5배)'"
+    status: 일치
+  - claim: 2026년 점포철거비 접수 마감 (접수 2026.1.28.부터)
+    value: 10월 21일 오후 6시
+    source: https://www.sbiz.or.kr/nhrp/pblanc/pblancView.do?pMenuNo=100100&cMenuNo=100102&selPblancClCode=BCC008&directCall=Y
+    evidence: "희망리턴패키지 누리집 '사업 신청 마감 안내'(2026.10.20.) 본문: '점포철거비지원 : 2026.1.28(수) ~ 2026.10.21(수) 18:00 마감'"
+    status: 일치
+  - claim: 한도 확대 (2025년 7월 2차 추경)
+    value: 400만 원에서 600만 원으로
+    source: https://www.korea.kr/news/policyNewsView.do?newsId=148946818
+    evidence: 정책브리핑 2025.7.30. 기사 리드 '최대 400만 원에서 600만 원으로 확대', 본문 '제2회 추경예산이 시행된 지난 11일 이후 폐업한 소상공인… 최대 600만 원(기존 400만 원)'
+    status: 일치
+  - claim: "계산 예시: 전용 33㎡(약 10평) 점포 한도"
+    value: 200만 원
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117676
+    evidence: 공고 4쪽 '3.3m²당 20만원 이내'를 적용한 계산값(20만 원 × 10). 원문에 예시 자체는 없음
+    status: 일치
+  - claim: "계산 예시: 전용 99㎡(약 30평) 점포 면적 기준 한도 (폐업일이 2025.7.10. 이전이면 400만 원)"
+    value: 600만 원
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117676
+    evidence: 공고 4쪽 '3.3m²당 20만원 이내'(20만 원 × 30 = 600만 원)와 폐업일별 최대한도 400만원/600만원을 적용한 계산값
+    status: 일치
