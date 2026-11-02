@@ -1,0 +1,115 @@
+slug: policy-fund-monthly-repayment
+title: 정책자금 월 상환액 계산, 거치기간 끝나면 매달 얼마 내나요? (예시 3개)
+publishedOn: 2026-11-02
+checkedAt: 2026-11-02
+items:
+  - claim: 기준 공고 번호와 공고일
+    value: 2026년 10월 1일
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: 5차 변경 공고 PDF(문서뷰어) 1쪽 '중소벤처기업부 공고 제2026–576호', '2026년 10월 1일'
+    status: 일치
+  - claim: 일반경영안정자금 대출기간
+    value: 5년 이내(거치기간 2년 포함)
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: "5차 변경 공고 PDF(문서뷰어) 6쪽 융자조건 '대출기간 : 5년 이내(거치기간 2년 포함)'"
+    status: 일치
+  - claim: 일반경영안정자금 대출한도
+    value: 연간 7천만 원
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: "5차 변경 공고 PDF(문서뷰어) 6쪽 '대출한도 : 연간 7천만원'"
+    status: 일치
+  - claim: 일반경영안정자금 가산금리
+    value: 기준금리+0.6%p
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: "5차 변경 공고 PDF(문서뷰어) 6쪽 '대출금리(변동금리) : 정책자금 기준금리 + 0.6%p'; 4분기 금리 안내 표 '일반경영안정자금(일반) + 0.6%P'"
+    status: 일치
+  - claim: 2026년 4분기 정책자금 기준금리
+    value: 연 4.12%
+    source: https://www.semas.or.kr/web/board/webBoardView.kmdc?bCd=1&b_idx=57036&pNm=BOA0101
+    evidence: 4분기 금리 안내(본문 이미지, 2026.10.6 이사장 명의) '자금별 대출금리('26년)' 표 기준금리 열 '연 4.12%'
+    status: 일치
+  - claim: 4분기 금리 적용기간
+    value: 2026.10.10~2027.1.9
+    source: https://www.semas.or.kr/web/board/webBoardView.kmdc?bCd=1&b_idx=57036&pNm=BOA0101
+    evidence: "4분기 금리 안내 '대출금리 적용기간 : '26. 10. 10.(토) ~ '27. 1. 9.(토)'"
+    status: 일치
+  - claim: 일반경영안정자금 4분기 대출금리
+    value: 연 4.72%
+    source: https://www.semas.or.kr/web/board/webBoardView.kmdc?bCd=1&b_idx=57036&pNm=BOA0101
+    evidence: 4분기 금리 안내 표 금융기관 대출 '일반경영안정자금(일반) +0.6%P 연 4.72%'
+    status: 일치
+  - claim: 신용취약소상공인자금 대출기간·한도·가산금리
+    value: 3천만 원
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: "5차 변경 공고 PDF(문서뷰어) 7쪽 표 '중·저신용 소상공인 | 3천만원 | 기준+1.6%p | 5년(2년)', 10쪽 '대출기간 : 5년 이내(거치기간 2년 포함)'"
+    status: 일치
+  - claim: 신용취약소상공인자금 4분기 대출금리
+    value: 연 5.72%
+    source: https://www.semas.or.kr/web/board/webBoardView.kmdc?bCd=1&b_idx=57036&pNm=BOA0101
+    evidence: 4분기 금리 안내 표 공단대출 '신용취약소상공인자금 +1.6%P 연 5.72%'
+    status: 일치
+  - claim: 긴급경영안정자금(일시적 경영애로) 조건
+    value: 연 4.12% (기준금리)
+    source: https://www.semas.or.kr/web/board/webBoardView.kmdc?bCd=1&b_idx=57036&pNm=BOA0101
+    evidence: "4분기 금리 안내 표 '긴급경영안정자금(일시적경영애로) +0.0%P 연 4.12%'; 공고 9쪽 ② '대출금리(변동금리) : 정책자금 기준금리, 대출기간 : 5년 이내(거치기간 2년 포함), 대출한도 : 7천만원'"
+    status: 일치
+  - claim: 청년고용연계자금 조건
+    value: 7천만 원
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: "5차 변경 공고 PDF(문서뷰어) 16쪽 '대출금리(변동금리) : 정책자금 기준금리', '대출기간 : 5년 이내(거치기간 2년 포함)', '대출한도 : 7천만원'; 4분기 금리 안내 '청년고용연계자금 +0.0%P 연 4.12%'"
+    status: 일치
+  - claim: 소공인특화자금 조건
+    value: 운전 연간 1억 원, 시설 5억 원
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: "5차 변경 공고 PDF(문서뷰어) 18쪽 '대출기간 : 운전자금 5년(거치기간 2년 포함) 시설자금 8년(거치기간 3년 포함)', '대출한도 : 연간 운전자금 1억원, 시설자금 5억원', 기준금리+0.6%p; 4분기 금리 안내 '소공인특화자금 +0.6%P 연 4.72%'"
+    status: 일치
+  - claim: 장애인기업지원자금 조건
+    value: 7년 이내(2년)
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: "5차 변경 공고 PDF(문서뷰어) 15쪽 '대출금리(고정금리) : 연 2.0%', '대출기간 : 7년 이내(거치기간 2년 포함)', '대출한도 : 1억원'; 4분기 금리 안내 '장애인기업자금 고정금리 연 2.00%'"
+    status: 일치
+  - claim: 대환대출 금리
+    value: 연 4.5% 고정금리
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: "5차 변경 공고 PDF(문서뷰어) 12쪽 '대출금리 : 연 4.5% 고정금리'; 4분기 금리 안내 '대환대출 고정금리 연 4.50%'"
+    status: 일치
+  - claim: 대환대출 기간·한도
+    value: 5천만 원
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: "5차 변경 공고 PDF(문서뷰어) 12쪽 '대출기간 : 10년(2년 거치·8년 분할상환 또는 10년 분할상환 중 택1)', '대출한도 : 5천만원'"
+    status: 일치
+  - claim: 우대금리 폭
+    value: 0.1~0.3%p, 최대 0.8%p
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: 5차 변경 공고 PDF(문서뷰어) 2쪽 '유형별 0.1%~0.3%p의 금리감면', '최대 0.8%p까지 금리우대 지원'; 우대표에 제로페이 가맹점, 노란우산공제, 비수도권 소재 소상공인; 각주 '고정금리(장애인기업지원자금, …, 대환대출 등) 상품 제외'
+    status: 일치
+  - claim: 기존 대출도 기준금리 변동에 따라 금리 변동
+    value: 변동금리
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: 5차 변경 공고 PDF(문서뷰어) 2쪽 '정책자금 기준금리(분기별 변동금리)', '기존 대출기업도 정책자금 기준금리 변동에 따라 대출금리가 변동되며(일부자금 제외)', 분기별 대출금리는 www.semas.or.kr에 공지
+    status: 일치
+  - claim: 예시1 계산값(5천만 원·연 4.72%·24개월 거치·36개월 상환)
+    value: 196,667원
+    source: https://www.semas.or.kr/web/board/webBoardView.kmdc?bCd=1&b_idx=57036&pNm=BOA0101
+    evidence: 계산값. 입력 금리 4.72%는 4분기 금리 안내 표. 거치 중 50,000,000×4.72%÷12=196,667원, 원금균등 첫 달 1,388,889+196,667=1,585,556원, 마지막 달 1,394,352원, 총 이자 8,358,333원(거치 이자 약 472만 원 포함, 매월 원금 약 138만 9천 원), 원리금균등 매달 1,492,267원·총 이자 8,441,621원. 2차 검증에서 별도 코드(Decimal)로 다시 계산해 일치, 사이트 계산기(LoanCalculator) 식과 같음
+    status: 일치
+  - claim: 예시1 요약값(도입부·한눈에 보기·정리)
+    value: 약 19만 7천 원
+    source: https://www.semas.or.kr/web/board/webBoardView.kmdc?bCd=1&b_idx=57036&pNm=BOA0101
+    evidence: 계산값 196,667원을 반올림 표기. 원금 상환 첫 달 '약 158만 6천 원'은 1,585,556원의 표기. 입력 금리 4.72%는 4분기 금리 안내 표
+    status: 일치
+  - claim: 예시1 원금 상환 첫 달 요약값
+    value: 약 158만 6천 원
+    source: https://www.semas.or.kr/web/board/webBoardView.kmdc?bCd=1&b_idx=57036&pNm=BOA0101
+    evidence: 계산값 1,585,556원(원금 1,388,889원+이자 196,667원)을 반올림 표기
+    status: 일치
+  - claim: 예시2 계산값(3천만 원·연 5.72%·24개월 거치·36개월 상환)
+    value: 143,000원
+    source: https://www.semas.or.kr/web/board/webBoardView.kmdc?bCd=1&b_idx=57036&pNm=BOA0101
+    evidence: 계산값. 입력 금리 5.72%는 4분기 금리 안내 표. 거치 중 143,000원, 원금균등 첫 달 976,333원·마지막 달 837,306원·총 이자 6,077,500원, 원리금균등 908,857원·총 이자 6,150,849원. 2차 검증에서 다시 계산해 일치
+    status: 일치
+  - claim: 예시3 계산값(대환 5천만 원·연 4.5%, 비거치 120개월 vs 24개월 거치+96개월, 원금균등)
+    value: 11,343,750원
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: 계산값. 입력 조건은 공고 12쪽(연 4.5% 고정, 10년, 2년 거치·8년 또는 10년 분할). 비거치 첫 달 604,167원·총 이자 11,343,750원, 거치형 거치 중 187,500원·상환 첫 달 708,333원·총 이자 13,593,750원, 차이 2,250,000원(약 225만 원). 2차 검증에서 다시 계산해 일치
+    status: 일치
