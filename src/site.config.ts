@@ -57,15 +57,42 @@ export const getCategory = (slug: string) =>
 export const categoryName = (slug: string) =>
   CATEGORIES.find((c) => c.slug === slug)?.name ?? slug;
 
+// 계산기 목록. id는 글 frontmatter의 tool 값입니다.
+// use: 어떤 글에 붙이는지 (작성 지침과 검사 스크립트가 참고합니다)
+// 새 계산기를 만들면 여기, scripts/lib.mjs의 TOOL_IDS, src/content.config.ts, 글 페이지 연결을 함께 고치세요.
 export const TOOLS = [
   {
-    href: "/tools/vat/",
-    name: "부가세 예상 납부액 계산기",
-    blurb: "일반과세자·간이과세자 모두, 카드매출 세액공제 반영",
+    id: 'vat',
+    href: '/tools/vat/',
+    name: '부가세 예상 납부액 계산기',
+    blurb: '이번 신고 때 낼 부가세, 카드매출 세액공제 반영',
+    category: 'tax',
+    use: '부가세 신고·납부액이 주제인 글 (확정신고, 카드·배달 매출 신고 등)',
   },
   {
-    href: "/tools/loan/",
-    name: "정책자금 월 상환액 계산기",
-    blurb: "거치기간, 원금균등·원리금균등 상환표까지",
+    id: 'tax-type',
+    href: '/tools/tax-type/',
+    name: '간이과세자 vs 일반과세자 비교 계산기',
+    blurb: '같은 매출일 때 1년 부가세가 어느 쪽이 얼마나 적은지',
+    category: 'tax',
+    use: '간이·일반과세자 선택, 전환, 유불리가 주제인 글',
   },
-];
+  {
+    id: 'loan',
+    href: '/tools/loan/',
+    name: '정책자금 월 상환액 계산기',
+    blurb: '거치기간, 원금균등·원리금균등 상환표까지',
+    category: 'loan',
+    use: '새로 받는 대출의 상환 계획이 주제인 글 (정책자금 종류·자격·상환)',
+  },
+  {
+    id: 'refinance',
+    href: '/tools/refinance/',
+    name: '대환대출 이자 절감 계산기',
+    blurb: '고금리 대출을 갈아타면 매달·총 얼마를 아끼는지, 수수료 포함',
+    category: 'loan',
+    use: '기존 대출을 갈아타는 대환대출이 주제인 글',
+  },
+] as const;
+
+export type ToolId = (typeof TOOLS)[number]['id'];

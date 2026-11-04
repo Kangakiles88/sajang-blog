@@ -146,7 +146,7 @@ const { embedded = false } = Astro.props;
     align-items: start;
   }
   .calc.embedded {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     margin-block: 3rem;
     padding: 1.5rem;
     border: 1px solid var(--rule-strong);
@@ -166,10 +166,14 @@ const { embedded = false } = Astro.props;
   .form {
     display: grid;
     gap: 1.25rem;
+    min-width: 0;
+  }
+  .form > * {
+    min-width: 0;
   }
   .two {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 1rem;
   }
   .field {
@@ -188,6 +192,7 @@ const { embedded = false } = Astro.props;
   .money input {
     flex: 1;
     min-width: 0;
+    width: 100%;
     border: 0;
     background: transparent;
     color: var(--ink);
@@ -262,7 +267,7 @@ const { embedded = false } = Astro.props;
   .kpis {
     margin: 0;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 1.25rem 1rem;
   }
   .kpis dt {
@@ -324,7 +329,7 @@ const { embedded = false } = Astro.props;
   }
   @media (max-width: 52rem) {
     .calc {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
   }
 </style>

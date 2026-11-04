@@ -1,0 +1,61 @@
+---
+import Base from '../../layouts/Base.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import TaxTypeCalculator from '../../components/TaxTypeCalculator.astro';
+
+const title = '간이과세자 vs 일반과세자 비교 계산기 (1년 부가세)';
+const description =
+  '1년 매출, 카드매출, 매입, 업종만 넣으면 간이과세자와 일반과세자 중 어느 쪽 부가세가 얼마나 적은지 바로 비교합니다. 업종별 부가가치율과 카드매출 세액공제 반영.';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: title,
+  description,
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'Any',
+  inLanguage: 'ko-KR',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'KRW' },
+};
+---
+
+<Base title={title} description={description} jsonLd={jsonLd} image="tool-tax-type">
+  <div class="wrap">
+    <header class="head">
+      <h1>간이과세자 vs 일반과세자 비교 계산기</h1>
+      <p>같은 매출이라도 과세 유형에 따라 1년 부가세가 달라집니다. 우리 가게 숫자로 바로 비교해 보세요.</p>
+    </header>
+    <TaxTypeCalculator />
+    <AdSlot />
+    <section class="narrow-text prose">
+      <h2>계산 방식</h2>
+      <h3>일반과세자</h3>
+      <p>1년 매출세액(부가세 포함 매출의 10/110)에서 매입세액(부가세 포함 매입의 10/110)을 빼고, 카드·현금영수증 매출 세액공제를 뺍니다. 매입세액이 더 크면 환급을 받습니다.</p>
+      <h3>간이과세자</h3>
+      <p>1년 매출(공급대가) × 업종별 부가가치율 × 10%에서 매입의 0.5%와 카드매출 세액공제를 뺍니다. 공제가 세금보다 커도 환급은 없습니다. 연 매출 4,800만 원 미만이면 납부의무가 면제됩니다.</p>
+      <h3>간이과세자가 될 수 있는 기준</h3>
+      <p>직전 연도 매출(공급대가)이 1억 400만 원 미만인 개인사업자가 대상입니다. 업종이나 지역에 따라 간이과세가 안 되는 경우도 있으니 세무서에 확인하세요.</p>
+      <h3>숫자만 보고 고르면 안 되는 이유</h3>
+      <p>개업 초기처럼 매입이 많은 해에는 일반과세자만 환급을 받을 수 있습니다. 기업 고객에게 세금계산서를 발급해야 하는 업종이라면 간이과세자에게 제약이 있을 수 있으니 함께 따져보세요.</p>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .head {
+    padding-block: 2.5rem 2rem;
+    max-width: 40rem;
+  }
+  .head h1 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+  }
+  .head p {
+    color: var(--ink-soft);
+    margin: 0.5rem 0 0;
+  }
+  .narrow-text {
+    max-width: var(--measure);
+    margin-top: 3rem;
+  }
+</style>

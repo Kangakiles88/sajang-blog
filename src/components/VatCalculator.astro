@@ -177,7 +177,7 @@ const RATES = [
     align-items: start;
   }
   .calc.embedded {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     margin-block: 3rem;
     padding: 1.5rem;
     border: 1px solid var(--rule-strong);
@@ -197,6 +197,10 @@ const RATES = [
   .form {
     display: grid;
     gap: 1.25rem;
+    min-width: 0;
+  }
+  .form > * {
+    min-width: 0;
   }
   .seg {
     border: 0;
@@ -255,6 +259,7 @@ const RATES = [
   .money input {
     flex: 1;
     min-width: 0;
+    width: 100%;
     border: 0;
     background: transparent;
     color: var(--ink);
@@ -362,7 +367,7 @@ const RATES = [
   }
   @media (max-width: 52rem) {
     .calc {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
     }
     .result {
       position: static;

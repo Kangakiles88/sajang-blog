@@ -5,6 +5,8 @@ import AdSlot from '../../components/AdSlot.astro';
 import PostList from '../../components/PostList.astro';
 import VatCalculator from '../../components/VatCalculator.astro';
 import LoanCalculator from '../../components/LoanCalculator.astro';
+import TaxTypeCalculator from '../../components/TaxTypeCalculator.astro';
+import RefinanceCalculator from '../../components/RefinanceCalculator.astro';
 import CategoryTag from '../../components/CategoryTag.astro';
 import KeyPoints from '../../components/KeyPoints.astro';
 import { SITE, categoryName, getCategory } from '../../site.config';
@@ -92,6 +94,8 @@ const jsonLd = [
 
     {d.tool === 'vat' && <VatCalculator embedded />}
     {d.tool === 'loan' && <LoanCalculator embedded />}
+    {d.tool === 'tax-type' && <TaxTypeCalculator embedded />}
+    {d.tool === 'refinance' && <RefinanceCalculator embedded />}
 
     <AdSlot />
 

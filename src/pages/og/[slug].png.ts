@@ -10,6 +10,8 @@ export async function getStaticPaths() {
     { params: { slug: 'default' }, props: { title: SITE.tagline, kicker: '소상공인 지원금·세금 정보' } },
     { params: { slug: 'tool-vat' }, props: { title: '부가세 예상 납부액 계산기', category: 'tax', kicker: '사장님 계산기' } },
     { params: { slug: 'tool-loan' }, props: { title: '정책자금 월 상환액 계산기', category: 'loan', kicker: '사장님 계산기' } },
+    { params: { slug: 'tool-tax-type' }, props: { title: '간이과세자 vs 일반과세자 비교 계산기', category: 'tax', kicker: '사장님 계산기' } },
+    { params: { slug: 'tool-refinance' }, props: { title: '대환대출 이자 절감 계산기', category: 'loan', kicker: '사장님 계산기' } },
   ];
 }
 

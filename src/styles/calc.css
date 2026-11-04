@@ -1,0 +1,184 @@
+/* 계산기 공통 모양. 새 계산기는 루트에 class="kcalc"를 붙이고 이 파일을 import 합니다.
+   모든 규칙은 .kcalc 안에서만 적용됩니다. */
+
+.kcalc {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+  gap: 1.5rem 2.5rem;
+  align-items: start;
+}
+.kcalc.embedded {
+  grid-template-columns: minmax(0, 1fr);
+  margin-block: 3rem;
+  padding: 1.5rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 6px;
+}
+.kcalc > h2 {
+  grid-column: 1 / -1;
+  font-size: var(--step-1);
+}
+.kcalc .sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+.kcalc .form {
+  display: grid;
+  gap: 1.25rem;
+  min-width: 0;
+}
+.kcalc .form > * {
+  min-width: 0;
+}
+.kcalc .two {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1rem;
+}
+.kcalc .field {
+  display: grid;
+  gap: 0.35rem;
+}
+.kcalc .lab {
+  font-weight: 700;
+  font-size: var(--step--1);
+}
+.kcalc .lab small {
+  font-weight: 400;
+  color: var(--muted);
+  margin-left: 0.25rem;
+}
+.kcalc .money {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--ink);
+}
+.kcalc .money input {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  font-size: var(--step-1);
+  font-weight: 700;
+  padding: 0.4rem 0;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.kcalc .money input::placeholder {
+  color: var(--muted);
+  font-weight: 400;
+  opacity: 0.7;
+}
+.kcalc .money span {
+  margin-left: 0.4rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+.kcalc select {
+  font: inherit;
+  font-size: var(--step--1);
+  padding: 0.55rem;
+  border: 2px solid var(--rule-strong);
+  background: var(--paper);
+  color: var(--ink);
+  width: 100%;
+  min-width: 0;
+}
+.kcalc .hint {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin: 0;
+}
+.kcalc .more summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: var(--step--1);
+  color: var(--link);
+}
+.kcalc .more[open] {
+  display: grid;
+  gap: 1rem;
+}
+.kcalc .result {
+  background: var(--ledger);
+  padding: 1.5rem;
+  min-width: 0;
+}
+.kcalc .res-label {
+  margin: 0;
+  font-weight: 700;
+  font-size: var(--step--1);
+}
+.kcalc .res-num {
+  margin: 0.25rem 0 0.5rem;
+  font-size: clamp(1.75rem, 6vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.15;
+}
+.kcalc .res-sub {
+  margin: 0 0 1rem;
+  font-size: var(--step--1);
+  color: var(--ink-soft);
+}
+.kcalc .vs {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  font-variant-numeric: tabular-nums;
+}
+.kcalc .vs th,
+.kcalc .vs td {
+  border-top: 1px solid var(--rule);
+  padding: 0.55rem 0;
+  text-align: right;
+  font-weight: 400;
+}
+.kcalc .vs th:first-child,
+.kcalc .vs td:first-child {
+  text-align: left;
+  padding-right: 0.75rem;
+}
+.kcalc .vs thead th {
+  border-top: 0;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  padding-left: 0.75rem;
+}
+.kcalc .vs tbody td + td {
+  padding-left: 0.75rem;
+}
+.kcalc .vs tr.total td {
+  border-top: 2px solid var(--ink);
+  font-weight: 800;
+}
+.kcalc .vs .win {
+  color: var(--accent, var(--ink));
+}
+.kcalc .note {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin: 0.75rem 0 0;
+}
+.kcalc .note:empty {
+  display: none;
+}
+.kcalc .fine {
+  grid-column: 1 / -1;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin: 0;
+}
+@media (max-width: 52rem) {
+  .kcalc {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

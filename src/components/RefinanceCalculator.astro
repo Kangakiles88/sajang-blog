@@ -1,0 +1,133 @@
+---
+// 대환대출 이자 절감 계산기: 지금 대출 vs 갈아탈 대출 (원리금균등, 남은 기간 동일 가정)
+// 외부 기준값 없이 사용자가 넣은 금리·수수료로만 계산합니다.
+import '../styles/calc.css';
+
+interface Props {
+  embedded?: boolean;
+}
+const { embedded = false } = Astro.props;
+---
+
+<section class={`kcalc ${embedded ? 'embedded' : ''}`} data-refi aria-labelledby="rf-title">
+  {embedded ? <h2 id="rf-title">갈아타면 얼마나 아낄까?</h2> : <h2 id="rf-title" class="sr">입력</h2>}
+
+  <form class="form" novalidate>
+    <label class="field">
+      <span class="lab">남은 대출 원금</span>
+      <span class="money"><input name="amount" inputmode="numeric" autocomplete="off" value="30,000,000" /><span>원</span></span>
+    </label>
+    <div class="two">
+      <label class="field">
+        <span class="lab">지금 금리</span>
+        <span class="money"><input name="oldRate" inputmode="decimal" autocomplete="off" value="12" data-plain /><span>%</span></span>
+      </label>
+      <label class="field">
+        <span class="lab">바꿀 금리</span>
+        <span class="money"><input name="newRate" inputmode="decimal" autocomplete="off" value="4.5" data-plain /><span>%</span></span>
+      </label>
+    </div>
+    <label class="field">
+      <span class="lab">남은 상환 기간</span>
+      <select name="months">
+        {[12, 24, 36, 48, 60].map((m) => <option value={m} selected={m === 36}>{m / 12}년 ({m}개월)</option>)}
+      </select>
+    </label>
+    <details class="more">
+      <summary>수수료 넣기</summary>
+      <label class="field">
+        <span class="lab">지금 대출 중도상환수수료율</span>
+        <span class="money"><input name="fee" inputmode="decimal" autocomplete="off" value="0" data-plain /><span>%</span></span>
+        <span class="hint">대출 약정서나 은행 앱에서 확인하세요. 남은 원금에 곱해 계산합니다.</span>
+      </label>
+      <label class="field">
+        <span class="lab">새 대출 보증료 <small>있으면, 연율</small></span>
+        <span class="money"><input name="guarantee" inputmode="decimal" autocomplete="off" value="0" data-plain /><span>%</span></span>
+      </label>
+    </details>
+  </form>
+
+  <div class="result" aria-live="polite">
+    <p class="res-label">갈아타면 아끼는 돈 (수수료 뺀 금액)</p>
+    <p class="res-num" data-save>0원</p>
+    <p class="res-sub" data-verdict></p>
+    <table class="vs">
+      <thead><tr><th scope="col"></th><th scope="col">지금 대출</th><th scope="col">바꾼 뒤</th></tr></thead>
+      <tbody data-rows></tbody>
+    </table>
+    <p class="note" data-note></p>
+  </div>
+
+  <p class="fine">
+    남은 기간 동안 매달 같은 금액을 갚는 원리금균등 방식으로 단순 계산했습니다. 거치기간, 금리 변동, 중도에 다시 갚는 경우는 반영하지 않습니다. 실제 금액은 대출 약정서를 따릅니다.
+  </p>
+</section>
+
+<script>
+  const won = (n: number) => Math.round(n).toLocaleString('ko-KR') + '원';
+  const num = (s: string) => Number((s || '').replace(/[^0-9.]/g, '')) || 0;
+  const pay = (P: number, yearRate: number, n: number) => {
+    const r = yearRate / 100 / 12;
+    return r === 0 ? P / n : (P * r) / (1 - Math.pow(1 + r, -n));
+  };
+
+  document.querySelectorAll<HTMLElement>('[data-refi]').forEach((root) => {
+    const form = root.querySelector('form')!;
+    const $ = <T extends HTMLElement>(sel: string) => root.querySelector<T>(sel)!;
+
+    form.querySelectorAll<HTMLInputElement>('.money input:not([data-plain])').forEach((inp) => {
+      inp.addEventListener('input', () => {
+        const v = Number(inp.value.replace(/[^0-9]/g, ''));
+        inp.value = v ? v.toLocaleString('ko-KR') : '';
+      });
+    });
+
+    const calc = () => {
+      const f = new FormData(form);
+      const P = num(f.get('amount') as string);
+      const oldR = num(f.get('oldRate') as string);
+      const newR = num(f.get('newRate') as string);
+      const n = Number(f.get('months'));
+      const fee = (P * num(f.get('fee') as string)) / 100;
+      const g = num(f.get('guarantee') as string) / 100;
+
+      const oldPay = pay(P, oldR, n);
+      const newPay = pay(P, newR, n);
+      // 보증료: 매달 남은 원금 × 연 보증료율 ÷ 12 를 합산
+      let bal = P;
+      let guarantee = 0;
+      const r = newR / 100 / 12;
+      for (let k = 0; k < n; k++) {
+        guarantee += (bal * g) / 12;
+        bal -= newPay - bal * r;
+      }
+      const oldInt = oldPay * n - P;
+      const newInt = newPay * n - P;
+      const save = oldInt - newInt - fee - guarantee;
+
+      $('[data-rows]').innerHTML = [
+        ['매달 내는 돈', won(oldPay), won(newPay)],
+        ['남은 기간 총 이자', won(oldInt), won(newInt)],
+        ['수수료·보증료', '0원', won(fee + guarantee)],
+      ]
+        .map((r) => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`)
+        .join('');
+
+      $('[data-save]').textContent = won(Math.max(0, save));
+      $('[data-verdict]').textContent =
+        P === 0
+          ? ''
+          : save > 0
+            ? `매달 ${won(oldPay - newPay)} 줄고, 남은 기간 동안 총 ${won(save)}을 아낍니다.`
+            : `수수료를 빼면 오히려 ${won(-save)} 손해입니다. 갈아타지 않는 편이 낫습니다.`;
+      $('[data-note]').textContent =
+        save > 0 && fee + guarantee > 0
+          ? `수수료·보증료 ${won(fee + guarantee)}를 이미 빼고 계산한 금액입니다.`
+          : '';
+    };
+
+    form.addEventListener('input', calc);
+    form.addEventListener('change', calc);
+    calc();
+  });
+</script>

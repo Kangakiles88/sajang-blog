@@ -1,0 +1,58 @@
+---
+import Base from '../../layouts/Base.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import RefinanceCalculator from '../../components/RefinanceCalculator.astro';
+
+const title = '대환대출 이자 절감 계산기 (중도상환수수료 포함)';
+const description =
+  '지금 대출의 남은 원금과 금리, 갈아탈 대출 금리만 넣으면 매달 줄어드는 돈과 남은 기간 동안 아끼는 총 이자를 계산합니다. 중도상환수수료와 보증료까지 빼고 보여줍니다.';
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: title,
+  description,
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'Any',
+  inLanguage: 'ko-KR',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'KRW' },
+};
+---
+
+<Base title={title} description={description} jsonLd={jsonLd} image="tool-refinance">
+  <div class="wrap">
+    <header class="head">
+      <h1>대환대출 이자 절감 계산기</h1>
+      <p>고금리 대출을 갈아타면 실제로 얼마를 아끼는지, 수수료까지 빼고 확인하세요.</p>
+    </header>
+    <RefinanceCalculator />
+    <AdSlot />
+    <section class="narrow-text prose">
+      <h2>계산 방식</h2>
+      <p>지금 대출과 바꾼 대출 모두 남은 기간 동안 매달 같은 금액을 갚는 원리금균등 방식으로 계산합니다. 두 대출의 남은 기간 총 이자 차이에서 중도상환수수료와 새 대출 보증료를 빼면 실제로 아끼는 돈이 나옵니다.</p>
+      <h3>중도상환수수료</h3>
+      <p>기존 대출을 만기 전에 갚을 때 은행이 받는 수수료입니다. 보통 남은 원금에 수수료율을 곱해 계산하며, 대출 후 일정 기간이 지나면 면제되기도 합니다. 정확한 율은 대출 약정서나 은행 앱에서 확인하세요.</p>
+      <h3>보증료</h3>
+      <p>정책자금 대환대출 중에는 지역신용보증재단 보증을 끼는 상품이 있고, 이때 매년 보증료를 냅니다. 이 계산기는 매달 남은 원금에 보증료율을 적용해 더합니다.</p>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .head {
+    padding-block: 2.5rem 2rem;
+    max-width: 40rem;
+  }
+  .head h1 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+  }
+  .head p {
+    color: var(--ink-soft);
+    margin: 0.5rem 0 0;
+  }
+  .narrow-text {
+    max-width: var(--measure);
+    margin-top: 3rem;
+  }
+</style>

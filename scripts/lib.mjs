@@ -10,6 +10,9 @@ export const POSTS = path.join(ROOT, 'src', 'content', 'posts');
 export const QUEUE = path.join(ROOT, 'keywords', 'queue.md');
 
 const CATS = ['loan', 'support', 'tax', 'closing'];
+// 계산기 id와 주로 쓰는 카테고리 (src/site.config.ts의 TOOLS와 맞춰 주세요)
+export const TOOL_CATEGORY = { vat: 'tax', 'tax-type': 'tax', loan: 'loan', refinance: 'loan' };
+export const TOOL_IDS = Object.keys(TOOL_CATEGORY);
 
 export function readDoc(file) {
   const raw = fs.readFileSync(file, 'utf8').replace(/^﻿/, '');
@@ -60,7 +63,9 @@ export function validate(file) {
     d.sources.forEach((s, i) => {
       if (!s?.title || !/^https?:\/\//.test(s?.url ?? '')) errors.push(`sources ${i + 1}번째 항목에 title과 http(s) url이 필요합니다.`);
     });
-  if (d.tool && !['vat', 'loan'].includes(d.tool)) errors.push('tool은 vat 또는 loan만 쓸 수 있습니다.');
+  if (d.tool && !TOOL_IDS.includes(d.tool)) errors.push(`tool은 ${TOOL_IDS.join(', ')} 중 하나만 쓸 수 있습니다. 맞는 계산기가 없으면 tool을 빼세요.`);
+  else if (d.tool && TOOL_CATEGORY[d.tool] !== d.category)
+    warnings.push(`계산기(${d.tool})가 이 글의 카테고리(${d.category})와 다릅니다. 독자가 이 글을 읽고 정말 그 계산을 하는지 확인하세요.`);
   if (!d.keyPoints) warnings.push('keyPoints(한눈에 보기)가 없습니다. 2~4줄 넣는 것을 권장합니다.');
   else if (!Array.isArray(d.keyPoints) || d.keyPoints.length < 2 || d.keyPoints.length > 4)
     errors.push('keyPoints는 2~4개여야 합니다.');

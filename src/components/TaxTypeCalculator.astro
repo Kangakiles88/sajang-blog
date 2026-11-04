@@ -1,0 +1,154 @@
+---
+// 간이과세자 vs 일반과세자 1년 부가세 비교
+// 근거: 부가가치세법 제30조(세율 10%), 제63조(간이 납부세액, 매입 0.5% 공제, 초과분 환급 없음),
+//       제69조(공급대가 4,800만 원 미만 납부의무 면제), 시행령 제109조(간이 기준 1억 400만 원), 제111조(업종별 부가가치율)
+// 카드매출 세액공제: 2026년 공급분까지 1.3%·연 1,000만 원 / 2027년 정부안 1.2%·연 500만 원
+import '../styles/calc.css';
+
+interface Props {
+  embedded?: boolean;
+}
+const { embedded = false } = Astro.props;
+
+const RATES = [
+  { v: '0.15', label: '소매업, 음식점업 (15%)' },
+  { v: '0.2', label: '제조업, 농·임·어업, 소화물 운송업 (20%)' },
+  { v: '0.25', label: '숙박업 (25%)' },
+  { v: '0.3', label: '건설업, 운수·창고업, 정보통신업, 그 밖의 서비스업 (30%)' },
+  { v: '0.4', label: '금융·보험, 전문·과학·기술 서비스업, 부동산임대업 등 (40%)' },
+];
+---
+
+<section class={`kcalc ${embedded ? 'embedded' : ''}`} data-taxtype aria-labelledby="tt-title">
+  {embedded ? <h2 id="tt-title">우리 가게는 간이와 일반 중 어디가 유리할까?</h2> : <h2 id="tt-title" class="sr">입력</h2>}
+
+  <form class="form" novalidate>
+    <label class="field">
+      <span class="lab">1년 매출 <small>부가세 포함</small></span>
+      <span class="money"><input name="sales" inputmode="numeric" autocomplete="off" placeholder="예: 90,000,000" /><span>원</span></span>
+    </label>
+    <label class="field">
+      <span class="lab">그중 카드·현금영수증 매출 <small>부가세 포함</small></span>
+      <span class="money"><input name="card" inputmode="numeric" autocomplete="off" placeholder="예: 70,000,000" /><span>원</span></span>
+    </label>
+    <label class="field">
+      <span class="lab">1년 매입 <small>세금계산서·사업용 카드, 부가세 포함</small></span>
+      <span class="money"><input name="purchase" inputmode="numeric" autocomplete="off" placeholder="예: 40,000,000" /><span>원</span></span>
+    </label>
+    <label class="field">
+      <span class="lab">업종</span>
+      <select name="rate">
+        {RATES.map((r) => <option value={r.v}>{r.label}</option>)}
+      </select>
+    </label>
+    <details class="more">
+      <summary>카드매출 세액공제 기준 바꾸기</summary>
+      <label class="field">
+        <span class="lab">공제 기준</span>
+        <select name="rule">
+          <option value="2026">2026년 공급분까지 (1.3%, 연 1,000만 원)</option>
+          <option value="2027">2027년 정부안, 미확정 (1.2%, 연 500만 원)</option>
+        </select>
+      </label>
+    </details>
+  </form>
+
+  <div class="result" aria-live="polite">
+    <p class="res-label">1년 부가세 차이</p>
+    <p class="res-num" data-diff>0원</p>
+    <p class="res-sub" data-verdict>매출과 매입을 넣으면 비교해 드립니다.</p>
+    <table class="vs">
+      <thead><tr><th scope="col"></th><th scope="col">일반과세자</th><th scope="col">간이과세자</th></tr></thead>
+      <tbody data-rows></tbody>
+    </table>
+    <p class="note" data-note></p>
+  </div>
+
+  <p class="fine">
+    1년 단위로 단순화한 추정치입니다. 간이과세자는 직전 연도 매출(공급대가)이 1억 400만 원 미만이어야 하고, 업종·지역에 따라 간이과세가 안 되는 경우가 있습니다.
+    의제매입세액공제, 예정고지, 매입 시기 차이는 반영하지 않습니다. 실제 판단은 세무서나 세무사와 확인하세요.
+  </p>
+</section>
+
+<script>
+  const won = (n: number) => Math.round(n).toLocaleString('ko-KR') + '원';
+  const num = (s: string) => Number((s || '').replace(/[^0-9]/g, '')) || 0;
+
+  document.querySelectorAll<HTMLElement>('[data-taxtype]').forEach((root) => {
+    const form = root.querySelector('form')!;
+    const $ = <T extends HTMLElement>(sel: string) => root.querySelector<T>(sel)!;
+
+    form.querySelectorAll<HTMLInputElement>('.money input').forEach((inp) => {
+      inp.addEventListener('input', () => {
+        const v = num(inp.value);
+        inp.value = v ? v.toLocaleString('ko-KR') : '';
+      });
+    });
+
+    const calc = () => {
+      const f = new FormData(form);
+      const sales = num(f.get('sales') as string);
+      const card = Math.min(num(f.get('card') as string), sales);
+      const purchase = num(f.get('purchase') as string);
+      const rate = Number(f.get('rate'));
+      const r2027 = f.get('rule') === '2027';
+      const cardRate = r2027 ? 0.012 : 0.013;
+      const cardCap = r2027 ? 5_000_000 : 10_000_000;
+      const credit = Math.min(card * cardRate, cardCap);
+
+      // 일반과세자
+      const gOut = (sales * 10) / 110;
+      const gIn = (purchase * 10) / 110;
+      const gBase = gOut - gIn;
+      const gCredit = gBase > 0 ? Math.min(credit, gBase) : 0;
+      const general = gBase > 0 ? gBase - gCredit : gBase; // 음수 = 환급
+
+      // 간이과세자
+      const sOut = sales * rate * 0.1;
+      const sIn = Math.min(purchase * 0.005, sOut);
+      const sBase = sOut - sIn;
+      const sCredit = Math.min(credit, sBase);
+      let simple = Math.max(0, sBase - sCredit);
+      const exempt = sales > 0 && sales < 48_000_000;
+      if (exempt) simple = 0;
+      const eligible = sales < 104_000_000;
+
+      const fmt = (v: number) => (v < 0 ? `${won(-v)} 환급` : won(v));
+      const rows: [string, string, string][] = [
+        ['매출세액', won(gOut), won(sOut)],
+        ['매입 공제', '−' + won(gIn), '−' + won(sIn)],
+        [`카드매출 공제 (${(cardRate * 100).toFixed(1)}%)`, '−' + won(gCredit), '−' + won(sCredit)],
+      ];
+      $('[data-rows]').innerHTML =
+        rows.map((r) => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join('') +
+        `<tr class="total"><td>1년 부가세</td><td class="${general > simple ? '' : 'win'}">${fmt(general)}</td><td class="${simple < general ? 'win' : ''}">${exempt ? '0원 (면제)' : fmt(simple)}</td></tr>`;
+
+      const diff = Math.abs(general - simple);
+      $('[data-diff]').textContent = sales ? won(diff) : '0원';
+      let verdict = '매출과 매입을 넣으면 비교해 드립니다.';
+      let note = '';
+      if (sales) {
+        if (!eligible) {
+          verdict = '연 매출 1억 400만 원 이상이면 간이과세자가 될 수 없습니다.';
+        } else if (general < 0) {
+          verdict = `일반과세자는 ${won(-general)} 환급, 간이과세자는 ${won(simple)} 납부입니다.`;
+          note = '매입이 매출보다 많은 해(개업 초기 인테리어·설비 등)는 일반과세자만 환급을 받을 수 있습니다.';
+        } else if (simple < general) {
+          verdict = `간이과세자가 1년에 약 ${won(diff)} 덜 냅니다.`;
+        } else if (simple > general) {
+          verdict = `일반과세자가 1년에 약 ${won(diff)} 덜 냅니다.`;
+        } else {
+          verdict = '두 방식의 부가세가 같습니다.';
+        }
+        if (exempt) note = '연 매출 4,800만 원 미만 간이과세자는 납부의무가 면제됩니다. 신고는 해야 합니다.';
+        if (!note && eligible) note = '세금계산서를 꼭 받아야 하는 거래처(기업 고객)가 많다면, 간이과세자는 세금계산서 발급에 제약이 있을 수 있어 함께 따져보세요.';
+      }
+      $('[data-verdict]').textContent = verdict;
+      $('[data-note]').textContent = note;
+    };
+
+    form.addEventListener('input', calc);
+    form.addEventListener('change', calc);
+    calc();
+  });
+</script>

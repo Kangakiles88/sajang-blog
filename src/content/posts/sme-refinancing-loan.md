@@ -9,7 +9,7 @@ tags:
   - 소상공인 정책자금
   - 대리대출
   - 저금리 대환
-tool: loan
+tool: refinance
 keyPoints:
   - label: 대상
     value: NCB 919점 이하 소상공인 (일부 성실상환자 등은 점수 미적용)
