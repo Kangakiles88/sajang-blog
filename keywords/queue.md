@@ -26,7 +26,7 @@
 ## 1월 이후
 
 - [ ] 2027-sme-support-integrated-notice | support | 2027 소상공인 지원사업 통합공고 요약 | 공고 나온 날 작성
-- [d] delivery-card-sales-vat | tax | 배달앱 카드 매출 부가세 신고 주의점 | 배달앱 매출자료 조회 방법
+- [x] delivery-card-sales-vat | tax | 배달앱 카드 매출 부가세 신고 주의점 | 배달앱 매출자료 조회 방법
 - [ ] yellow-umbrella-tax-saving | closing | 노란우산공제 소득공제 절세 | 소득구간별 공제 한도
 - [ ] sme-online-marketing-support | support | 소상공인 온라인 마케팅 지원사업 | 온라인 판로·디지털 지원 사업
 - [ ] may-income-tax-expenses | tax | 종합소득세 사장님 경비처리 항목 | 4월 발행
