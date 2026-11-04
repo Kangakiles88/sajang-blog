@@ -1,0 +1,131 @@
+---
+// 명세(JSON)로 만든 계산기. 수식은 src/lib/expr.mjs의 안전한 엔진으로만 계산합니다.
+import '../styles/calc.css';
+import type { ToolSpec } from '../lib/tools';
+
+interface Props {
+  spec: ToolSpec;
+  embedded?: boolean;
+}
+const { spec, embedded = false } = Astro.props;
+const uid = `fc-${spec.id}`;
+const primary = spec.outputs.find((o) => o.primary) ?? spec.outputs[0];
+const others = spec.outputs.filter((o) => o !== primary);
+const fmtDefault = (v: number | undefined, type: string) =>
+  v === undefined ? '' : type === 'money' ? Number(v).toLocaleString('ko-KR') : String(v);
+const payload = JSON.stringify({
+  inputs: spec.inputs,
+  constants: spec.constants ?? [],
+  steps: spec.steps,
+  outputs: spec.outputs,
+  notes: spec.notes ?? [],
+});
+---
+
+<section class={`kcalc ${embedded ? 'embedded' : ''}`} data-formula aria-labelledby={`${uid}-title`}>
+  {embedded ? <h2 id={`${uid}-title`}>{spec.headline}</h2> : <h2 id={`${uid}-title`} class="sr">입력</h2>}
+  <script type="application/json" set:html={payload} />
+
+  <form class="form" novalidate>
+    {
+      spec.inputs.map((inp) =>
+        inp.type === 'select' ? (
+          <label class="field">
+            <span class="lab">{inp.label}</span>
+            <select name={inp.key}>
+              {inp.options?.map((o) => (
+                <option value={o.value} selected={o.value === inp.default}>
+                  {o.label}
+                </option>
+              ))}
+            </select>
+            {inp.help && <span class="hint">{inp.help}</span>}
+          </label>
+        ) : (
+          <label class="field">
+            <span class="lab">{inp.label}</span>
+            <span class="money">
+              <input
+                name={inp.key}
+                inputmode={inp.type === 'money' ? 'numeric' : 'decimal'}
+                autocomplete="off"
+                data-kind={inp.type}
+                value={fmtDefault(inp.default, inp.type)}
+              />
+              <span>{inp.unit ?? (inp.type === 'money' ? '원' : inp.type === 'percent' ? '%' : '')}</span>
+            </span>
+            {inp.help && <span class="hint">{inp.help}</span>}
+          </label>
+        ),
+      )
+    }
+  </form>
+
+  <div class="result" aria-live="polite">
+    <p class="res-label">{primary.label}</p>
+    <p class="res-num" data-out={primary.key} data-format={primary.format ?? 'won'}>0원</p>
+    {
+      others.length > 0 && (
+        <table class="vs">
+          <tbody>
+            {others.map((o) => (
+              <tr>
+                <td>{o.label}</td>
+                <td data-out={o.key} data-format={o.format ?? 'won'}>
+                  0원
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )
+    }
+    <p class="note" data-notes></p>
+  </div>
+
+  <p class="fine">{spec.fine}</p>
+</section>
+
+<script>
+  import { compileSpec, runSpec, formatValue, evaluate } from '../lib/expr.mjs';
+
+  document.querySelectorAll<HTMLElement>('[data-formula]').forEach((root) => {
+    const spec = compileSpec(JSON.parse(root.querySelector('script[type="application/json"]')!.textContent!));
+    const form = root.querySelector('form')!;
+    const num = (s: string) => Number(String(s ?? '').replace(/[^0-9.\-]/g, '')) || 0;
+
+    form.querySelectorAll<HTMLInputElement>('input[data-kind="money"]').forEach((inp) => {
+      inp.addEventListener('input', () => {
+        const v = Number(inp.value.replace(/[^0-9]/g, ''));
+        inp.value = v ? v.toLocaleString('ko-KR') : '';
+      });
+    });
+
+    const calc = () => {
+      const f = new FormData(form);
+      const values: Record<string, number> = {};
+      for (const inp of spec.inputs) values[inp.key] = num(f.get(inp.key) as string);
+      let env: Record<string, number>;
+      try {
+        env = runSpec(spec, values);
+      } catch {
+        return;
+      }
+      root.querySelectorAll<HTMLElement>('[data-out]').forEach((el) => {
+        el.textContent = formatValue(env[el.dataset.out!] ?? 0, el.dataset.format);
+      });
+      const notes = (spec.notes ?? []).filter((n: { _ast: never }) => {
+        try {
+          return !!evaluate(n._ast, env);
+        } catch {
+          return false;
+        }
+      });
+      root.querySelector<HTMLElement>('[data-notes]')!.textContent = notes.map((n: { text: string }) => n.text).join(' ');
+    };
+
+    form.addEventListener('input', calc);
+    form.addEventListener('change', calc);
+    calc();
+  });
+</script>

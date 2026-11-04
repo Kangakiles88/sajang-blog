@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { TOOLS } from '../../site.config';
+import { ALL_TOOLS } from '../../lib/tools';
 ---
 
 <Base title="사장님 계산기" description="부가세 예상 납부액, 간이·일반과세자 비교, 정책자금 상환액, 대환대출 절감액 등 사장님이 자주 따져보는 숫자를 바로 계산하세요.">
@@ -11,7 +11,7 @@ import { TOOLS } from '../../site.config';
     </header>
     <ul class="ledger-list">
       {
-        TOOLS.map((t) => (
+        ALL_TOOLS.map((t) => (
           <li class="item">
             <a href={t.href}>{t.name}</a>
             <p>{t.blurb}</p>

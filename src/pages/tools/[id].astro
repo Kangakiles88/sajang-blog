@@ -1,0 +1,82 @@
+---
+// 명세(src/data/tools/*.json)로 만든 계산기의 단독 페이지
+import Base from '../../layouts/Base.astro';
+import AdSlot from '../../components/AdSlot.astro';
+import FormulaCalculator from '../../components/FormulaCalculator.astro';
+import { SPEC_TOOLS, type ToolSpec } from '../../lib/tools';
+
+export function getStaticPaths() {
+  return SPEC_TOOLS.map((spec) => ({ params: { id: spec.id }, props: { spec } }));
+}
+
+const { spec } = Astro.props as { spec: ToolSpec };
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: spec.name,
+  description: spec.description,
+  applicationCategory: 'FinanceApplication',
+  operatingSystem: 'Any',
+  inLanguage: 'ko-KR',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'KRW' },
+};
+const sources = [...new Map((spec.constants ?? []).map((c) => [c.source, c])).values()];
+---
+
+<Base title={spec.name} description={spec.description} jsonLd={jsonLd} image={`tool-${spec.id}`}>
+  <div class="wrap">
+    <header class="head">
+      <h1>{spec.name}</h1>
+      <p>{spec.blurb}</p>
+    </header>
+    <FormulaCalculator spec={spec} />
+    <AdSlot />
+    {
+      ((spec.method?.length ?? 0) > 0 || sources.length > 0) && (
+        <section class="narrow-text prose">
+          {spec.method?.map((m) => (
+            <>
+              <h2>{m.heading}</h2>
+              <p>{m.text}</p>
+            </>
+          ))}
+          {sources.length > 0 && (
+            <>
+              <h2>계산에 쓴 기준</h2>
+              <ul>
+                {spec.constants?.map((c) => (
+                  <li>
+                    {c.label}:{' '}
+                    <a href={c.source} rel="nofollow noopener" target="_blank">
+                      원문
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+        </section>
+      )
+    }
+  </div>
+</Base>
+
+<style>
+  .head {
+    padding-block: 2.5rem 2rem;
+    max-width: 40rem;
+  }
+  .head h1 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+  }
+  .head p {
+    color: var(--ink-soft);
+    margin: 0.5rem 0 0;
+  }
+  .narrow-text {
+    max-width: var(--measure);
+    margin-top: 3rem;
+  }
+</style>

@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse, stringify } from 'yaml';
+import { parse as parseExpr, variables, runSpec, FUNCTION_NAMES } from '../src/lib/expr.mjs';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 export const DRAFTS = path.join(ROOT, 'content', 'drafts');
@@ -13,6 +14,16 @@ const CATS = ['loan', 'support', 'tax', 'closing'];
 // 계산기 id와 주로 쓰는 카테고리 (src/site.config.ts의 TOOLS와 맞춰 주세요)
 export const TOOL_CATEGORY = { vat: 'tax', 'tax-type': 'tax', loan: 'loan', refinance: 'loan' };
 export const TOOL_IDS = Object.keys(TOOL_CATEGORY);
+// 명세로 만드는 계산기: 초안은 content/drafts/tools/<id>.json, 발행 후 src/data/tools/<id>.json
+export const DRAFT_TOOLS = path.join(ROOT, 'content', 'drafts', 'tools');
+export const SPEC_TOOLS = path.join(ROOT, 'src', 'data', 'tools');
+export const findToolSpec = (id) => {
+  for (const dir of [DRAFT_TOOLS, SPEC_TOOLS]) {
+    const f = path.join(dir, `${id}.json`);
+    if (fs.existsSync(f)) return { file: f, isDraft: dir === DRAFT_TOOLS };
+  }
+  return null;
+};
 
 export function readDoc(file) {
   const raw = fs.readFileSync(file, 'utf8').replace(/^﻿/, '');
@@ -63,9 +74,30 @@ export function validate(file) {
     d.sources.forEach((s, i) => {
       if (!s?.title || !/^https?:\/\//.test(s?.url ?? '')) errors.push(`sources ${i + 1}번째 항목에 title과 http(s) url이 필요합니다.`);
     });
-  if (d.tool && !TOOL_IDS.includes(d.tool)) errors.push(`tool은 ${TOOL_IDS.join(', ')} 중 하나만 쓸 수 있습니다. 맞는 계산기가 없으면 tool을 빼세요.`);
-  else if (d.tool && TOOL_CATEGORY[d.tool] !== d.category)
-    warnings.push(`계산기(${d.tool})가 이 글의 카테고리(${d.category})와 다릅니다. 독자가 이 글을 읽고 정말 그 계산을 하는지 확인하세요.`);
+  if (d.tool) {
+    let toolCat = TOOL_CATEGORY[d.tool];
+    if (!toolCat) {
+      const found = findToolSpec(d.tool);
+      if (!found) {
+        errors.push(`계산기 "${d.tool}"가 없습니다. 직접 만든 계산기(${TOOL_IDS.join(', ')})를 쓰거나 content/drafts/tools/${d.tool}.json 명세를 만드세요.`);
+      } else {
+        let spec;
+        try {
+          spec = JSON.parse(fs.readFileSync(found.file, 'utf8'));
+        } catch (e) {
+          errors.push(`계산기 명세 ${path.basename(found.file)}가 올바른 JSON이 아닙니다: ${e.message}`);
+        }
+        if (spec) {
+          const r = validateToolSpec(spec, d.tool, d);
+          r.errors.forEach((x) => errors.push(`[계산기 ${d.tool}] ${x}`));
+          r.warnings.forEach((x) => warnings.push(`[계산기 ${d.tool}] ${x}`));
+          toolCat = spec.category;
+        }
+      }
+    }
+    if (toolCat && toolCat !== d.category)
+      warnings.push(`계산기(${d.tool})가 이 글의 카테고리(${d.category})와 다릅니다. 독자가 이 글을 읽고 정말 그 계산을 하는지 확인하세요.`);
+  }
   if (!d.keyPoints) warnings.push('keyPoints(한눈에 보기)가 없습니다. 2~4줄 넣는 것을 권장합니다.');
   else if (!Array.isArray(d.keyPoints) || d.keyPoints.length < 2 || d.keyPoints.length > 4)
     errors.push('keyPoints는 2~4개여야 합니다.');
@@ -174,4 +206,95 @@ export function setQueueStatus(slug, mark) {
   if (!re.test(text)) return false;
   fs.writeFileSync(QUEUE, text.replace(re, (m) => m.replace(/\[[ dx]\]/, `[${mark}]`)), 'utf8');
   return true;
+}
+
+// ── 계산기 명세 검사 ──────────────────────────────────────────────
+// 수식이 안전한 문법인지, 모든 값이 정의돼 있는지, 테스트 예시가 맞는지, 기준값마다 원문 근거가 있는지 봅니다.
+const KEY_RE = /^[a-z][a-zA-Z0-9]*$/;
+export function validateToolSpec(spec, id, post) {
+  const errors = [];
+  const warnings = [];
+  if (spec.id !== id) errors.push(`명세의 id("${spec.id}")가 파일 이름·글의 tool("${id}")과 다릅니다.`);
+  if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(spec.id ?? '')) errors.push('id는 영문 소문자·숫자·하이픈만 씁니다.');
+  if (TOOL_IDS.includes(spec.id)) errors.push(`"${spec.id}"는 이미 있는 계산기 이름입니다.`);
+  for (const k of ['name', 'blurb', 'category', 'headline', 'description', 'fine'])
+    if (!spec[k] || typeof spec[k] !== 'string') errors.push(`${k}가 없습니다.`);
+  if (spec.name && !/계산기/.test(spec.name)) warnings.push('name에 "계산기"를 넣으면 검색에 유리합니다.');
+  if (spec.category && !CATS.includes(spec.category)) errors.push(`category는 ${CATS.join(', ')} 중 하나여야 합니다.`);
+  for (const k of ['inputs', 'steps', 'outputs'])
+    if (!Array.isArray(spec[k]) || spec[k].length === 0) errors.push(`${k}가 비어 있습니다.`);
+  if (errors.length) return { errors, warnings };
+
+  const known = new Set();
+  const addKey = (k, where) => {
+    if (!KEY_RE.test(k ?? '')) errors.push(`${where}의 key "${k}"는 영문 소문자로 시작하는 영문·숫자여야 합니다.`);
+    else if (known.has(k) || FUNCTION_NAMES.includes(k)) errors.push(`key "${k}"가 중복되거나 함수 이름과 같습니다.`);
+    known.add(k);
+  };
+  spec.inputs.forEach((inp, i) => {
+    addKey(inp.key, `inputs ${i + 1}번째`);
+    if (!inp.label) errors.push(`inputs ${i + 1}번째에 label이 없습니다.`);
+    if (!['money', 'percent', 'number', 'select'].includes(inp.type)) errors.push(`inputs "${inp.key}"의 type은 money, percent, number, select 중 하나입니다.`);
+    if (inp.type === 'select' && (!Array.isArray(inp.options) || inp.options.length < 2 || inp.options.some((o) => !o.label || typeof o.value !== 'number')))
+      errors.push(`inputs "${inp.key}"는 select라서 options(label, 숫자 value)가 2개 이상 필요합니다.`);
+  });
+
+  // 기준값(법정 금액·비율 등): 모두 원문 근거 필요
+  const postSources = new Set((post?.sources ?? []).map((x) => normUrl(x?.url)));
+  (spec.constants ?? []).forEach((c, i) => {
+    addKey(c.key, `constants ${i + 1}번째`);
+    if (typeof c.value !== 'number') errors.push(`constants "${c.key}"의 value는 숫자여야 합니다.`);
+    if (!c.label || !c.evidence) errors.push(`constants "${c.key}"에 label과 evidence(원문 어디에 무엇이라고 쓰여 있는지)가 필요합니다.`);
+    if (!/^https?:\/\//.test(c.source ?? '')) errors.push(`constants "${c.key}"에 원문 source URL이 필요합니다.`);
+    else if (post && !postSources.has(normUrl(c.source))) errors.push(`constants "${c.key}"의 출처가 글의 sources에 없습니다.`);
+  });
+
+  // 수식
+  spec.steps.forEach((st, i) => {
+    let ast;
+    try {
+      ast = parseExpr(st.expr);
+    } catch (e) {
+      errors.push(`steps "${st.key}" 수식 오류: ${e.message}`);
+    }
+    if (ast) for (const v of variables(ast)) if (!known.has(v)) errors.push(`steps "${st.key}"가 아직 정의되지 않은 값 "${v}"를 씁니다.`);
+    addKey(st.key, `steps ${i + 1}번째`);
+    // 수식 안의 큰 숫자는 기준값(constants)으로 빼서 근거를 달아야 합니다
+    const bigLiterals = String(st.expr).match(/\d[\d_]{4,}/g);
+    if (bigLiterals) errors.push(`steps "${st.key}" 수식에 숫자 ${bigLiterals.join(', ')}가 직접 들어 있습니다. constants로 빼고 원문 근거를 다세요.`);
+  });
+  (spec.notes ?? []).forEach((n, i) => {
+    try {
+      for (const v of variables(parseExpr(n.when))) if (!known.has(v)) errors.push(`notes ${i + 1}번째 조건이 모르는 값 "${v}"를 씁니다.`);
+    } catch (e) {
+      errors.push(`notes ${i + 1}번째 조건 오류: ${e.message}`);
+    }
+    if (!n.text) errors.push(`notes ${i + 1}번째에 text가 없습니다.`);
+  });
+  spec.outputs.forEach((o) => {
+    if (!known.has(o.key)) errors.push(`outputs "${o.key}"가 inputs·steps에 없습니다.`);
+    if (!o.label) errors.push(`outputs "${o.key}"에 label이 없습니다.`);
+    if (o.format && !['won', 'percent', 'number', 'months'].includes(o.format)) errors.push(`outputs "${o.key}"의 format은 won, percent, number, months 중 하나입니다.`);
+  });
+  if (spec.outputs.filter((o) => o.primary).length > 1) errors.push('primary 출력은 하나만 둡니다.');
+  if (errors.length) return { errors, warnings };
+
+  // 테스트: 손으로 계산한 예시와 결과가 같아야 합니다
+  const tests = spec.tests ?? [];
+  if (tests.length < 3) errors.push(`tests(손계산 예시)가 ${tests.length}개입니다. 경계값을 포함해 최소 3개를 넣으세요.`);
+  tests.forEach((t, i) => {
+    let env;
+    try {
+      env = runSpec(spec, t.inputs ?? {});
+    } catch (e) {
+      errors.push(`tests ${i + 1}번째 계산 오류: ${e.message}`);
+      return;
+    }
+    for (const [k, want] of Object.entries(t.expect ?? {})) {
+      if (!(k in env)) errors.push(`tests ${i + 1}번째의 expect "${k}"가 없는 값입니다.`);
+      else if (Math.abs(env[k] - want) > 1) errors.push(`tests ${i + 1}번째: ${k} 예상 ${want}, 계산 결과 ${Math.round(env[k])}. 수식이나 예시를 확인하세요.`);
+    }
+    if (!t.why) warnings.push(`tests ${i + 1}번째에 why(손계산 과정)가 없습니다.`);
+  });
+  return { errors, warnings };
 }

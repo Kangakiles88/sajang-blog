@@ -7,6 +7,8 @@ import VatCalculator from '../../components/VatCalculator.astro';
 import LoanCalculator from '../../components/LoanCalculator.astro';
 import TaxTypeCalculator from '../../components/TaxTypeCalculator.astro';
 import RefinanceCalculator from '../../components/RefinanceCalculator.astro';
+import FormulaCalculator from '../../components/FormulaCalculator.astro';
+import { getSpec, toolExists } from '../../lib/tools';
 import CategoryTag from '../../components/CategoryTag.astro';
 import KeyPoints from '../../components/KeyPoints.astro';
 import { SITE, categoryName, getCategory } from '../../site.config';
@@ -28,6 +30,8 @@ const url = new URL(`/posts/${post.id}/`, Astro.site).href;
 const toc = headings.filter((h) => h.depth === 2);
 const minutes = readingMinutes(post.body ?? '');
 const cat = getCategory(d.category);
+if (d.tool && !toolExists(d.tool)) throw new Error(`글 ${post.id}의 계산기 "${d.tool}"가 없습니다. src/data/tools/${d.tool}.json 을 확인하세요.`);
+const spec = getSpec(d.tool);
 const ogImage = new URL(`/og/${post.id}.png`, Astro.site).href;
 
 const jsonLd = [
@@ -96,6 +100,7 @@ const jsonLd = [
     {d.tool === 'loan' && <LoanCalculator embedded />}
     {d.tool === 'tax-type' && <TaxTypeCalculator embedded />}
     {d.tool === 'refinance' && <RefinanceCalculator embedded />}
+    {spec && <FormulaCalculator spec={spec} embedded />}
 
     <AdSlot />
 

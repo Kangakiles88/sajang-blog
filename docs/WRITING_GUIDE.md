@@ -98,7 +98,60 @@ reviewNotes: |
 | `refinance` | 대환대출 이자 절감 (/tools/refinance/) | 기존 고금리 대출을 갈아타는 대환대출 | 신규 대출 |
 
 - 지원사업, 서류 체크리스트, 폐업 절차처럼 계산할 것이 없는 글은 `tool`을 비웁니다.
-- 글에 꼭 필요한 계산기가 표에 없으면 `tool`을 비우고, `reviewNotes`에 `필요한 계산기: (무엇을 입력해 무엇을 계산하는지)`를 한 줄 적습니다. 사람이 보고 새 계산기를 만듭니다.
+- 위 표에 맞는 계산기가 없는데 독자가 꼭 해볼 계산이 있으면 **새 계산기를 직접 만듭니다** (아래 "새 계산기 만들기"). 이미 `src/data/tools/`에 있는 계산기가 맞으면 그 id를 씁니다.
+
+## 새 계산기 만들기
+
+코드를 쓰지 않고 **JSON 명세 파일 하나**로 만듭니다. 사이트가 명세를 읽어 글 안 계산기와 단독 페이지(/tools/<id>/)를 자동으로 만듭니다.
+
+1. 먼저 `src/data/tools/` 를 봅니다. 같은 계산을 하는 계산기가 있으면 새로 만들지 않고 그 id를 씁니다.
+2. `content/drafts/tools/<id>.json` 에 명세를 씁니다. id는 영문 소문자·하이픈(예: `yellow-umbrella`). 글 frontmatter에 `tool: <id>`.
+3. **법정 금액·비율·한도·구간은 전부 `constants`로** 뺍니다. 각 기준값에 `source`(글의 `sources`에 있는 원문 URL)와 `evidence`(원문 어디에 무엇이라고 쓰여 있는지)를 답니다. 수식 안에 5자리 이상 숫자를 직접 쓰면 검사에서 막힙니다. 기준값도 2차 검증 때 원문을 다시 열어 확인하고, 본문의 검증표(factCheck)에도 같은 숫자를 넣습니다.
+4. `tests`에 손으로 계산한 예시를 **3개 이상**, 구간 경계값을 포함해 넣습니다. `why`에 계산 과정을 적습니다. 검사 스크립트가 명세로 계산한 값과 비교해 1원이라도 다르면 발행을 막습니다.
+5. 원문에서 확인할 수 없는 기준이 필요하면 계산기를 만들지 말고 `tool`을 비운 뒤 `reviewNotes`에 이유를 적습니다.
+6. 발행하면 명세는 `src/data/tools/`로 옮겨져 다른 글에서도 다시 쓸 수 있습니다.
+
+명세 형식:
+
+```json
+{
+  "id": "yellow-umbrella",
+  "name": "노란우산공제 소득공제 절세액 계산기",
+  "blurb": "한 줄 설명 (계산기 목록에 표시)",
+  "category": "closing",
+  "headline": "글 안에서 계산기 제목 (질문형, 예: 노란우산공제로 세금이 얼마나 줄까?)",
+  "description": "계산기 단독 페이지 검색 설명 (80~160자)",
+  "inputs": [
+    { "key": "income", "label": "사업소득금액", "type": "money", "default": 30000000, "help": "종합소득세 신고서의 사업소득금액" },
+    { "key": "taxRate", "label": "적용 세율", "type": "select", "default": 0.15,
+      "options": [ { "label": "6%", "value": 0.06 }, { "label": "15%", "value": 0.15 } ] }
+  ],
+  "constants": [
+    { "key": "capLow", "value": 0, "label": "소득 ○○ 이하 공제 한도",
+      "source": "https://www.law.go.kr/...", "evidence": "조세특례제한법 제○조 ○항 '…'" }
+  ],
+  "steps": [
+    { "key": "deduct", "expr": "min(monthly * 12, income <= line ? capLow : capHigh)" },
+    { "key": "saving", "expr": "round(deduct * taxRate * 1.1)" }
+  ],
+  "outputs": [
+    { "key": "saving", "label": "줄어드는 세금 (지방소득세 포함)", "format": "won", "primary": true },
+    { "key": "deduct", "label": "소득공제액", "format": "won" }
+  ],
+  "notes": [ { "when": "monthly * 12 > deduct", "text": "한도를 넘는 납입액은 공제되지 않습니다." } ],
+  "fine": "단순화한 추정치라는 안내와 반영하지 않은 것",
+  "method": [ { "heading": "계산 방식", "text": "단독 페이지에 보일 설명" } ],
+  "tests": [
+    { "inputs": { "income": 30000000, "monthly": 500000, "taxRate": 0.15 },
+      "expect": { "deduct": 0, "saving": 0 }, "why": "손계산 과정" }
+  ]
+}
+```
+
+- `type`: `money`(원), `percent`(3.5 처럼 % 숫자 그대로), `number`, `select`
+- 수식에 쓸 수 있는 것: 숫자, key, `+ - * / %`, 괄호, `< <= > >= == !=`, `&&`, `||`, `!`, `조건 ? 값 : 값`, `min max round floor ceil abs pow clamp` (`round(x, -3)`은 천 원 단위). 그 밖의 문법은 거부됩니다.
+- `percent` 입력은 계산할 때 `/ 100` 해서 씁니다.
+- `format`: `won`(기본), `percent`, `number`, `months`
 
 **문체**
 - 존댓말, "사장님" 호칭. 공문서 말투를 쉬운 말로 바꿉니다 ("융자" → "대출", "영위하는" → "하고 있는").

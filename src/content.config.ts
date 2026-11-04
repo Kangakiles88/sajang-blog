@@ -16,7 +16,8 @@ const posts = defineCollection({
       .array(z.object({ title: z.string(), url: z.string().url() }))
       .min(1),
     // 글과 함께 보여줄 계산기 (선택)
-    tool: z.enum(['vat', 'tax-type', 'loan', 'refinance']).optional(),
+    // 직접 만든 계산기(vat, tax-type, loan, refinance) 또는 src/data/tools/<id>.json 명세 계산기의 id
+    tool: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/).optional(),
     // 글 맨 위 "한눈에 보기" 박스. 2~4줄 (예: 대상 / 금액 / 마감 / 신청처)
     keyPoints: z
       .array(z.object({ label: z.string().max(8), value: z.string().max(80) }))

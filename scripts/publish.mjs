@@ -10,7 +10,7 @@ import path from 'node:path';
 import { execSync } from 'node:child_process';
 import readline from 'node:readline/promises';
 import { stringify } from 'yaml';
-import { DRAFTS, POSTS, ROOT, validate, writeDoc, todayKST, setQueueStatus } from './lib.mjs';
+import { DRAFTS, POSTS, ROOT, DRAFT_TOOLS, SPEC_TOOLS, validate, writeDoc, todayKST, setQueueStatus } from './lib.mjs';
 
 const args = process.argv.slice(2);
 const slug = args.find((a) => !a.startsWith('--'))?.replace(/\.md$/, '');
@@ -50,9 +50,16 @@ doc.data.factCheck.items.forEach((it, i) => {
   console.log(`     근거: ${it.evidence}`);
   console.log(`     원문: ${it.source}`);
 });
+const toolSpecFile = doc.data.tool ? path.join(DRAFT_TOOLS, `${doc.data.tool}.json`) : null;
+if (toolSpecFile && fs.existsSync(toolSpecFile)) {
+  const spec = JSON.parse(fs.readFileSync(toolSpecFile, 'utf8'));
+  console.log(`\n새 계산기: ${spec.name}`);
+  (spec.constants ?? []).forEach((c) => console.log(`  기준값 ${c.label} = ${c.value.toLocaleString('ko-KR')}\n     근거: ${c.evidence}\n     원문: ${c.source}`));
+  (spec.tests ?? []).forEach((t, i) => console.log(`  예시 ${i + 1}: ${JSON.stringify(t.inputs)} → ${JSON.stringify(t.expect)}${t.why ? `\n     (${t.why})` : ''}`));
+}
 if (!args.includes('--yes')) {
   const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-  const ans = (await rl.question('\n원문 링크를 직접 열어 위 숫자를 확인했나요? (y/N) ')).trim().toLowerCase();
+  const ans = (await rl.question('\n원문 링크를 직접 열어 위 숫자(계산기 기준값 포함)를 확인했나요? (y/N) ')).trim().toLowerCase();
   rl.close();
   if (ans !== 'y') {
     console.log('발행하지 않았습니다. 확인 후 다시 실행하세요.');
@@ -70,6 +77,17 @@ fs.writeFileSync(fcFile, stringify({ slug, title: data.title, publishedOn: date,
 const dest = path.join(POSTS, `${slug}.md`);
 writeDoc(dest, data, doc.body);
 fs.unlinkSync(src);
+
+// 이 글을 위해 새로 만든 계산기 명세가 있으면 함께 발행합니다
+const toolDraft = data.tool ? path.join(DRAFT_TOOLS, `${data.tool}.json`) : null;
+const toolDest = data.tool ? path.join(SPEC_TOOLS, `${data.tool}.json`) : null;
+let toolMoved = false;
+if (toolDraft && fs.existsSync(toolDraft)) {
+  fs.mkdirSync(SPEC_TOOLS, { recursive: true });
+  fs.renameSync(toolDraft, toolDest);
+  toolMoved = true;
+  console.log(`✓ 새 계산기 ${data.tool}도 함께 발행합니다 (/tools/${data.tool}/).`);
+}
 setQueueStatus(slug, 'x');
 console.log(`✓ src/content/posts/${slug}.md 로 옮겼습니다 (공개일 ${date}).`);
 
@@ -82,6 +100,7 @@ try {
   fs.writeFileSync(src, raw, 'utf8');
   fs.unlinkSync(dest);
   fs.rmSync(fcFile, { force: true });
+  if (toolMoved) fs.renameSync(toolDest, toolDraft);
   setQueueStatus(slug, 'd');
   console.error(e.stdout?.toString().slice(-2000) ?? e.message);
   console.error('\n✗ 빌드가 실패해서 초안을 원래 자리로 되돌렸습니다. 위 오류를 확인하세요.');
@@ -89,7 +108,7 @@ try {
 }
 
 try {
-  run(`git add -A "src/content/posts/${slug}.md" "content/drafts" "content/factcheck" "keywords/queue.md"`);
+  run(`git add -A "src/content/posts/${slug}.md" "content/drafts" "content/factcheck" "src/data/tools" "keywords/queue.md"`);
   run(`git commit -m "글 발행: ${data.title.replace(/"/g, "'")}"`);
   if (push) {
     run('git push');
