@@ -1,0 +1,90 @@
+slug: support-application-documents
+title: 소상공인 지원사업 신청 서류 체크리스트 (홈택스 국세증명 발급 방법 포함, 2026년 기준)
+publishedOn: 2026-11-06
+checkedAt: 2026-11-02
+items:
+  - claim: 정책자금 공공 마이데이터 확인 서류 수
+    value: 14종
+    source: https://ols.semas.or.kr/ols/man/SMAN054M/page.do
+    evidence: "FAQ '신청 절차 및 필요서류' > '신청 시 준비해야하는 서류는 무엇인가요?' 답변의 '< 공공 마이데이터로 공단에서 확인 가능한 서류 >' 목록: 사업자등록증명~장애인증명서 14개 항목 (게시일 표시 없음, 2026.11.2. 열람)"
+    status: 일치
+  - claim: 정책자금 개별 제출 서류 수
+    value: 6종
+    source: https://ols.semas.or.kr/ols/man/SMAN054M/page.do
+    evidence: "같은 답변 '< 개별 제출 서류 >' 목록: 기업현황 및 사업계획서(공단 양식)~거주주택 임대차계약서 사본 6개 항목"
+    status: 일치
+  - claim: 소상공인 기준 상시 근로자 수 (광업·제조업·건설업·운수업)
+    value: 10명 미만
+    source: https://www.law.go.kr/법령/소상공인기본법시행령/제3조
+    evidence: "시행령 제3조제1항제1호 '광업ㆍ제조업ㆍ건설업 및 운수업: 10명 미만' ([시행 2026. 2. 1.] 대통령령 제36055호)"
+    status: 일치
+  - claim: 소상공인 기준 상시 근로자 수 (그 밖의 업종)
+    value: 5명 미만
+    source: https://www.law.go.kr/법령/소상공인기본법시행령/제3조
+    evidence: "제3조제1항제2호 '제1호 외의 업종: 5명 미만'"
+    status: 일치
+  - claim: 시행령 시행일
+    value: 2026년 2월 1일
+    source: https://www.law.go.kr/법령/소상공인기본법시행령/제3조
+    evidence: 법령 머리 '[시행 2026. 2. 1.] [대통령령 제36055호, 2026. 1. 27., 타법개정]'
+    status: 일치
+  - claim: 상시 근로자에서 빠지는 단시간근로자 기준
+    value: 60시간 미만
+    source: https://www.law.go.kr/법령/소상공인기본법시행령/제3조
+    evidence: 제3조제3항제4호 '1개월 동안의 소정근로시간이 60시간 미만인 사람'
+    status: 일치
+  - claim: 한 달 60시간 이상 단시간근로자 산정
+    value: 1명을 0.5명
+    source: https://www.law.go.kr/법령/소상공인기본법시행령/제3조
+    evidence: 제3조제4항 후단 '60시간 이상인 근로자는 1명을 0.5명으로 보아 산정'
+    status: 일치
+  - claim: 상시 근로자에서 빠지는 단기 근로자
+    value: 3개월 이내
+    source: https://www.law.go.kr/법령/소상공인기본법시행령/제3조
+    evidence: 제3조제3항제2호 '3개월 이내의 기간을 정하여 근로하는 사람'
+    status: 일치
+  - claim: 사업자등록증명·과세표준증명 수수료
+    value: 수수료가 없고
+    source: https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=12100000016
+    evidence: "정부24 사업자등록증명 발급 '서비스 개요' 수수료: '수수료 없음' (최근 내용 확인일 2025-10-29). 부가가치세과세표준증명 페이지(CappBizCD=12100000331)도 '수수료 없음'"
+    status: 일치
+  - claim: 사업자등록증명·과세표준증명 처리 기간
+    value: 즉시(근무시간 내 3시간)
+    source: https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=12100000016
+    evidence: "서비스 개요 처리기간: '즉시(근무시간 내 3시간)'. 과세표준증명 페이지도 동일"
+    status: 일치
+  - claim: 부가가치세 과세표준증명 수수료·처리 기간
+    value: 즉시(근무시간 내 3시간)
+    source: https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=12100000331
+    evidence: "정부24 부가가치세과세표준증명 발급 '서비스 개요': 처리기간 '즉시(근무시간 내 3시간)', 수수료 '수수료 없음', 신청자격 '본인 또는 대리인(온라인은 대리인 신청 불가)' (최근 내용 확인일 2025-10-29)"
+    status: 일치
+  - claim: 국세증명 온라인 대리 신청
+    value: 온라인으로는 대리인이 신청할 수 없습니다
+    source: https://www.gov.kr/mw/AA020InfoCappView.do?CappBizCD=12100000016
+    evidence: "서비스 개요 신청자격: '본인 또는 대리인(온라인은 대리인 신청 불가)'; 대리인 신청 시 위임장·대리인 신분증·위임인 신분증 제출"
+    status: 일치
+  - claim: 대리대출 확인서 유효기간
+    value: 90일
+    source: https://ols.semas.or.kr/ols/pfi/SPFI201M/page.do
+    evidence: "대출신청안내 '유의사항 > 대리대출': '발급승인한 이후부터 유효기간 내(90일) 출력 가능'"
+    status: 일치
+  - claim: 직접대출 접수 시기
+    value: 매월 첫째 주
+    source: https://ols.semas.or.kr/ols/pfi/SPFI201M/page.do
+    evidence: "대출신청안내 '접수시기': '직접대출: 매월 첫째주 접수개시' (정책·예산에 따라 변동 가능 명시)"
+    status: 일치
+  - claim: 대리대출 접수 시기
+    value: 매 분기 첫째 주
+    source: https://ols.semas.or.kr/ols/pfi/SPFI201M/page.do
+    evidence: "'접수시기': '대리대출: 매분기 첫째주 접수개시'"
+    status: 일치
+  - claim: 소상공인 통합콜센터 번호
+    value: 1533-0100
+    source: https://ols.semas.or.kr/ols/pfi/SPFI201M/page.do
+    evidence: "페이지 하단 '대표전화 : 1533-0100(소상공인 통합콜센터)'"
+    status: 일치
+  - claim: 국세상담센터 번호
+    value: "126"
+    source: https://hometax.go.kr
+    evidence: 홈택스 메인 하단 '국세상담센터 126 상담시간 평일 09시 - 18시'
+    status: 일치
