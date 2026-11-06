@@ -1,0 +1,85 @@
+{
+  "id": "yellow-umbrella",
+  "name": "노란우산공제 소득공제 절세액 계산기",
+  "blurb": "사업소득금액과 1년 납입액으로 노란우산공제 소득공제액과 줄어드는 세금을 어림합니다",
+  "category": "closing",
+  "headline": "노란우산공제로 세금이 얼마나 줄까?",
+  "description": "사업소득금액 구간별 노란우산공제 소득공제 한도(600만·500만·400만·200만 원)를 적용해 공제액과 줄어드는 종합소득세·지방소득세를 계산합니다. 2025년 납입분부터 적용되는 현행 조세특례제한법 기준입니다.",
+  "inputs": [
+    { "key": "income", "label": "사업소득금액 (1년)", "type": "money", "default": 40000000, "help": "매출이 아니라 매출에서 필요경비를 뺀 금액입니다. 부동산임대업 소득은 빼고 넣으세요." },
+    { "key": "paid", "label": "1년 동안 낸 노란우산공제 부금", "type": "money", "default": 6000000, "help": "1월~12월에 실제로 낸 금액의 합계" },
+    { "key": "taxRate", "label": "내 종합소득세 세율 (과세표준 구간)", "type": "select", "default": 0.15,
+      "help": "과세표준(소득공제를 뺀 금액) 기준 구간입니다. 작년 신고서의 세율을 참고하세요.",
+      "options": [
+        { "label": "6% (과세표준 1,400만 원 이하)", "value": 0.06 },
+        { "label": "15% (1,400만 원 초과 5,000만 원 이하)", "value": 0.15 },
+        { "label": "24% (5,000만 원 초과 8,800만 원 이하)", "value": 0.24 },
+        { "label": "35% (8,800만 원 초과 1억5천만 원 이하)", "value": 0.35 },
+        { "label": "38% (1억5천만 원 초과 3억 원 이하)", "value": 0.38 },
+        { "label": "40% (3억 원 초과 5억 원 이하)", "value": 0.40 },
+        { "label": "42% (5억 원 초과 10억 원 이하)", "value": 0.42 },
+        { "label": "45% (10억 원 초과)", "value": 0.45 }
+      ] }
+  ],
+  "constants": [
+    { "key": "line1", "value": 40000000, "label": "1구간 상한: 사업소득금액 4천만 원",
+      "source": "https://www.law.go.kr/법령/조세특례제한법/제86조의3", "evidence": "제86조의3제1항제1호 '사업소득금액이 4천만원 이하인 경우: 600만원'" },
+    { "key": "line2", "value": 60000000, "label": "2구간 상한: 사업소득금액 6천만 원",
+      "source": "https://www.law.go.kr/법령/조세특례제한법/제86조의3", "evidence": "제86조의3제1항제2호 '4천만원 초과 6천만원 이하인 경우: 500만원'" },
+    { "key": "line3", "value": 100000000, "label": "3구간 상한: 사업소득금액 1억 원",
+      "source": "https://www.law.go.kr/법령/조세특례제한법/제86조의3", "evidence": "제86조의3제1항제3호 '6천만원 초과 1억원 이하인 경우: 400만원'" },
+    { "key": "cap1", "value": 6000000, "label": "4천만 원 이하 공제 한도",
+      "source": "https://www.law.go.kr/법령/조세특례제한법/제86조의3", "evidence": "제86조의3제1항제1호 '600만원'" },
+    { "key": "cap2", "value": 5000000, "label": "4천만 원 초과 6천만 원 이하 공제 한도",
+      "source": "https://www.law.go.kr/법령/조세특례제한법/제86조의3", "evidence": "제86조의3제1항제2호 '500만원'" },
+    { "key": "cap3", "value": 4000000, "label": "6천만 원 초과 1억 원 이하 공제 한도",
+      "source": "https://www.law.go.kr/법령/조세특례제한법/제86조의3", "evidence": "제86조의3제1항제3호 '400만원'" },
+    { "key": "cap4", "value": 2000000, "label": "1억 원 초과 공제 한도",
+      "source": "https://www.law.go.kr/법령/조세특례제한법/제86조의3", "evidence": "제86조의3제1항제4호 '사업소득금액이 1억원 초과인 경우: 200만원'" },
+    { "key": "localRatio", "value": 0.1, "label": "개인지방소득세 = 소득세 세율의 10분의 1",
+      "source": "https://www.law.go.kr/법령/지방세법/제92조", "evidence": "지방세법 제92조제1항 세율표 '1천400만원 이하 과세표준의 1천분의 6' 등 각 구간이 소득세법 제55조 세율(6% 등)의 10분의 1" }
+  ],
+  "steps": [
+    { "key": "cap", "expr": "income <= line1 ? cap1 : (income <= line2 ? cap2 : (income <= line3 ? cap3 : cap4))" },
+    { "key": "deduct", "expr": "max(0, min(paid, cap, income))" },
+    { "key": "incomeTaxSaving", "expr": "round(deduct * taxRate)" },
+    { "key": "localTaxSaving", "expr": "round(incomeTaxSaving * localRatio)" },
+    { "key": "saving", "expr": "incomeTaxSaving + localTaxSaving" }
+  ],
+  "outputs": [
+    { "key": "saving", "label": "줄어드는 세금 (지방소득세 포함, 어림값)", "format": "won", "primary": true },
+    { "key": "deduct", "label": "소득공제액", "format": "won" },
+    { "key": "cap", "label": "내 구간의 공제 한도", "format": "won" },
+    { "key": "incomeTaxSaving", "label": "줄어드는 종합소득세", "format": "won" },
+    { "key": "localTaxSaving", "label": "줄어드는 지방소득세", "format": "won" }
+  ],
+  "notes": [
+    { "when": "paid > cap", "text": "한도를 넘겨 낸 금액은 올해 소득공제를 받지 못합니다. 나중에 공제금을 받을 때 그 부분은 과세 대상에서 빠집니다." },
+    { "when": "income < min(paid, cap)", "text": "공제액은 사업소득금액을 넘을 수 없어 사업소득금액만큼만 공제됩니다." }
+  ],
+  "fine": "고른 세율 하나를 공제액 전체에 곱한 어림값입니다. 공제 때문에 과세표준이 낮은 구간으로 내려가면 실제 절세액은 더 적습니다. 부동산임대업 소득이 있는 경우의 비율 조정, 다른 소득공제·세액공제, 지자체 조례에 따른 지방소득세율 조정은 반영하지 않았습니다. 2025년 이후 납입분에 적용되는 현행 조세특례제한법 제86조의3 기준입니다.",
+  "method": [
+    { "heading": "공제 한도", "text": "조세특례제한법 제86조의3제1항에 따라 사업소득금액 4천만 원 이하 600만 원, 4천만 원 초과 6천만 원 이하 500만 원, 6천만 원 초과 1억 원 이하 400만 원, 1억 원 초과 200만 원을 한도로 합니다. 공제액은 1년 납입액과 한도 중 적은 금액이며, 사업소득금액을 넘지 않습니다." },
+    { "heading": "줄어드는 세금", "text": "공제액에 고른 종합소득세 세율(소득세법 제55조)을 곱해 줄어드는 소득세를 구하고, 개인지방소득세 세율이 소득세 세율의 10분의 1(지방세법 제92조)이므로 그 10%를 더합니다." }
+  ],
+  "tests": [
+    { "inputs": { "income": 40000000, "paid": 6000000, "taxRate": 0.15 },
+      "expect": { "cap": 6000000, "deduct": 6000000, "incomeTaxSaving": 900000, "localTaxSaving": 90000, "saving": 990000 },
+      "why": "경계값 4천만 원은 '4천만원 이하'라 한도 600만 원. 공제 min(600만,600만)=600만. 600만×15%=90만, 지방 90만×10%=9만, 합계 99만 원" },
+    { "inputs": { "income": 40000001, "paid": 6000000, "taxRate": 0.15 },
+      "expect": { "cap": 5000000, "deduct": 5000000, "incomeTaxSaving": 750000, "localTaxSaving": 75000, "saving": 825000 },
+      "why": "4천만 원을 1원 넘으면 2구간이라 한도 500만 원. 500만×15%=75만, 지방 7만5천, 합계 82만5천 원" },
+    { "inputs": { "income": 60000000, "paid": 6000000, "taxRate": 0.24 },
+      "expect": { "cap": 5000000, "deduct": 5000000, "incomeTaxSaving": 1200000, "localTaxSaving": 120000, "saving": 1320000 },
+      "why": "경계값 6천만 원은 '6천만원 이하'라 한도 500만 원. 600만 냈어도 500만만 공제. 500만×24%=120만, 지방 12만, 합계 132만 원" },
+    { "inputs": { "income": 100000000, "paid": 3000000, "taxRate": 0.24 },
+      "expect": { "cap": 4000000, "deduct": 3000000, "incomeTaxSaving": 720000, "localTaxSaving": 72000, "saving": 792000 },
+      "why": "경계값 1억 원은 '1억원 이하'라 한도 400만 원. 납입 300만 < 한도라 300만 공제. 300만×24%=72만, 지방 7만2천, 합계 79만2천 원" },
+    { "inputs": { "income": 100000001, "paid": 3000000, "taxRate": 0.35 },
+      "expect": { "cap": 2000000, "deduct": 2000000, "incomeTaxSaving": 700000, "localTaxSaving": 70000, "saving": 770000 },
+      "why": "1억 원 초과라 한도 200만 원. 200만×35%=70만, 지방 7만, 합계 77만 원" },
+    { "inputs": { "income": 3000000, "paid": 6000000, "taxRate": 0.06 },
+      "expect": { "cap": 6000000, "deduct": 3000000, "incomeTaxSaving": 180000, "localTaxSaving": 18000, "saving": 198000 },
+      "why": "한도 600만 원이지만 공제액은 사업소득금액 300만 원을 넘을 수 없어 300만. 300만×6%=18만, 지방 1만8천, 합계 19만8천 원" }
+  ]
+}
