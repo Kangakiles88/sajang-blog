@@ -1,0 +1,150 @@
+slug: vat-january-filing-guide
+title: 1월 부가세 확정신고, 개인사업자 혼자 홈택스로 하는 법 (2027년 1월 25일 마감)
+publishedOn: 2026-11-06
+checkedAt: 2026-11-03
+items:
+  - claim: 확정신고·납부 기한(과세기간 종료 후)
+    value: 2027년 1월 25일(월)
+    source: https://www.law.go.kr/법령/부가가치세법/제49조
+    evidence: 제49조제1항 '그 과세기간이 끝난 후 25일 ... 이내에 ... 신고하여야 한다' ([시행 2026. 1. 2.] 법률 제21065호). 국세청 7693 표 제2기 확정신고 '다음해 1.1.~1.25.'. 2027.1.25.은 달력상 월요일이라 공휴일 연장 없음
+    status: 일치
+  - claim: 개인 일반과세자 이번 신고 과세기간
+    value: 2026.7.1.~2026.12.31.
+    source: https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7693&mi=22
+    evidence: 국세청 '부가가치세란?' 과세기간 표 '제2기 7.1~12.31 확정신고 7.1.~12.31. 다음해 1.1.~1.25. 법인·개인 일반사업자'
+    status: 일치
+  - claim: 간이과세자 과세기간
+    value: 2026.1.1.~2026.12.31.
+    source: https://www.law.go.kr/법령/부가가치세법/제5조
+    evidence: "제5조제1항제1호 '간이과세자: 1월 1일부터 12월 31일까지'. 국세청 7693 간이과세자 표 '1.1.~12.31. 다음해 1.1.~1.25.'"
+    status: 일치
+  - claim: 간이과세자 신고 기한
+    value: 2027.1.25.(월)
+    source: https://www.law.go.kr/법령/부가가치세법/제67조
+    evidence: 제67조제1항 '과세기간이 끝난 후 25일 ... 이내에 ... 확정신고를 하고 ... 납부'
+    status: 일치
+  - claim: 간이과세자 납부의무 면제 기준
+    value: 4,800만 원 미만
+    source: https://www.law.go.kr/법령/부가가치세법/제69조
+    evidence: 제69조제1항 '공급대가의 합계액이 4천800만원 미만이면 ... 납부의무를 면제한다'
+    status: 일치
+  - claim: 예정고지 금액
+    value: 직전 6개월 납부세액의 50%
+    source: https://www.law.go.kr/법령/부가가치세법/제48조
+    evidence: 제48조제3항 '직전 과세기간에 대한 납부세액 ... 의 50퍼센트 ... 로 결정하여 ... 징수한다'. 국세청 7693 '직전 과세기간(6개월) 납부세액의 50%를 예정고지서(4월·10월)에 의해 납부'
+    status: 일치
+  - claim: 예정고지 미징수 기준
+    value: 50만 원 미만
+    source: https://www.law.go.kr/법령/부가가치세법/제48조
+    evidence: 제48조제3항 단서 제1호 '징수하여야 할 금액이 50만원 미만인 경우' 징수하지 아니함
+    status: 일치
+  - claim: 예정고지세액 확정신고 시 차감
+    value: 이미 낸 세금으로 빠집니다
+    source: https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7693&mi=22
+    evidence: 국세청 7693 '예정고지된 세액은 다음 확정신고 시 기납부세액으로 차감됩니다'
+    status: 일치
+  - claim: 신용카드 매출전표 등 발행세액공제율
+    value: 1.3%
+    source: https://www.law.go.kr/법령/부가가치세법/제46조
+    evidence: 제46조제1항제3호 '발급금액 또는 결제금액의 1퍼센트(2026년 12월 31일까지는 1.3퍼센트로 한다)'
+    status: 일치
+  - claim: 신용카드 매출전표 등 발행세액공제 한도
+    value: 연간 1천만 원
+    source: https://www.law.go.kr/법령/부가가치세법/제46조
+    evidence: 제46조제1항제3호 '연간 500만원을 한도로 하되, 2026년 12월 31일까지는 연간 1천만원을 한도로 한다'
+    status: 일치
+  - claim: 1.3%·1천만 원 적용 기한
+    value: 2026년 12월 31일까지
+    source: https://www.law.go.kr/법령/부가가치세법/제46조
+    evidence: 제46조제1항제3호 괄호 '2026년 12월 31일까지는'
+    status: 일치
+  - claim: 발행세액공제 제외 개인사업자 기준
+    value: 10억 원
+    source: https://www.law.go.kr/법령/부가가치세법시행령/제88조
+    evidence: 법 제46조제1항제1호가목 '직전 연도의 ... 공급가액의 합계액이 대통령령으로 정하는 금액을 초과하는 개인사업자는 제외' + 시행령 제88조제3항 '사업장을 기준으로 10억원' ([시행 2026. 2. 27.] 대통령령 제36133호)
+    status: 일치
+  - claim: 전자신고세액공제(부가가치세 확정신고)
+    value: 5천 원
+    source: https://www.law.go.kr/법령/조세특례제한법시행령/제104조의5
+    evidence: 시행령 제104조의5제3항 '부가가치세법 제49조에 따른 확정신고 및 같은 법 제67조에 따른 신고', 제4항 '대통령령으로 정하는 금액이란 5천원' <개정 2026. 2. 27.> ([시행 2026. 9. 18.] 대통령령 제36587호)
+    status: 일치
+  - claim: 무신고 가산세율(일반)
+    value: 20%
+    source: https://www.law.go.kr/법령/국세기본법/제47조의2
+    evidence: "제47조의2제1항제2호 '제1호 외의 경우: 100분의 20' ([시행 2026. 10. 2.] 법률 제21987호)"
+    status: 일치
+  - claim: 무신고 가산세율(부정행위)
+    value: 40%
+    source: https://www.law.go.kr/법령/국세기본법/제47조의2
+    evidence: "제47조의2제1항제1호 '부정행위로 ... 신고를 하지 아니한 경우: 100분의 40'"
+    status: 일치
+  - claim: 과소신고 가산세율(일반)
+    value: 10%
+    source: https://www.law.go.kr/법령/국세기본법/제47조의3
+    evidence: "제47조의3제1항제2호 '제1호 외의 경우: 과소신고납부세액등의 100분의 10'"
+    status: 일치
+  - claim: 납부지연 가산세 이자율
+    value: 1일 0.022%
+    source: https://www.law.go.kr/법령/국세기본법시행령/제27조의4
+    evidence: 시행령 제27조의4제1항 '1일 10만분의 22의 율' (=0.022%) ([시행 2026. 2. 27.] 대통령령 제36125호)
+    status: 일치
+  - claim: 기한 후 신고 감면(1개월 이내)
+    value: 무신고 가산세의 50%
+    source: https://www.law.go.kr/법령/국세기본법/제48조
+    evidence: "제48조제2항제2호가목 '법정신고기한이 지난 후 1개월 이내에 기한 후 신고를 한 경우: 해당 가산세액의 100분의 50'"
+    status: 일치
+  - claim: 기한 후 신고 감면(1개월 초과 3개월 이내)
+    value: 30%
+    source: https://www.law.go.kr/법령/국세기본법/제48조
+    evidence: 제48조제2항제2호나목 '1개월 초과 3개월 이내 ... 100분의 30'
+    status: 일치
+  - claim: 기한 후 신고 감면(3개월 초과 6개월 이내)
+    value: 20%
+    source: https://www.law.go.kr/법령/국세기본법/제48조
+    evidence: 제48조제2항제2호다목 '3개월 초과 6개월 이내 ... 100분의 20'
+    status: 일치
+  - claim: 홈택스 신고 운영시간(지난 1월)
+    value: 오전 6시부터 다음 날 새벽 1시까지
+    source: https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2201&bbsId=1028&nttSn=1347790
+    evidence: "2026.1.8. 보도참고자료 참고2 '이용시간: 1.1.~1.26. 매일 06:00~다음날 01:00 ※ 다만, 1.12.(월), 1.26.(월)은 06:00~24:00'"
+    status: 일치
+  - claim: 무실적 ARS 신고 번호
+    value: 1544-9944
+    source: https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2201&bbsId=1028&nttSn=1347790
+    evidence: "참고2 'ARS 대상자: 무실적 사업자 1544-9944→보이는ARS 또는 음성ARS→부가가치세 신고→무실적신고'"
+    status: 일치
+  - claim: 미리채움 자료 제공일
+    value: 1월 초~중순
+    source: https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2201&bbsId=1028&nttSn=1347790
+    evidence: 참고3 미리채움 서비스 제공일정 '26.1.01.'~'26.1.16.'(현금영수증 매출 1.01., 신용카드 매출 1.14., 판매·결제대행자료 1.16. 등)
+    status: 일치
+  - claim: 신용카드·체크카드 납부대행 수수료(일반과세자)
+    value: 0.7%
+    source: https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2201&bbsId=1028&nttSn=1352987
+    evidence: 2026.7.2. 보도참고자료 참고1 '신용카드 0.7%(간이과세자는 0.4%), 체크카드 0.4%(간이과세자는 0.15%)'
+    status: 일치
+  - claim: 간이과세자 카드 납부 수수료
+    value: 신용카드 0.4%, 체크카드 0.15%
+    source: https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2201&bbsId=1028&nttSn=1352987
+    evidence: 같은 곳 괄호 '(간이과세자는 0.4%)', '(간이과세자는 0.15%)'
+    status: 일치
+  - claim: 지난 1월 직권연장 기간
+    value: 2개월
+    source: https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2201&bbsId=1028&nttSn=1347790
+    evidence: 본문 '매출액이 감소한 사업자의 납부기한을 신청없이 직권으로 2개월(3.26.까지) 연장'
+    status: 일치
+  - claim: 지난 1월 직권연장 매출 기준
+    value: 2024년 매출 10억 원 이하
+    source: https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2201&bbsId=1028&nttSn=1347790
+    evidence: 본문 '①2024년 연간 매출액이 10억원 이하로서'
+    status: 일치
+  - claim: 지난 1월 직권연장 매출 감소 기준
+    value: 30% 이상
+    source: https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2201&bbsId=1028&nttSn=1347790
+    evidence: 본문 '③’25.1기 매출액이 전년 동기 대비 30% 이상 감소한 사업자'
+    status: 일치
+  - claim: 체크카드 납부대행 수수료(일반과세자)
+    value: 0.4%
+    source: https://www.nts.go.kr/nts/na/ntt/selectNttInfo.do?mi=2201&bbsId=1028&nttSn=1352987
+    evidence: 2026.7.2. 보도참고자료 참고1 '체크카드 0.4%(간이과세자는 0.15%)'
+    status: 일치

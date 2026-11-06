@@ -20,7 +20,7 @@
 
 - [x] policy-fund-monthly-repayment | loan | 정책자금 월 상환액 거치기간 계산 | 계산 예시 3개, tool: loan
 - [x] support-application-documents | support | 소상공인 지원사업 신청 서류 체크리스트 | 홈택스 발급 방법 포함
-- [d] vat-january-filing-guide | tax | 1월 부가세 확정신고 개인사업자 혼자 하는 법 | 홈택스 순서, tool: vat
+- [x] vat-january-filing-guide | tax | 1월 부가세 확정신고 개인사업자 혼자 하는 법 | 홈택스 순서, tool: vat
 - [x] closing-business-checklist | closing | 폐업 신고 순서 세금 정리 | 부가세 폐업 확정신고, 4대보험
 
 ## 1월 이후
