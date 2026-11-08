@@ -1,0 +1,296 @@
+{
+  "id": "expense-tax-saving",
+  "name": "경비 처리 절세액 계산기 (종합소득세)",
+  "blurb": "과세표준과 추가로 인정받을 경비를 넣으면 종합소득세·지방소득세가 얼마나 줄어드는지 누진세율로 계산합니다",
+  "category": "tax",
+  "headline": "경비를 더 넣으면 종합소득세가 얼마나 줄까?",
+  "description": "종합소득세 과세표준과 추가로 인정받을 필요경비를 넣으면 소득세법 제55조 누진세율(6~45%)로 경비 반영 전후 세액을 각각 계산해, 줄어드는 소득세와 지방소득세를 보여 줍니다. 2026년 시행 세율 기준입니다.",
+  "inputs": [
+    {
+      "key": "base",
+      "label": "경비를 넣기 전 과세표준 (1년)",
+      "type": "money",
+      "default": 40000000,
+      "help": "종합소득금액에서 소득공제를 뺀 금액입니다. 작년 신고서의 '과세표준' 칸을 참고하세요. 매출액이 아닙니다."
+    },
+    {
+      "key": "extra",
+      "label": "추가로 인정받을 경비",
+      "type": "money",
+      "default": 3000000,
+      "help": "아직 장부에 넣지 않은, 증빙이 있는 사업 관련 비용의 합계"
+    }
+  ],
+  "constants": [
+    {
+      "key": "b1",
+      "value": 14000000,
+      "label": "1구간 상한: 과세표준 1,400만 원",
+      "source": "https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0055&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR",
+      "evidence": "소득세법 제55조제1항 세율표 '1,400만원 이하: 과세표준의 6퍼센트'"
+    },
+    {
+      "key": "b2",
+      "value": 50000000,
+      "label": "2구간 상한: 5,000만 원",
+      "source": "https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0055&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR",
+      "evidence": "제55조제1항 세율표 '1,400만원 초과 5,000만원 이하: 84만원+(1,400만원을 초과하는 금액의 15퍼센트)'"
+    },
+    {
+      "key": "b3",
+      "value": 88000000,
+      "label": "3구간 상한: 8,800만 원",
+      "source": "https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0055&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR",
+      "evidence": "제55조제1항 세율표 '5,000만원 초과 8,800만원 이하: 624만원+(5,000만원을 초과하는 금액의 24퍼센트)'"
+    },
+    {
+      "key": "b4",
+      "value": 150000000,
+      "label": "4구간 상한: 1억5천만 원",
+      "source": "https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0055&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR",
+      "evidence": "제55조제1항 세율표 '8,800만원 초과 1억5천만원 이하: 1,536만원+(8,800만원을 초과하는 금액의 35퍼센트)'"
+    },
+    {
+      "key": "b5",
+      "value": 300000000,
+      "label": "5구간 상한: 3억 원",
+      "source": "https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0055&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR",
+      "evidence": "제55조제1항 세율표 '1억5천만원 초과 3억원 이하: 3,706만원+(1억5천만원을 초과하는 금액의 38퍼센트)'"
+    },
+    {
+      "key": "b6",
+      "value": 500000000,
+      "label": "6구간 상한: 5억 원",
+      "source": "https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0055&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR",
+      "evidence": "제55조제1항 세율표 '3억원 초과 5억원 이하: 9,406만원+(3억원을 초과하는 금액의 40퍼센트)'"
+    },
+    {
+      "key": "b7",
+      "value": 1000000000,
+      "label": "7구간 상한: 10억 원",
+      "source": "https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0055&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR",
+      "evidence": "제55조제1항 세율표 '5억원 초과 10억원 이하: 1억7,406만원+(5억원을 초과하는 금액의 42퍼센트)', '10억원 초과: …10억원을 초과하는 금액의 45퍼센트'"
+    },
+    {
+      "key": "r1",
+      "value": 0.06,
+      "label": "1,400만 원 이하 세율 6%",
+      "source": "https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0055&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR",
+      "evidence": "제55조제1항 '과세표준의 6퍼센트'"
+    },
+    {
+      "key": "r2",
+      "value": 0.15,
+      "label": "1,400만~5,000만 원 세율 15%",
+      "source": "https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0055&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR",
+      "evidence": "제55조제1항 '1,400만원을 초과하는 금액의 15퍼센트'"
+    },
+    {
+      "key": "r3",
+      "value": 0.24,
+      "label": "5,000만~8,800만 원 세율 24%",
+      "source": "https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0055&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR",
+      "evidence": "제55조제1항 '5,000만원을 초과하는 금액의 24퍼센트'"
+    },
+    {
+      "key": "r4",
+      "value": 0.35,
+      "label": "8,800만~1억5천만 원 세율 35%",
+      "source": "https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0055&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR",
+      "evidence": "제55조제1항 '8,800만원을 초과하는 금액의 35퍼센트'"
+    },
+    {
+      "key": "r5",
+      "value": 0.38,
+      "label": "1억5천만~3억 원 세율 38%",
+      "source": "https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0055&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR",
+      "evidence": "제55조제1항 '1억5천만원을 초과하는 금액의 38퍼센트'"
+    },
+    {
+      "key": "r6",
+      "value": 0.4,
+      "label": "3억~5억 원 세율 40%",
+      "source": "https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0055&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR",
+      "evidence": "제55조제1항 '3억원을 초과하는 금액의 40퍼센트'"
+    },
+    {
+      "key": "r7",
+      "value": 0.42,
+      "label": "5억~10억 원 세율 42%",
+      "source": "https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0055&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR",
+      "evidence": "제55조제1항 '5억원을 초과하는 금액의 42퍼센트'"
+    },
+    {
+      "key": "r8",
+      "value": 0.45,
+      "label": "10억 원 초과 세율 45%",
+      "source": "https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0055&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR",
+      "evidence": "제55조제1항 '10억원을 초과하는 금액의 45퍼센트'"
+    },
+    {
+      "key": "localRatio",
+      "value": 0.1,
+      "label": "개인지방소득세 = 소득세 세율의 10분의 1",
+      "source": "https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=282559&joNo=0092&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR",
+      "evidence": "지방세법 제92조① 세율표 '1,400만원 이하 과세표준의 1천분의 6' 등 각 구간이 소득세법 제55조 세율의 10분의 1 (시행 2026. 1. 1.)"
+    }
+  ],
+  "steps": [
+    {
+      "key": "after",
+      "expr": "max(0, base - extra)"
+    },
+    {
+      "key": "taxBefore",
+      "expr": "round(r1 * min(base, b1) + r2 * max(0, min(base, b2) - b1) + r3 * max(0, min(base, b3) - b2) + r4 * max(0, min(base, b4) - b3) + r5 * max(0, min(base, b5) - b4) + r6 * max(0, min(base, b6) - b5) + r7 * max(0, min(base, b7) - b6) + r8 * max(0, base - b7))"
+    },
+    {
+      "key": "taxAfter",
+      "expr": "round(r1 * min(after, b1) + r2 * max(0, min(after, b2) - b1) + r3 * max(0, min(after, b3) - b2) + r4 * max(0, min(after, b4) - b3) + r5 * max(0, min(after, b5) - b4) + r6 * max(0, min(after, b6) - b5) + r7 * max(0, min(after, b7) - b6) + r8 * max(0, after - b7))"
+    },
+    {
+      "key": "incomeTaxSaving",
+      "expr": "taxBefore - taxAfter"
+    },
+    {
+      "key": "localTaxSaving",
+      "expr": "round(incomeTaxSaving * localRatio)"
+    },
+    {
+      "key": "saving",
+      "expr": "incomeTaxSaving + localTaxSaving"
+    }
+  ],
+  "outputs": [
+    {
+      "key": "saving",
+      "label": "줄어드는 세금 (지방소득세 포함, 어림값)",
+      "format": "won",
+      "primary": true
+    },
+    {
+      "key": "incomeTaxSaving",
+      "label": "줄어드는 종합소득세",
+      "format": "won"
+    },
+    {
+      "key": "localTaxSaving",
+      "label": "줄어드는 지방소득세",
+      "format": "won"
+    },
+    {
+      "key": "taxBefore",
+      "label": "경비 반영 전 산출세액",
+      "format": "won"
+    },
+    {
+      "key": "taxAfter",
+      "label": "경비 반영 후 산출세액",
+      "format": "won"
+    }
+  ],
+  "notes": [
+    {
+      "when": "extra > base",
+      "text": "추가 경비가 과세표준보다 커서 과세표준이 0원이 됩니다. 남는 금액은 결손금이 될 수 있지만 이 계산기에는 반영하지 않았습니다."
+    },
+    {
+      "when": "base > b1 && after <= b1",
+      "text": "경비를 넣으면 과세표준이 더 낮은 세율 구간으로 내려갑니다. 그래서 '경비 × 내 최고세율'보다 실제로 줄어드는 세금이 적습니다."
+    }
+  ],
+  "fine": "산출세액(세율을 곱한 세금) 차이만 계산한 어림값입니다. 세액공제·감면, 기납부세액, 가산세, 경비율로 신고하는 추계 신고자의 계산 방식, 지자체 조례에 따른 지방소득세율 조정은 반영하지 않았습니다. 경비는 사업과 관련 있고 증빙이 있어야 인정됩니다. 2026년 1월 1일 시행 소득세법 제55조 세율 기준입니다.",
+  "method": [
+    {
+      "heading": "세율 구간",
+      "text": "소득세법 제55조제1항 세율표를 그대로 씁니다. 과세표준 1,400만 원 이하 6%, 5,000만 원 이하 15%, 8,800만 원 이하 24%, 1억5천만 원 이하 35%, 3억 원 이하 38%, 5억 원 이하 40%, 10억 원 이하 42%, 10억 원 초과 45%를 각 구간에 해당하는 금액에만 적용해 더합니다."
+    },
+    {
+      "heading": "줄어드는 세금",
+      "text": "경비를 넣기 전 과세표준과, 거기서 추가 경비를 뺀 과세표준의 세금을 각각 계산해 차이를 구합니다. 개인지방소득세는 소득세 세율의 10분의 1이므로 줄어든 소득세의 10%를 더합니다."
+    }
+  ],
+  "tests": [
+    {
+      "inputs": {
+        "base": 14000000,
+        "extra": 1000000
+      },
+      "expect": {
+        "taxBefore": 840000,
+        "taxAfter": 780000,
+        "incomeTaxSaving": 60000,
+        "localTaxSaving": 6000,
+        "saving": 66000
+      },
+      "why": "경계값 1,400만 원은 '1,400만원 이하'라 전부 6%: 1,400만×6%=84만. 경비 100만을 빼면 1,300만×6%=78만. 차이 6만, 지방 6천, 합계 6만6천 원"
+    },
+    {
+      "inputs": {
+        "base": 50000000,
+        "extra": 3000000
+      },
+      "expect": {
+        "taxBefore": 6240000,
+        "taxAfter": 5790000,
+        "incomeTaxSaving": 450000,
+        "localTaxSaving": 45000,
+        "saving": 495000
+      },
+      "why": "경계값 5,000만 원: 84만+3,600만×15%=624만(법 세율표의 624만원과 같음). 4,700만: 84만+3,300만×15%=495만. 차이 45만, 지방 4만5천, 합계 49만5천 원"
+    },
+    {
+      "inputs": {
+        "base": 52000000,
+        "extra": 4000000
+      },
+      "expect": {
+        "taxBefore": 6720000,
+        "taxAfter": 5940000,
+        "incomeTaxSaving": 780000,
+        "localTaxSaving": 78000,
+        "saving": 858000
+      },
+      "why": "구간을 걸치는 경우. 5,200만: 624만+200만×24%=672만. 4,800만: 84만+3,400만×15%=594만. 차이 78만(200만×24%+200만×15%=48만+30만), 지방 7만8천, 합계 85만8천 원"
+    },
+    {
+      "inputs": {
+        "base": 88000000,
+        "extra": 0
+      },
+      "expect": {
+        "taxBefore": 15360000,
+        "taxAfter": 15360000,
+        "incomeTaxSaving": 0,
+        "localTaxSaving": 0,
+        "saving": 0
+      },
+      "why": "경계값 8,800만 원: 624만+3,800만×24%=1,536만(세율표 1,536만원과 같음). 경비 0원이라 절세 0원"
+    },
+    {
+      "inputs": {
+        "base": 1000000000,
+        "extra": 0
+      },
+      "expect": {
+        "taxBefore": 384060000,
+        "saving": 0
+      },
+      "why": "경계값 10억 원: 84만+540만+912만+2,170만+5,700만+8,000만+2억1,000만=3억8,406만 원. 5억 구간 누적 1억7,406만(세율표와 같음)+5억×42%=2억1,000만"
+    },
+    {
+      "inputs": {
+        "base": 10000000,
+        "extra": 12000000
+      },
+      "expect": {
+        "taxBefore": 600000,
+        "taxAfter": 0,
+        "incomeTaxSaving": 600000,
+        "localTaxSaving": 60000,
+        "saving": 660000
+      },
+      "why": "경비가 과세표준보다 크면 과세표준 0원. 1,000만×6%=60만이 전부 줄고, 지방 6만, 합계 66만 원"
+    }
+  ]
+}

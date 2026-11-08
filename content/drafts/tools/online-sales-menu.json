@@ -1,0 +1,132 @@
+{
+  "id": "online-sales-menu",
+  "name": "소상공인 온라인판로 메뉴판 자부담금 계산기",
+  "blurb": "판판대로 메뉴판에서 고른 사업들의 정부지원금 합계, 자부담금, 부가세, 600만 원 한도 초과 여부를 계산합니다",
+  "category": "support",
+  "headline": "고른 사업들, 내 돈은 얼마나 들까?",
+  "description": "2026년 소상공인 온라인판로 지원사업 메뉴판(상품개선·상세페이지·콘텐츠·라이브커머스·SNS·온라인 홍보·물류 등)에서 최대 4개를 골라 정부지원금 합계와 자부담금·부가세, 기업당 600만 원 한도를 확인합니다.",
+  "inputs": [
+    { "key": "pick1", "label": "1순위 사업", "type": "select", "default": 1, "help": "판판대로 메뉴판에서 가장 먼저 받고 싶은 사업",
+      "options": [
+        { "label": "선택 안 함", "value": 0 },
+        { "label": "상품 개선 (정부 2,385,000원)", "value": 1 },
+        { "label": "상세페이지 제작 (정부 1,602,000원)", "value": 2 },
+        { "label": "콘텐츠 제작 (정부 2,349,000원)", "value": 3 },
+        { "label": "온라인쇼핑몰 판매지원 (정부 1,800,000원)", "value": 4 },
+        { "label": "라이브커머스 제작·운영 (정부 3,501,000원)", "value": 5 },
+        { "label": "SNS 마케팅 (정부 2,475,000원)", "value": 6 },
+        { "label": "온라인 홍보 (정부 2,475,000원)", "value": 7 },
+        { "label": "물류 서비스 (정부 1,980,000원)", "value": 8 }
+      ] },
+    { "key": "pick2", "label": "2순위 사업", "type": "select", "default": 5,
+      "options": [
+        { "label": "선택 안 함", "value": 0 },
+        { "label": "상품 개선 (정부 2,385,000원)", "value": 1 },
+        { "label": "상세페이지 제작 (정부 1,602,000원)", "value": 2 },
+        { "label": "콘텐츠 제작 (정부 2,349,000원)", "value": 3 },
+        { "label": "온라인쇼핑몰 판매지원 (정부 1,800,000원)", "value": 4 },
+        { "label": "라이브커머스 제작·운영 (정부 3,501,000원)", "value": 5 },
+        { "label": "SNS 마케팅 (정부 2,475,000원)", "value": 6 },
+        { "label": "온라인 홍보 (정부 2,475,000원)", "value": 7 },
+        { "label": "물류 서비스 (정부 1,980,000원)", "value": 8 }
+      ] },
+    { "key": "pick3", "label": "3순위 사업", "type": "select", "default": 0,
+      "options": [
+        { "label": "선택 안 함", "value": 0 },
+        { "label": "상품 개선 (정부 2,385,000원)", "value": 1 },
+        { "label": "상세페이지 제작 (정부 1,602,000원)", "value": 2 },
+        { "label": "콘텐츠 제작 (정부 2,349,000원)", "value": 3 },
+        { "label": "온라인쇼핑몰 판매지원 (정부 1,800,000원)", "value": 4 },
+        { "label": "라이브커머스 제작·운영 (정부 3,501,000원)", "value": 5 },
+        { "label": "SNS 마케팅 (정부 2,475,000원)", "value": 6 },
+        { "label": "온라인 홍보 (정부 2,475,000원)", "value": 7 },
+        { "label": "물류 서비스 (정부 1,980,000원)", "value": 8 }
+      ] },
+    { "key": "pick4", "label": "4순위 사업", "type": "select", "default": 0,
+      "options": [
+        { "label": "선택 안 함", "value": 0 },
+        { "label": "상품 개선 (정부 2,385,000원)", "value": 1 },
+        { "label": "상세페이지 제작 (정부 1,602,000원)", "value": 2 },
+        { "label": "콘텐츠 제작 (정부 2,349,000원)", "value": 3 },
+        { "label": "온라인쇼핑몰 판매지원 (정부 1,800,000원)", "value": 4 },
+        { "label": "라이브커머스 제작·운영 (정부 3,501,000원)", "value": 5 },
+        { "label": "SNS 마케팅 (정부 2,475,000원)", "value": 6 },
+        { "label": "온라인 홍보 (정부 2,475,000원)", "value": 7 },
+        { "label": "물류 서비스 (정부 1,980,000원)", "value": 8 }
+      ] }
+  ],
+  "constants": [
+    { "key": "govProduct", "value": 2385000, "label": "상품 개선 정부지원금", "source": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456", "evidence": "2차 모집공고 5쪽 '메뉴판 지원사업' 표 '① 상품 개선 2,385,000원'" },
+    { "key": "govDetail", "value": 1602000, "label": "상세페이지 제작 정부지원금", "source": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456", "evidence": "공고 5쪽 같은 표 '② 상세페이지 제작 1,602,000원'" },
+    { "key": "govContent", "value": 2349000, "label": "콘텐츠 제작 정부지원금", "source": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456", "evidence": "공고 5쪽 같은 표 '③ 콘텐츠 제작 2,349,000원'" },
+    { "key": "govMall", "value": 1800000, "label": "온라인쇼핑몰 판매지원 정부지원금", "source": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456", "evidence": "공고 5쪽 같은 표 '④ 온라인쇼핑몰 판매지원 1,800,000원, 자부담 비율 없음'" },
+    { "key": "govLive", "value": 3501000, "label": "라이브커머스 제작·운영 정부지원금", "source": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456", "evidence": "공고 5쪽 같은 표 '⑤ 라이브커머스 제작·운영지원 3,501,000원'" },
+    { "key": "govSns", "value": 2475000, "label": "SNS 마케팅 정부지원금", "source": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456", "evidence": "공고 5쪽 같은 표 '⑥ SNS 마케팅 2,475,000원'" },
+    { "key": "govAd", "value": 2475000, "label": "온라인 홍보 정부지원금", "source": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456", "evidence": "공고 5쪽 같은 표 '⑦ 온라인 홍보 2,475,000원'" },
+    { "key": "govLogistics", "value": 1980000, "label": "물류 서비스 정부지원금", "source": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456", "evidence": "공고 5쪽 같은 표 '⑧ 물류 서비스 1,980,000원'" },
+    { "key": "selfProduct", "value": 265000, "label": "상품 개선 자부담금", "source": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456", "evidence": "공고 8쪽 <붙임1> ❶상품개선 '참여 소상공인 자부담금: 265,000원' (사업비 2,650,000원)" },
+    { "key": "selfDetail", "value": 178000, "label": "상세페이지 제작 자부담금", "source": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456", "evidence": "공고 10쪽 ❷상세페이지 제작 '자부담금: 178,000원' (사업비 1,780,000원)" },
+    { "key": "selfContent", "value": 261000, "label": "콘텐츠 제작 자부담금", "source": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456", "evidence": "공고 12쪽 ❸콘텐츠 제작 '자부담금: 261,000원' (사업비 2,610,000원)" },
+    { "key": "selfLive", "value": 389000, "label": "라이브커머스 자부담금", "source": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456", "evidence": "공고 17쪽 ❺라이브커머스 '자부담금: 389,000원' (사업비 3,890,000원)" },
+    { "key": "selfSns", "value": 275000, "label": "SNS 마케팅 자부담금", "source": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456", "evidence": "공고 19쪽 ❻SNS 마케팅 '자부담금: 275,000원' (사업비 2,750,000원)" },
+    { "key": "selfAd", "value": 275000, "label": "온라인 홍보 자부담금", "source": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456", "evidence": "공고 21쪽 ❼온라인 홍보 '자부담금: 275,000원' (사업비 2,750,000원)" },
+    { "key": "selfLogistics", "value": 220000, "label": "물류 서비스 자부담금", "source": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456", "evidence": "공고 23쪽 ❽물류 서비스 '자부담금: 220,000원' (사업비 2,200,000원)" },
+    { "key": "vatRate", "value": 0.1, "label": "부가가치세율 (사업비 기준, 소상공인 별도 부담)", "source": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456", "evidence": "공고 5쪽 표 아래 '정부지원금(90%) 외에 자부담금(10%)과 부가가치세(10%)는 참여 소상공인이 부담'. 각 사업 표의 부가가치세도 사업비의 10%(예: 2,650,000원 → 265,000원)" },
+    { "key": "capTotal", "value": 6000000, "label": "기업당 정부지원금 한도", "source": "https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456", "evidence": "공고 5쪽 표 '지원한도: 정부지원금 최대 6백만원(1개사 당)', 6쪽 '기업당 최대 6백만원까지 선정 및 지원'" }
+  ],
+  "steps": [
+    { "key": "g1", "expr": "pick1 == 1 ? govProduct : pick1 == 2 ? govDetail : pick1 == 3 ? govContent : pick1 == 4 ? govMall : pick1 == 5 ? govLive : pick1 == 6 ? govSns : pick1 == 7 ? govAd : pick1 == 8 ? govLogistics : 0" },
+    { "key": "g2", "expr": "pick2 == 1 ? govProduct : pick2 == 2 ? govDetail : pick2 == 3 ? govContent : pick2 == 4 ? govMall : pick2 == 5 ? govLive : pick2 == 6 ? govSns : pick2 == 7 ? govAd : pick2 == 8 ? govLogistics : 0" },
+    { "key": "g3", "expr": "pick3 == 1 ? govProduct : pick3 == 2 ? govDetail : pick3 == 3 ? govContent : pick3 == 4 ? govMall : pick3 == 5 ? govLive : pick3 == 6 ? govSns : pick3 == 7 ? govAd : pick3 == 8 ? govLogistics : 0" },
+    { "key": "g4", "expr": "pick4 == 1 ? govProduct : pick4 == 2 ? govDetail : pick4 == 3 ? govContent : pick4 == 4 ? govMall : pick4 == 5 ? govLive : pick4 == 6 ? govSns : pick4 == 7 ? govAd : pick4 == 8 ? govLogistics : 0" },
+    { "key": "s1", "expr": "pick1 == 1 ? selfProduct : pick1 == 2 ? selfDetail : pick1 == 3 ? selfContent : pick1 == 5 ? selfLive : pick1 == 6 ? selfSns : pick1 == 7 ? selfAd : pick1 == 8 ? selfLogistics : 0" },
+    { "key": "s2", "expr": "pick2 == 1 ? selfProduct : pick2 == 2 ? selfDetail : pick2 == 3 ? selfContent : pick2 == 5 ? selfLive : pick2 == 6 ? selfSns : pick2 == 7 ? selfAd : pick2 == 8 ? selfLogistics : 0" },
+    { "key": "s3", "expr": "pick3 == 1 ? selfProduct : pick3 == 2 ? selfDetail : pick3 == 3 ? selfContent : pick3 == 5 ? selfLive : pick3 == 6 ? selfSns : pick3 == 7 ? selfAd : pick3 == 8 ? selfLogistics : 0" },
+    { "key": "s4", "expr": "pick4 == 1 ? selfProduct : pick4 == 2 ? selfDetail : pick4 == 3 ? selfContent : pick4 == 5 ? selfLive : pick4 == 6 ? selfSns : pick4 == 7 ? selfAd : pick4 == 8 ? selfLogistics : 0" },
+    { "key": "v1", "expr": "s1 > 0 ? round((g1 + s1) * vatRate) : 0" },
+    { "key": "v2", "expr": "s2 > 0 ? round((g2 + s2) * vatRate) : 0" },
+    { "key": "v3", "expr": "s3 > 0 ? round((g3 + s3) * vatRate) : 0" },
+    { "key": "v4", "expr": "s4 > 0 ? round((g4 + s4) * vatRate) : 0" },
+    { "key": "gov", "expr": "g1 + g2 + g3 + g4" },
+    { "key": "selfPay", "expr": "s1 + s2 + s3 + s4" },
+    { "key": "vat", "expr": "v1 + v2 + v3 + v4" },
+    { "key": "pay", "expr": "selfPay + vat" },
+    { "key": "remain", "expr": "max(0, capTotal - gov)" },
+    { "key": "over", "expr": "max(0, gov - capTotal)" }
+  ],
+  "outputs": [
+    { "key": "pay", "label": "사장님이 내는 돈 (자부담금 + 부가세)", "format": "won", "primary": true },
+    { "key": "gov", "label": "고른 사업의 정부지원금 합계", "format": "won" },
+    { "key": "selfPay", "label": "자부담금 합계", "format": "won" },
+    { "key": "vat", "label": "부가가치세 합계", "format": "won" },
+    { "key": "remain", "label": "600만 원 한도 중 남는 금액", "format": "won" },
+    { "key": "over", "label": "600만 원 한도를 넘는 금액", "format": "won" }
+  ],
+  "notes": [
+    { "when": "over > 0", "text": "정부지원금 합계가 기업당 한도 600만 원을 넘습니다. 신청은 4개까지 할 수 있지만, 실제 선정·지원은 한도 안에서만 됩니다. 우선순위와 심사 결과에 따라 일부 사업만 선정될 수 있습니다." },
+    { "when": "(pick1 > 0 && (pick1 == pick2 || pick1 == pick3 || pick1 == pick4)) || (pick2 > 0 && (pick2 == pick3 || pick2 == pick4)) || (pick3 > 0 && pick3 == pick4)", "text": "같은 사업을 두 번 고르셨습니다. 메뉴판은 서로 다른 세부사업을 고르는 방식이니 하나만 남겨 주세요." },
+    { "when": "pick1 == 4 || pick2 == 4 || pick3 == 4 || pick4 == 4", "text": "온라인쇼핑몰 판매지원은 공고에 자부담금이 '없음'으로 되어 있어 자부담금·부가세를 0원으로 계산했습니다." }
+  ],
+  "fine": "2026년 소상공인 온라인판로 지원사업 2차 모집공고(2026.5.27., 한국중소벤처기업유통원)의 사업별 정부지원금·자부담금 표를 그대로 옮긴 계산입니다. 선정 여부와 실제 선정되는 사업 조합은 심사 결과에 따라 달라집니다. 부가세는 각 사업의 사업비(공급가액)의 10%로 계산했고, 면세·간이과세자의 매입세액 처리나 2027년 공고의 변경 사항은 반영하지 않았습니다. 신청 전 판판대로의 최신 공고를 꼭 확인하세요.",
+  "method": [
+    { "heading": "계산 방식", "text": "고른 사업마다 공고 표의 정부지원금과 자부담금을 더하고, 자부담금이 있는 사업은 사업비(정부지원금 + 자부담금)의 10%를 부가세로 더합니다. 사장님이 실제로 내는 돈은 자부담금과 부가세의 합계입니다. 정부지원금 합계가 기업당 한도 600만 원을 넘는지도 함께 보여 줍니다." },
+    { "heading": "기준 자료", "text": "2026년 소상공인 온라인판로 지원사업 참여기업 2차 모집공고(기업마당 게시, 2026.5.27.) 5쪽 지원한도 표와 <붙임1> 사업별 자부담금 표." }
+  ],
+  "tests": [
+    { "inputs": { "pick1": 1, "pick2": 5, "pick3": 0, "pick4": 0 },
+      "expect": { "gov": 5886000, "selfPay": 654000, "vat": 654000, "pay": 1308000, "remain": 114000, "over": 0 },
+      "why": "상품 개선 2,385,000 + 라이브커머스 3,501,000 = 5,886,000원(한도 600만 원 이내, 남는 금액 114,000원). 자부담 265,000 + 389,000 = 654,000원. 부가세 (2,385,000+265,000)×10% = 265,000 + (3,501,000+389,000)×10% = 389,000 → 654,000원. 내는 돈 654,000 + 654,000 = 1,308,000원." },
+    { "inputs": { "pick1": 5, "pick2": 1, "pick3": 2, "pick4": 0 },
+      "expect": { "gov": 7488000, "selfPay": 832000, "vat": 832000, "pay": 1664000, "remain": 0, "over": 1488000 },
+      "why": "경계 초과 예: 3,501,000 + 2,385,000 + 1,602,000 = 7,488,000원으로 한도 6,000,000원을 1,488,000원 넘음(남는 금액 0). 자부담 389,000 + 265,000 + 178,000 = 832,000원, 부가세도 사업비의 10%라 389,000 + 265,000 + 178,000 = 832,000원. 합계 1,664,000원." },
+    { "inputs": { "pick1": 4, "pick2": 0, "pick3": 0, "pick4": 0 },
+      "expect": { "gov": 1800000, "selfPay": 0, "vat": 0, "pay": 0, "remain": 4200000, "over": 0 },
+      "why": "온라인쇼핑몰 판매지원만 고른 경우: 정부지원금 1,800,000원, 자부담 없음 → 자부담·부가세 0원. 남는 한도 6,000,000 − 1,800,000 = 4,200,000원." },
+    { "inputs": { "pick1": 0, "pick2": 0, "pick3": 0, "pick4": 0 },
+      "expect": { "gov": 0, "selfPay": 0, "vat": 0, "pay": 0, "remain": 6000000, "over": 0 },
+      "why": "아무것도 고르지 않은 경계값: 모두 0원, 남는 한도 6,000,000원." },
+    { "inputs": { "pick1": 6, "pick2": 7, "pick3": 0, "pick4": 0 },
+      "expect": { "gov": 4950000, "selfPay": 550000, "vat": 550000, "pay": 1100000, "remain": 1050000, "over": 0 },
+      "why": "SNS 마케팅 2,475,000 + 온라인 홍보 2,475,000 = 4,950,000원, 남는 한도 1,050,000원. 자부담 275,000×2 = 550,000원, 부가세 (2,475,000+275,000)×10% = 275,000 ×2 = 550,000원. 합계 1,100,000원." }
+  ]
+}

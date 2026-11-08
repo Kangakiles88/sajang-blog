@@ -1,0 +1,110 @@
+slug: may-income-tax-expenses
+title: "종합소득세 경비처리 항목 정리: 사장님이 비용으로 넣을 수 있는 것과 없는 것 (2026년 귀속)"
+publishedOn: 2026-11-08
+checkedAt: 2026-11-07
+items:
+  - claim: 기준 법령 시행일
+    value: 2026년 1월 1일 시행 소득세법과 2026년 10월 1일 시행 소득세법 시행령
+    source: https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0027&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR
+    evidence: 소득세법 각 조문 상단 '[시행 2026. 1. 1.] [법률 제21221호, 2025. 12. 23., 일부개정]', 시행령 각 조문 '[시행 2026. 10. 1.] [대통령령 제36737호, 2026. 9. 30., 일부개정]'
+    status: 일치
+  - claim: 필요경비의 원칙
+    value: 일반적으로 용인되는 통상적인 것
+    source: https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0027&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR
+    evidence: 소득세법 제27조① '총수입금액에 대응하는 비용으로서 일반적으로 용인되는 통상적인 것의 합계액'
+    status: 일치
+  - claim: 경비로 넣을 수 없는 항목
+    value: 벌금·과료·과태료
+    source: https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0033&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR
+    evidence: 소득세법 제33조① 제1호(소득세·개인지방소득세), 제2호(벌금·과료·과태료), 제5호(가사의 경비), 제9호(부가가치세 매입세액, 단서 예외), 제13호(직접 업무와 관련이 없다고 인정되는 금액)
+    status: 일치
+  - claim: 본인 건강보험료 경비 항목
+    value: 지역가입자든 직장가입자든 본인이 낸 건강보험료
+    source: https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=290841&joNo=0055&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR
+    evidence: 시행령 제55조① 제11호의2 '직장가입자로서 부담하는 사용자 본인의 보험료', 제11호의3 '지역가입자로서 부담하는 보험료'. 그 밖에 제1호 원료 매입가격·부대비용, 제6호 종업원 급여, 제7호 수선비·임차료, 제8호 제세공과금, 제11호 사용자 부담 보험료, 제12호 단체보장성보험료, 제13호 직접 사용된 부채의 지급이자, 제14호 감가상각비
+    status: 일치
+  - claim: 적격증빙 종류
+    value: 신용카드 매출전표 (사업용 카드 포함)
+    source: https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0160&joBrNo=02&docCls=jo&urlMode=lsScJoRltInfoR
+    evidence: 소득세법 제160조의2② 제1호 계산서, 제2호 세금계산서, 제3호 신용카드매출전표, 제4호 현금영수증
+    status: 일치
+  - claim: 증빙 보관 기간
+    value: 5년
+    source: https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0160&joBrNo=02&docCls=jo&urlMode=lsScJoRltInfoR
+    evidence: 제160조의2① '확정신고기간 종료일부터 5년간 보관하여야 한다'
+    status: 일치
+  - claim: 증빙 예외 기준 금액
+    value: 3만 원(부가세 포함)
+    source: https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=290841&joNo=0208&joBrNo=02&docCls=jo&urlMode=lsScJoRltInfoR
+    evidence: 시행령 제208조의2① 제1호 '거래건당 금액(부가가치세를 포함한다)이 3만원 이하인 경우'
+    status: 일치
+  - claim: 증빙불비 가산세율
+    value: 2%
+    source: https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0081&joBrNo=06&docCls=jo&urlMode=lsScJoRltInfoR
+    evidence: 소득세법 제81조의6① '100분의 2를 가산세로'. 소규모사업자 및 소득금액이 추계되는 자는 제외
+    status: 일치
+  - claim: 가산세 예시
+    value: 2만 원의 가산세
+    source: https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0081&joBrNo=06&docCls=jo&urlMode=lsScJoRltInfoR
+    evidence: "제81조의6① 100분의 2 적용: 100만 원 × 2% = 2만 원 (손계산)"
+    status: 일치
+  - claim: 기업업무추진비 1회 기준
+    value: "| 경조금 (축의금·부의금) | 20만 원 |"
+    source: https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=290841&joNo=0083&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR
+    evidence: "시행령 제83조② 제1호 '경조금의 경우 : 20만원', 제2호 '제1호 외의 경우: 3만원'. 초과분은 신용카드 등 증빙 없으면 불산입(법 제35조②)"
+    status: 일치
+  - claim: 기업업무추진비 기본한도
+    value: 기본한도는 1,200만 원이고, 중소기업은 3,600만 원
+    source: https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0035&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR
+    evidence: "소득세법 제35조③ 제1호 '기본한도금액 = A × B × 1/12', 'A: 1천200만원(…중소기업의 경우에는 3천600만원)', 'B: 해당 과세기간의 개월 수'. 제2호 수입금액별 적용률 표는 이미지라 본문에 비율을 쓰지 않음"
+    status: 일치
+  - claim: 업무용승용차 감가상각비 한도
+    value: 800만 원
+    source: https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0033&joBrNo=02&docCls=jo&urlMode=lsScJoRltInfoR
+    evidence: 소득세법 제33조의2① 복식부기의무자 대상, ② '각각 800만원…을 초과하는 경우 그 초과하는 금액은…필요경비에 산입하지 아니하고…이월하여 필요경비에 산입한다'
+    status: 일치
+  - claim: 운행기록 미작성 시 업무사용 인정
+    value: 1,500만 원
+    source: https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=290841&joNo=0078&joBrNo=03&docCls=jo&urlMode=lsScJoRltInfoR
+    evidence: "시행령 제78조의3⑦ 제1호 '1천5백만원…이하인 경우: 100분의 100', 제2호 '1천5백만원을 초과하는 경우: 1천5백만원을 업무용승용차 관련비용으로 나눈 비율'"
+    status: 일치
+  - claim: 무기장 가산세
+    value: 20%
+    source: https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0081&joBrNo=05&docCls=jo&urlMode=lsScJoRltInfoR
+    evidence: 소득세법 제81조의5 '가산세 = A × B/C × 100분의20' (A 종합소득산출세액, B 기장하지 않은 소득금액, C 종합소득금액). 소규모사업자 제외
+    status: 일치
+  - claim: 간편장부 대상 기준 (도소매 등)
+    value: 3억 원
+    source: https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=290841&joNo=0208&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR
+    evidence: "시행령 제208조⑤ 제2호 가목 '농업·임업 및 어업, 광업, 도매 및 소매업(상품중개업을 제외한다), 부동산매매업, 그 밖에…: 3억원'"
+    status: 일치
+  - claim: 간편장부 대상 기준 (음식·제조 등)
+    value: 1억5천만 원
+    source: https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=290841&joNo=0208&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR
+    evidence: "시행령 제208조⑤ 제2호 나목 '제조업, 숙박 및 음식점업, …건설업, …운수업 및 창고업, 정보통신업, 금융 및 보험업, 상품중개업: 1억5천만원'"
+    status: 일치
+  - claim: 간편장부 대상 기준 (서비스·임대 등)
+    value: 7,500만 원
+    source: https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=290841&joNo=0208&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR
+    evidence: "시행령 제208조⑤ 제2호 다목 '부동산임대업, …전문·과학 및 기술서비스업, …교육서비스업, 보건업…, 수리 및 기타 개인서비스업, 가구내 고용활동: 7천500만원'. 제1호 '해당 과세기간에 신규로 사업을 개시한 사업자'"
+    status: 일치
+  - claim: 종합소득세 확정신고 기간
+    value: 2027년 5월 1일부터 5월 31일까지
+    source: https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0070&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR
+    evidence: 소득세법 제70조① '그 과세기간의 다음 연도 5월 1일부터 5월 31일까지' → 2026년 귀속분은 2027년
+    status: 일치
+  - claim: 종합소득세 세율 범위
+    value: 1,400만 원 이하 6%부터 10억 원 초과 45%까지 8단계
+    source: https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0055&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR
+    evidence: "소득세법 제55조① 세율표 8구간: '1,400만원 이하 과세표준의 6퍼센트' ~ '10억원을 초과하는 금액의 45퍼센트'. 중간 구간 84만·624만·1,536만·3,706만·9,406만·1억7,406만원 누적액 확인"
+    status: 일치
+  - claim: 지방소득세 비율
+    value: 소득세의 10%
+    source: https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=282559&joNo=0092&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR
+    evidence: 지방세법 제92조① 세율표 '1,400만원 이하 과세표준의 1천분의 6' 등 모든 구간이 소득세법 제55조 세율의 10분의 1 (시행 2026. 1. 1., 법률 제21308호). ② 조례로 50% 범위 조정 가능 — 계산기 fine에 명시
+    status: 일치
+  - claim: 절세 예시 (과세표준 5,000만 원, 경비 300만 원)
+    value: 소득세는 45만 원, 지방소득세까지 49만5천 원
+    source: https://www.law.go.kr/LSW//lsSideInfoP.do?lsiSeq=280405&joNo=0055&joBrNo=00&docCls=jo&urlMode=lsScJoRltInfoR
+    evidence: "제55조① 세율표로 손계산: 5,000만 → 84만+3,600만×15%=624만(세율표 624만원과 같음), 4,700만 → 84만+3,300만×15%=495만, 차이 45만 원, 지방세 10% 4만5천 원 (계산기 tests 2번과 같음)"
+    status: 일치

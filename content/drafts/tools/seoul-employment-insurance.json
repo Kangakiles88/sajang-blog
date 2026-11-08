@@ -1,0 +1,93 @@
+{
+  "id": "seoul-employment-insurance",
+  "name": "서울시 자영업자 고용보험료 실부담 계산기",
+  "blurb": "기준보수 등급을 고르면 정부(소진공) 지원과 서울시 20% 환급을 뺀 매달 실제 보험료와 실업급여 월액을 보여 줍니다",
+  "category": "support",
+  "headline": "자영업자 고용보험, 지원받으면 한 달에 얼마 낼까?",
+  "description": "서울에서 자영업자 고용보험에 가입할 때 기준보수 1~7등급별 월 보험료, 정부 지원(80·60·50%)과 서울시 20% 환급을 뺀 실부담금, 비자발적 폐업 시 월 실업급여를 2026년 서울시 안내 기준으로 계산합니다.",
+  "inputs": [
+    { "key": "grade", "label": "기준보수 등급", "type": "select", "default": 1, "help": "가입할 때 사장님이 직접 고르는 등급입니다. 등급이 높을수록 보험료와 실업급여가 함께 커집니다",
+      "options": [
+        { "label": "1등급 (기준보수 182만 원)", "value": 1 },
+        { "label": "2등급 (기준보수 208만 원)", "value": 2 },
+        { "label": "3등급 (기준보수 234만 원)", "value": 3 },
+        { "label": "4등급 (기준보수 260만 원)", "value": 4 },
+        { "label": "5등급 (기준보수 286만 원)", "value": 5 },
+        { "label": "6등급 (기준보수 312만 원)", "value": 6 },
+        { "label": "7등급 (기준보수 338만 원)", "value": 7 }
+      ] },
+    { "key": "govOn", "label": "정부(소상공인시장진흥공단) 지원", "type": "select", "default": 1, "help": "소상공인24에서 따로 신청하는 정부 보험료 지원을 받는지",
+      "options": [ { "label": "받음", "value": 1 }, { "label": "안 받음", "value": 0 } ] },
+    { "key": "seoulOn", "label": "서울시 20% 환급", "type": "select", "default": 1, "help": "서울시 소상공인 종합지원 포털에서 신청하는 서울시 환급을 받는지",
+      "options": [ { "label": "받음", "value": 1 }, { "label": "안 받음", "value": 0 } ] }
+  ],
+  "constants": [
+    { "key": "prem1", "value": 40950, "label": "1등급 월 보험료", "source": "https://news.seoul.go.kr/economy/archives/568900", "evidence": "서울시 '소상공인 고용보험료 지원' <기준보수등급별 지원금액> 표 '월보험료(A) 1등급 40,950원'" },
+    { "key": "prem2", "value": 46800, "label": "2등급 월 보험료", "source": "https://news.seoul.go.kr/economy/archives/568900", "evidence": "같은 표 '월보험료(A) 2등급 46,800원'" },
+    { "key": "prem3", "value": 52650, "label": "3등급 월 보험료", "source": "https://news.seoul.go.kr/economy/archives/568900", "evidence": "같은 표 '월보험료(A) 3등급 52,650원'" },
+    { "key": "prem4", "value": 58500, "label": "4등급 월 보험료", "source": "https://news.seoul.go.kr/economy/archives/568900", "evidence": "같은 표 '월보험료(A) 4등급 58,500원'" },
+    { "key": "prem5", "value": 64350, "label": "5등급 월 보험료", "source": "https://news.seoul.go.kr/economy/archives/568900", "evidence": "같은 표 '월보험료(A) 5등급 64,350원'" },
+    { "key": "prem6", "value": 70200, "label": "6등급 월 보험료", "source": "https://news.seoul.go.kr/economy/archives/568900", "evidence": "같은 표 '월보험료(A) 6등급 70,200원'" },
+    { "key": "prem7", "value": 76050, "label": "7등급 월 보험료", "source": "https://news.seoul.go.kr/economy/archives/568900", "evidence": "같은 표 '월보험료(A) 7등급 76,050원'" },
+    { "key": "govHigh", "value": 0.8, "label": "정부 지원 비율 (1~2등급)", "source": "https://news.seoul.go.kr/economy/archives/568900", "evidence": "같은 표 '정부지원(B)' 행 아래 비율 '80%'가 1~2등급 칸에 표시, 1등급 32,760원 = 40,950원×80%" },
+    { "key": "govMid", "value": 0.6, "label": "정부 지원 비율 (3~4등급)", "source": "https://news.seoul.go.kr/economy/archives/568900", "evidence": "같은 표 '60%'가 3~4등급 칸, 3등급 31,590원 = 52,650원×60%, 4등급 실부담 11,700원 = 58,500−35,100−11,700" },
+    { "key": "govLow", "value": 0.5, "label": "정부 지원 비율 (5~7등급)", "source": "https://news.seoul.go.kr/economy/archives/568900", "evidence": "같은 표 '50%'가 5~7등급 칸, 7등급 38,025원 = 76,050원×50%, 5등급 실부담 19,305원 = 64,350−32,175−12,870" },
+    { "key": "seoulRate", "value": 0.2, "label": "서울시 환급 비율", "source": "https://news.seoul.go.kr/economy/archives/568900", "evidence": "'지원내용: 납부 보험료의 20%를 최대 5년간 환급 지원', 표 '서울시지원(C) 20%'" },
+    { "key": "ben1", "value": 1092000, "label": "1등급 월 실업급여", "source": "https://news.seoul.go.kr/economy/archives/568900", "evidence": "같은 표 '월실업급여 1등급 1,092천원'" },
+    { "key": "ben2", "value": 1248000, "label": "2등급 월 실업급여", "source": "https://news.seoul.go.kr/economy/archives/568900", "evidence": "같은 표 '월실업급여 2등급 1,248천원'" },
+    { "key": "ben3", "value": 1404000, "label": "3등급 월 실업급여", "source": "https://news.seoul.go.kr/economy/archives/568900", "evidence": "같은 표 '월실업급여 3등급 1,404천원'" },
+    { "key": "ben4", "value": 1560000, "label": "4등급 월 실업급여", "source": "https://news.seoul.go.kr/economy/archives/568900", "evidence": "같은 표 '월실업급여 4등급 1,560천원'" },
+    { "key": "ben5", "value": 1716000, "label": "5등급 월 실업급여", "source": "https://news.seoul.go.kr/economy/archives/568900", "evidence": "같은 표 '월실업급여 5등급 1,716천원'" },
+    { "key": "ben6", "value": 1872000, "label": "6등급 월 실업급여", "source": "https://news.seoul.go.kr/economy/archives/568900", "evidence": "같은 표 '월실업급여 6등급 1,872천원'" },
+    { "key": "ben7", "value": 2028000, "label": "7등급 월 실업급여", "source": "https://news.seoul.go.kr/economy/archives/568900", "evidence": "같은 표 '월실업급여 7등급 2,028천원'" }
+  ],
+  "steps": [
+    { "key": "premium", "expr": "grade == 1 ? prem1 : grade == 2 ? prem2 : grade == 3 ? prem3 : grade == 4 ? prem4 : grade == 5 ? prem5 : grade == 6 ? prem6 : prem7" },
+    { "key": "govRate", "expr": "grade <= 2 ? govHigh : grade <= 4 ? govMid : govLow" },
+    { "key": "gov", "expr": "govOn == 1 ? round(premium * govRate) : 0" },
+    { "key": "seoul", "expr": "seoulOn == 1 ? round(premium * seoulRate) : 0" },
+    { "key": "net", "expr": "max(premium - gov - seoul, 0)" },
+    { "key": "netYear", "expr": "net * 12" },
+    { "key": "benefit", "expr": "grade == 1 ? ben1 : grade == 2 ? ben2 : grade == 3 ? ben3 : grade == 4 ? ben4 : grade == 5 ? ben5 : grade == 6 ? ben6 : ben7" }
+  ],
+  "outputs": [
+    { "key": "net", "label": "매달 실제로 내는 보험료", "format": "won", "primary": true },
+    { "key": "premium", "label": "월 보험료 (지원 전)", "format": "won" },
+    { "key": "gov", "label": "정부 지원 (월)", "format": "won" },
+    { "key": "seoul", "label": "서울시 환급 (월)", "format": "won" },
+    { "key": "netYear", "label": "1년 실부담 합계", "format": "won" },
+    { "key": "benefit", "label": "비자발적 폐업 시 월 실업급여", "format": "won" }
+  ],
+  "notes": [
+    { "when": "net == 0", "text": "1~2등급은 정부 80%와 서울시 20%를 모두 받으면 실부담이 0원입니다 (2026년 서울시 안내 기준)." },
+    { "when": "seoulOn == 1", "text": "서울시 환급은 확인 절차 때문에 보험료를 낸 뒤 1~2개월 늦게 들어옵니다. 신청은 매년 3~12월이며 예산이 떨어지면 일찍 마감됩니다." }
+  ],
+  "fine": "2026년 서울시 '소상공인 고용보험료 지원' 안내 표를 그대로 옮긴 추정치입니다. 정부 지원은 소상공인시장진흥공단 심사·예산에 따라 달라질 수 있고, 지원 기간(서울시는 최대 5년)과 실업급여 지급 일수(가입 기간에 따라 다름)는 반영하지 않았습니다. 실업급여는 비자발적 폐업 등 근로복지공단 요건을 갖춰야 받을 수 있습니다.",
+  "method": [
+    { "heading": "계산 방식", "text": "고른 등급의 월 보험료에서 정부 지원(1~2등급 80%, 3~4등급 60%, 5~7등급 50%)과 서울시 환급(20%)을 빼 실부담을 구합니다. 1년 합계는 실부담 × 12개월입니다. 월 실업급여는 서울시 안내 표의 등급별 금액입니다." },
+    { "heading": "기준 자료", "text": "서울시 경제분야 누리집 '소상공인 고용보험료 지원' 페이지의 기준보수등급별 지원금액 표 (2026년 기준)." }
+  ],
+  "tests": [
+    { "inputs": { "grade": 1, "govOn": 1, "seoulOn": 1 },
+      "expect": { "premium": 40950, "gov": 32760, "seoul": 8190, "net": 0, "netYear": 0, "benefit": 1092000 },
+      "why": "1등급: 40,950 × 0.8 = 32,760, 40,950 × 0.2 = 8,190 → 40,950 − 32,760 − 8,190 = 0원. 서울시 표의 실부담 0원과 같음" },
+    { "inputs": { "grade": 2, "govOn": 1, "seoulOn": 1 },
+      "expect": { "premium": 46800, "gov": 37440, "seoul": 9360, "net": 0, "netYear": 0, "benefit": 1248000 },
+      "why": "80% 구간의 마지막 등급(경계값). 46,800 × 0.8 = 37,440, 46,800 × 0.2 = 9,360 → 실부담 0원" },
+    { "inputs": { "grade": 3, "govOn": 1, "seoulOn": 1 },
+      "expect": { "premium": 52650, "gov": 31590, "seoul": 10530, "net": 10530, "netYear": 126360, "benefit": 1404000 },
+      "why": "60% 구간 첫 등급(경계값). 52,650 × 0.6 = 31,590, × 0.2 = 10,530 → 52,650 − 31,590 − 10,530 = 10,530원, 1년 10,530 × 12 = 126,360원. 표 실부담 10,530원과 같음" },
+    { "inputs": { "grade": 4, "govOn": 1, "seoulOn": 1 },
+      "expect": { "premium": 58500, "gov": 35100, "seoul": 11700, "net": 11700, "netYear": 140400, "benefit": 1560000 },
+      "why": "60% 구간 마지막 등급(경계값). 58,500 × 0.6 = 35,100, × 0.2 = 11,700 → 11,700원. 표 실부담 11,700원과 같음" },
+    { "inputs": { "grade": 5, "govOn": 1, "seoulOn": 1 },
+      "expect": { "premium": 64350, "gov": 32175, "seoul": 12870, "net": 19305, "netYear": 231660, "benefit": 1716000 },
+      "why": "50% 구간 첫 등급(경계값). 64,350 × 0.5 = 32,175, × 0.2 = 12,870 → 64,350 − 32,175 − 12,870 = 19,305원, 1년 231,660원. 표 실부담 19,305원과 같음" },
+    { "inputs": { "grade": 7, "govOn": 1, "seoulOn": 1 },
+      "expect": { "premium": 76050, "gov": 38025, "seoul": 15210, "net": 22815, "netYear": 273780, "benefit": 2028000 },
+      "why": "최고 등급. 76,050 × 0.5 = 38,025, × 0.2 = 15,210 → 22,815원, 1년 273,780원. 표 실부담 22,815원과 같음" },
+    { "inputs": { "grade": 3, "govOn": 0, "seoulOn": 1 },
+      "expect": { "premium": 52650, "gov": 0, "seoul": 10530, "net": 42120, "netYear": 505440, "benefit": 1404000 },
+      "why": "정부 지원 없이 서울시 20%만: 52,650 − 10,530 = 42,120원, 1년 42,120 × 12 = 505,440원" }
+  ]
+}
