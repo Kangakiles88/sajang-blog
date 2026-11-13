@@ -1,0 +1,125 @@
+slug: sme-online-marketing-support
+title: "소상공인 온라인 마케팅 지원사업 2026 정리: 판판대로 메뉴판 최대 600만 원과 자부담금"
+publishedOn: 2026-11-13
+checkedAt: 2026-11-06
+items:
+  - claim: 2026년 2차 모집공고 전체 지원규모
+    value: 총 6,410개사
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456
+    evidence: "2차 모집공고(2026.5.27., 문서뷰어) 1쪽 '지원규모: 총 6,410개사' (3쪽 세부사업별 모집규모 합계와 같음)"
+    status: 일치
+  - claim: 메뉴판 신청 가능 개수
+    value: 최대 4개
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456
+    evidence: 공고 6쪽 '8개 세부사업을 지원한도와 상관없이 최대 4개까지 한 번에 신청 및 우선순위 설정 가능(1~4순위)', '설정한 우선순위는 변경불가'
+    status: 일치
+  - claim: 기업당 정부지원금 한도
+    value: 600만 원
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456
+    evidence: "공고 5쪽 표 '지원한도: 정부지원금 최대 6백만원(1개사 당)', 6쪽 '기업당 최대 6백만원까지 선정 및 지원… 총 지원금액이 6백만원보다 적을 수 있음'"
+    status: 일치
+  - claim: 정부지원 비율 / 자부담 비율 / 부가세
+    value: 10%
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456
+    evidence: 공고 5쪽 표 아래 '정부지원금(90%) 외에 자부담금(10%)과 부가가치세(10%)는 참여 소상공인이 부담'
+    status: 일치
+  - claim: 상품 개선 정부지원금 / 자부담금 / 부가세
+    value: 2,385,000원 | 265,000원 | 265,000원
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456
+    evidence: 공고 5쪽 표 '① 상품 개선 2,385,000원', 8쪽 <붙임1> 표 '사업비 2,650,000 / 정부보조금 2,385,000 / 자부담금 265,000 / 부가가치세 265,000'
+    status: 일치
+  - claim: 상세페이지 제작 정부지원금 / 자부담금 / 부가세
+    value: 1,602,000원 | 178,000원 | 178,000원
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456
+    evidence: 공고 5쪽 '② 상세페이지 제작 1,602,000원', 10쪽 표 '사업비 1,780,000 / 1,602,000 / 178,000 / 부가세 178,000'
+    status: 일치
+  - claim: 콘텐츠 제작 정부지원금 / 자부담금 / 부가세
+    value: 2,349,000원 | 261,000원 | 261,000원
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456
+    evidence: 공고 5쪽 '③ 콘텐츠 제작 2,349,000원', 12쪽 표 '사업비 2,610,000 / 2,349,000 / 261,000 / 부가세 261,000'
+    status: 일치
+  - claim: 온라인쇼핑몰 판매지원 정부지원금 (자부담 없음)
+    value: 1,800,000원
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456
+    evidence: "공고 5쪽 '④ 온라인쇼핑몰 판매지원 1,800,000원, 자부담 비율 없음', 14쪽·16쪽 '참여 소상공인 자부담금: 없음'"
+    status: 일치
+  - claim: 라이브커머스 제작·운영 정부지원금 / 자부담금 / 부가세
+    value: 3,501,000원 | 389,000원 | 389,000원
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456
+    evidence: 공고 5쪽 '⑤ 라이브커머스 제작·운영지원 3,501,000원', 17쪽 표 '사업비 3,890,000 / 3,501,000 / 389,000 / 부가세 389,000'
+    status: 일치
+  - claim: SNS 마케팅·온라인 홍보 정부지원금 / 자부담금 / 부가세 (각각)
+    value: 2,475,000원 | 275,000원 | 275,000원
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456
+    evidence: 공고 5쪽 '⑥ SNS 마케팅 2,475,000원, ⑦ 온라인 홍보 2,475,000원', 19쪽·21쪽 표 각각 '사업비 2,750,000 / 2,475,000 / 275,000 / 부가세 275,000'
+    status: 일치
+  - claim: 물류 서비스 정부지원금 / 자부담금 / 부가세
+    value: 1,980,000원 | 220,000원 | 220,000원
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456
+    evidence: 공고 5쪽 '⑧ 물류 서비스 1,980,000원', 23쪽 표 '사업비 2,200,000 / 1,980,000 / 220,000 / 부가세 220,000'
+    status: 일치
+  - claim: "예시: 상품 개선 + 라이브커머스 정부지원금 합계"
+    value: 5,886,000원
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456
+    evidence: "공고 5쪽 표 값으로 계산: 2,385,000 + 3,501,000 = 5,886,000 (한도 6백만원 이내)"
+    status: 일치
+  - claim: "예시: 상품 개선 + 라이브커머스 자부담·부가세 및 합계"
+    value: 1,308,000원
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456
+    evidence: "8쪽·17쪽 표 값으로 계산: 자부담 265,000 + 389,000 = 654,000원, 부가세 265,000 + 389,000 = 654,000원, 합계 1,308,000원"
+    status: 일치
+  - claim: 가장 적은 4개 사업 정부지원금 합계
+    value: 7,731,000원
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456
+    evidence: "공고 5쪽 표 값으로 계산: 1,602,000 + 1,800,000 + 1,980,000 + 2,349,000 = 7,731,000 > 6,000,000"
+    status: 일치
+  - claim: 온라인 홍보 광고비 한도
+    value: 160만 원 내외
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456
+    evidence: 공고 21쪽 ❼온라인 홍보 지원내용 '지원사업 관련 전용 광고계정 및 지원광고비 한도(160만원 내외)로 광고대행 지원'
+    status: 일치
+  - claim: 연속 참여 제한
+    value: 3년 연속 참여하면 그다음 해부터 지원을 받을 수 없습니다
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456
+    evidence: 공고 6쪽 '동일 기업 3년 연속참여 시, 차년도부터 지원 불가', 예시 ''26, '27, '28년 연속참여 시, '29년부터 지원 불가('26년부터 적용)'
+    status: 일치
+  - claim: 선정 최저 점수
+    value: 70점 이상
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456
+    evidence: 공고 3쪽 선정절차 '평균 평가점수와… 가점을 합산한 최종 점수가 70점 이상인 소상공인 중 고득점순으로 선정', '서류제출 이후 별도의 대면평가는 없음'
+    status: 일치
+  - claim: 가점 한도와 항목별 점수
+    value: 최대 5점
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456
+    evidence: "공고 4쪽 '가점부여(최대 5점 내에서 적용)' 표: 모두의 창업 1라운드 통과·백년소상공인·로컬크리에이터 등 '해당 시 +5점', ''23~'25년 디지털 특성화 대학 수료생 해당 시 +3점'"
+    status: 일치
+  - claim: 자부담금·부가세 납부 기한
+    value: 영업일 기준 14일 이내
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456
+    evidence: "공고 6쪽 '자부담 납부 유의사항': '선정 및 자부담 납부 안내일로부터 영업일 기준 14일 이내 자부담금 및 부가가치세를 포함하여 납부… 기한 내 미납한 소상공인은 재지원 불가, 금액 한도가 복구되지 않음'"
+    status: 일치
+  - claim: 2026년 2차 메뉴판 신청기간
+    value: 2026년 5월 27일부터 6월 10일까지
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456
+    evidence: 공고 2쪽 신청기간 표 ''26.5.27 ~ 6.10', 기업마당 게시글 신청기간 '2026.05.27 ~ 2026.06.10'
+    status: 일치
+  - claim: 5차 온라인쇼핑몰 판매지원 신청기간
+    value: 2026년 9월 2일부터 물량 마감 시까지
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000126060
+    evidence: 5차 모집공고(2026.9.2., PDF 문서뷰어) 2쪽 신청기간 ''26.9.2.(수) 09:00 ~ 상시모집(물량마감시까지)', 기업마당 게시글 '상시 접수'
+    status: 일치
+  - claim: 5차 모집 규모
+    value: 250개사 내외
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000126060
+    evidence: "5차 공고 1쪽 '지원규모: 250개사 내외(예비선정 포함)', 2쪽 표 '① 온라인쇼핑몰 판매지원 150, ② 로컬상품관 입점지원 100'"
+    status: 일치
+  - claim: 5차 쇼핑몰 판매지원의 지원한도
+    value: 600만 원 한도 안에서 선정
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000126060
+    evidence: 5차 공고 1쪽 '기존 소상공인 온라인판로지원 통합신청(메뉴판)과 동일하게 소상공인 1개사당 지원한도 600만원 내 선정 가능'
+    status: 일치
+  - claim: 문의처 (온판상담소)
+    value: 1899-0309
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000122456
+    evidence: "공고 1쪽 '문의처: 1899-0309(온판상담소)', 7쪽 '문의처: 1899-0309(온판상담소)', 기업마당 게시글 문의처 동일"
+    status: 일치
