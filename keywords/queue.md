@@ -15,6 +15,7 @@
 - [x] sme-refinancing-loan | loan | 소상공인 대환대출 조건 신청 | 대상 대출, 한도, 금리, tool: loan
 - [x] simplified-vs-general-taxpayer | tax | 간이과세자 일반과세자 기준 전환 | 기준금액, 전환 시점, 장단점, tool: vat
 - [x] hope-return-package-demolition | closing | 희망리턴패키지 점포 철거비 신청 | 폐업 신고 전 신청 필수 강조
+- [x] interim-income-tax-prepayment | tax | 종합소득세 중간예납 고지서 추계액 신고 분납 | 11월 30일 납부기한, 빨리 발행
 
 ## 12월에 준비할 것
 
