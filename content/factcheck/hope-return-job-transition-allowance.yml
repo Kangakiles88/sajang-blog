@@ -1,0 +1,130 @@
+slug: hope-return-job-transition-allowance
+title: "희망리턴패키지 전직장려수당 신청 조건과 금액: 최대 100만 원, 심화교육 수료가 먼저 (2026년 공고 기준)"
+publishedOn: 2026-11-16
+checkedAt: 2026-11-16
+items:
+  - claim: 전직장려수당 최대 금액
+    value: 최대 100만 원
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: 공고문(붙임1, 2026.4.22. 수정) 사업개요 '③전직장려수당(최대 100만원)', 지원내용 '1차60만원 + 2차40만원'
+    status: 일치
+  - claim: 1차 전직장려수당 금액·요건
+    value: 60만 원
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: 공고문(붙임1, 2026.4.22. 수정) ③전직장려수당 세부요건 표 '1차(60만원) … ’25-‘26년 취업 심화교육 수료'
+    status: 일치
+  - claim: 2차 전직장려수당 금액·근속 기준
+    value: 상시직으로 고용보험 가입 기간 60일 이상
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: 공고문(붙임1, 2026.4.22. 수정) 세부요건 표 '2차(40만원) … 상시직으로 고용보험 가입(근속)기간이 60일 이상', 변경표 '60일(2개월) 이상 근속'
+    status: 일치
+  - claim: 2025년 기준(비교)
+    value: 2차 근속 기준도 30일
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: 공고문(붙임1, 2026.4.22. 수정) ‘26년 주요 변경사항 표 2025년 '(1차) 심화교육, 취업완료 등 구직 / (2차) 취업 후 30일 이상 근속'
+    status: 일치
+  - claim: 2025년 기준 적용 경과규정
+    value: 2026년 1월 18일까지 취업(고용보험 취득일 기준)
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: 공고문(붙임1, 2026.4.22. 수정) '’26.1.18.까지 취업을 완료(고용보험 취득일 기준)한 경우는 ‘25년 전직장려수당 지급 기준 적용 가능'
+    status: 일치
+  - claim: 폐업일 기준
+    value: 2023년 1월 1일 이후
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: 공고문(붙임1, 2026.4.22. 수정) 신청자격 '폐업일이 ’23년 1월 1일 이후인 경우 지원함', 1차 요건 '폐업신고일 ‘23년 이후'
+    status: 일치
+  - claim: 사업 운영 기간
+    value: 60일 넘은
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: 공고문(붙임1, 2026.4.22. 수정) 신청자격 '사업 운영 기간 60일이 경과한 사업체의 대표'
+    status: 일치
+  - claim: 지원 연령
+    value: 만 15세 이상 만 69세 이하
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: 공고문(붙임1, 2026.4.22. 수정) 사업개요 지원대상 '(만 15세 이상~만 69세 이하*) 신청일 기준'
+    status: 일치
+  - claim: 제외 대상(재지원 제한)
+    value: 최근 3년 안에
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: 공고문(붙임1, 2026.4.22. 수정) 지원제외 '최근 3년간 전직장려수당 지급 이력이 있는 자', 유의사항 '3년 주기 재지원을 허용'
+    status: 일치
+  - claim: 1차 신청 기한
+    value: 수료일로부터 12개월 안에
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: 공고문(붙임1, 2026.4.22. 수정) 신청기한 '1차 수당은 심화교육 수료일로부터 12개월 이내'
+    status: 일치
+  - claim: 2차 신청 기한
+    value: 1차 지급일로부터 36개월 안
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: 공고문(붙임1, 2026.4.22. 수정) 신청기한 '2차 수당은 1차 수당 지급일로부터 36개월 이내'
+    status: 일치
+  - claim: 기초교육 분량
+    value: 5개 이상, 10시간 이상
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: 공고문(붙임1, 2026.4.22. 수정) 기초교육 '(방식) e-러닝 교육 / 10h 이상', '20개 과정 (5개 이상 수강 및 학업성취도평가 후 수료 인정)'
+    status: 일치
+  - claim: 심화교육(유형①) 분량
+    value: 2~3주, 30시간 이상
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: 공고문(붙임1, 2026.4.22. 수정) 심화교육 유형① '대면교육 / 2~3주, 30h 이상'
+    status: 일치
+  - claim: 심화교육(유형②) 대상·분량
+    value: 16시간 이상
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: 공고문(붙임1, 2026.4.22. 수정) 유형② '직업훈련(16시간 이상) 이수자', '대면교육 / 1주 이내, 14h'
+    status: 일치
+  - claim: 심화교육 참여수당
+    value: 35만 원(소득세 포함)
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: 공고문(붙임1, 2026.4.22. 수정) 심화교육 유형① '교육 수료 시 교육 참여수당 35만원(소득세 포함) 지급'
+    status: 일치
+  - claim: 기초·심화교육 신청 마감
+    value: 11월 30일
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: 공고문(붙임1, 2026.4.22. 수정) 기타 참고사항 신청기간 표 '취업 기초교육 ’26. 1월 중 ~ ‘26. 11. 30.', '취업 심화교육 ’26. 2월 중 ~ ‘26. 11. 30.'
+    status: 일치
+  - claim: 전직장려수당 접수 기간
+    value: 2026년 12월 31일
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: 소상공인24 공고 상세 '접수기간 2026-02-06 13:30 ~ 2026-12-31 00:00', 공고문 유의사항 '연중 조기 마감될 수 있음'
+    status: 일치
+  - claim: 전직장려수당 지원 규모
+    value: 9,040건 내외
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: 공고문(붙임1, 2026.4.22. 수정) ③전직장려수당 '(지원규모) 9,040건 내외'
+    status: 일치
+  - claim: 국민취업지원제도 연계수당
+    value: 월 20만 원씩 최대 6개월, 최대 120만 원
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: 공고문(붙임1, 2026.4.22. 수정) 사업개요 표 '최대 6개월간 월 20만원의 연계 수당 지급(최대 120만원)'
+    status: 일치
+  - claim: 사실증명 발급 기한
+    value: 30일 이내
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: 공고문(붙임1, 2026.4.22. 수정) 1차·2차 제출서류 표 '사실증명(총사업자등록내역) … 신청일 기준 30일 이내 발급분'
+    status: 일치
+  - claim: 문의 전화
+    value: 1533-0100
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: "공고문(붙임1, 2026.4.22. 수정) '(문의처) 소상공인 통합콜센터 1533-0100', '국민취업지원제도 사업 관련 문의: (국번없이) 1350'"
+    status: 일치
+  - claim: 2026년 점포철거비 접수 마감
+    value: 10월 21일
+    source: https://www.sbiz.or.kr/nhrp/pblanc/pblancView.do?pMenuNo=100100&cMenuNo=100102&selPblancClCode=BCC008&directCall=Y
+    evidence: "희망리턴패키지 누리집 '2026년 원스톱폐업지원 사업 신청 마감 안내'(2026.10.20.) '점포철거비지원 : 2026.1.28(수) ~ 2026.10.21(수) 18:00 마감'"
+    status: 일치
+  - claim: 심화교육(유형②) 시간
+    value: 14시간
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: 공고문(붙임1, 2026.4.22. 수정) 심화교육 유형② '대면교육 / 1주 이내, 14h'
+    status: 일치
+  - claim: 국민취업지원제도 문의 전화
+    value: "1350"
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: "공고문(붙임1) '국민취업지원제도 사업 관련 문의: (국번없이) 1350'"
+    status: 일치
+  - claim: 신청처
+    value: 소상공인24(sbiz24.kr)
+    source: https://www.sbiz24.kr/#/pbanc/592
+    evidence: "공고문(붙임1) '□ 신청방법 : 소상공인24(sbiz24.kr) 사이트 온라인 신청'"
+    status: 일치
