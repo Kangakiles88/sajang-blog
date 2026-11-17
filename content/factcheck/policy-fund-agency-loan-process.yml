@@ -1,0 +1,150 @@
+slug: policy-fund-agency-loan-process
+title: "소상공인 정책자금 대리대출 절차: 확인서 발급부터 보증서·은행 대출까지 (2026년 공고 기준)"
+publishedOn: 2026-11-17
+checkedAt: 2026-11-16
+items:
+  - claim: 일반경영안정자금 연간 한도
+    value: 7천만 원
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: "공고문(중기부 공고 제2026-271호, 2026.4.16.) 6쪽 일반경영안정자금 '대출한도 : 연간 7천만원'"
+    status: 일치
+  - claim: 일반경영안정자금 금리
+    value: 기준금리 + 0.6%p
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: "공고문(중기부 공고 제2026-271호, 2026.4.16.) 6쪽 '대출금리(변동금리) : 정책자금 기준금리 + 0.6%p'"
+    status: 일치
+  - claim: 일반경영안정자금 기간
+    value: 5년(거치 2년 포함)
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: "공고문(중기부 공고 제2026-271호, 2026.4.16.) 6쪽 '대출기간 : 5년 이내(거치기간 2년 포함)', 융자방식 '금융기관 통한 대리대출'"
+    status: 일치
+  - claim: 일시적 경영애로 매출감소 기준
+    value: 매출 15% 이상 감소
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: 공고문(중기부 공고 제2026-271호, 2026.4.16.) 8쪽 '(매출감소 15% 확인) … 매출 15% 이상 감소한 소상공인'
+    status: 일치
+  - claim: 일시적 경영애로 자금 조건
+    value: 매출 15% 이상 감소 등 | 7천만 원 | 기준금리 | 5년(2년)
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: 공고문(중기부 공고 제2026-271호, 2026.4.16.) 7쪽 표 '일시적 경영애로 소상공인 7천만원 기준금리 5년(2년)', 9쪽 융자방식 '금융기관 통한 대리대출'
+    status: 일치
+  - claim: 일시적 경영애로 직접대출 예외
+    value: 연매출 1억 400만 원 미만이면서 업력 7년 미만
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: 공고문(중기부 공고 제2026-271호, 2026.4.16.) 9쪽 '연매출 1억 4백만원 미만이면서 업력 7년 미만인경우 또는 홈플러스 피해 유형에 한해 직접대출 지원'
+    status: 일치
+  - claim: 재해 자금 조건
+    value: 연 2.0% 고정
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: "공고문(중기부 공고 제2026-271호, 2026.4.16.) 7쪽 표 '재해확인증 발급 소상공인 1억원 연 2.0% 5년(2년)', 9쪽 '대출금리(고정금리) : 연 2.0%'"
+    status: 일치
+  - claim: 장애인기업지원자금 기간
+    value: 7년(2년)
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: 공고문(중기부 공고 제2026-271호, 2026.4.16.) 7쪽 표 '장애인기업 1억원 연 2.0% 7년(2년)', 15쪽 '금융기관 통한 대리대출'
+    status: 일치
+  - claim: 대환대출 조건
+    value: 5천만 원 | 연 4.5% 고정 | 10년
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: "공고문(중기부 공고 제2026-271호, 2026.4.16.) 12쪽 '연 4.5% 고정금리', '대출기간 : 10년', '대출한도 : 5천만원', '금융기관을 통한 대리대출'"
+    status: 일치
+  - claim: 소공인특화자금(일반) 한도
+    value: 운전 1억 원, 시설 5억 원
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: 공고문(중기부 공고 제2026-271호, 2026.4.16.) 19쪽 '(일반) 연간 운전자금 1억원, 시설자금 5억원', '(일반) 금융기관을 통한 대리대출'
+    status: 일치
+  - claim: 소공인특화자금 기간
+    value: 운전 5년(2년), 시설 8년(3년)
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: 공고문(중기부 공고 제2026-271호, 2026.4.16.) 19쪽 '운전자금 5년(거치기간 2년 포함) 시설자금 8년(거치기간 3년 포함)'
+    status: 일치
+  - claim: 기업당 융자한도
+    value: 운전자금 5억 원 이내
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: 공고문(중기부 공고 제2026-271호, 2026.4.16.) 2쪽 '기업당 운전자금 5억원 이내에서 운용(시설자금 포함 시 10억원 이내)', '긴급경영안정자금은 융자한도와 별도로 운용'
+    status: 일치
+  - claim: 시설자금 포함 기업당 한도
+    value: 10억 원 이내
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: 공고문(중기부 공고 제2026-271호, 2026.4.16.) 2쪽 '(시설자금 포함 시 10억원 이내)'
+    status: 일치
+  - claim: 소진공 지역센터 수
+    value: 78곳
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: 공고문(중기부 공고 제2026-271호, 2026.4.16.) 3쪽 '소상공인시장진흥공단 지역센터(전국 78곳)'
+    status: 일치
+  - claim: 확인서 유효기간
+    value: 90일
+    source: https://ols.semas.or.kr/ols/pfi/SPFI201M/page.do
+    evidence: 대출신청안내 '유의사항 > 대리대출' '발급승인한 이후부터 유효기간 내(90일) 출력 가능', '대리대출 접수기간 내에 재신청할 수 있습니다'
+    status: 일치
+  - claim: 대리대출 접수 시기
+    value: 매 분기 첫째 주
+    source: https://ols.semas.or.kr/ols/pfi/SPFI201M/page.do
+    evidence: "대출신청안내 '접수시기' '대리대출: 매분기 첫째주 접수개시'"
+    status: 일치
+  - claim: 2026년 접수 개시일
+    value: 대리대출 1월 5일, 직접대출 1월 12일
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: 공고문(중기부 공고 제2026-271호, 2026.4.16.) 5쪽 '대리대출은 1월 5일, 직접대출은 1월 12일 접수 개시'
+    status: 일치
+  - claim: 지역신용보증재단 연락처
+    value: 1588-7365
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: 공고문(중기부 공고 제2026-271호, 2026.4.16.) 5쪽 '지역신용보증재단(1588-7365)(전국 17곳 연락처…)'
+    status: 일치
+  - claim: 신용보증기금 연락처
+    value: 1588-6565
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: 공고문(중기부 공고 제2026-271호, 2026.4.16.) 5쪽 '신용보증기금(1588-6565)'
+    status: 일치
+  - claim: 기술보증기금 연락처
+    value: 1544-1120
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: 공고문(중기부 공고 제2026-271호, 2026.4.16.) 5쪽 '기술보증기금(1544-1120)'
+    status: 일치
+  - claim: 지역신용보증재단 수
+    value: 전국 17곳
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: 공고문(중기부 공고 제2026-271호, 2026.4.16.) 5쪽 '(전국 17곳 연락처, 별표3(30쪽))'
+    status: 일치
+  - claim: 정책자금 횟수 제한
+    value: 최근 5년 안에 정책자금 3회 이상
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: 공고문(중기부 공고 제2026-271호, 2026.4.16.) 4쪽 융자제한 ⑦ '최근 5년 이내 소상공인 정책자금 3회 이상 지원받은 소상공인', '특별경영안정자금은 지원받은 횟수에 포함하지 않으며'
+    status: 일치
+  - claim: 부결 후 재신청 제한
+    value: 6개월
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: 공고문(중기부 공고 제2026-271호, 2026.4.16.) 4쪽 융자제한 ⑧ '…6개월이 경과하지 않은 소상공인(※ 직접대출 한정)'
+    status: 일치
+  - claim: 우대금리 범위
+    value: 0.1~0.3%p
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: 공고문(중기부 공고 제2026-271호, 2026.4.16.) 2쪽 '유형별 0.1%~0.3%p의 금리감면', '최대 0.8%p까지 금리우대 지원'
+    status: 일치
+  - claim: 우대금리 최대
+    value: 0.8%p
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: 공고문(중기부 공고 제2026-271호, 2026.4.16.) 2쪽 '최대 0.8%p까지 금리우대 지원(‘26년 정책자금 신청 소상공인)'
+    status: 일치
+  - claim: 사회안전망 우대(고용보험·노란우산)
+    value: 0.1%p
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: 공고문(중기부 공고 제2026-271호, 2026.4.16.) 2쪽 우대금리 표 '사회안전망 - 자영업자 고용보험 … 노란우산공제 △0.1%p'
+    status: 일치
+  - claim: 비수도권 우대
+    value: 0.2%p
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: 공고문(중기부 공고 제2026-271호, 2026.4.16.) 2쪽 우대금리 표 '지역 격차해소 - 비수도권 소재 소상공인 … △0.2%p'
+    status: 일치
+  - claim: 2026년 공고 접수 기간
+    value: 2026년 12월 31일
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: 소상공인24 공고 상세 '접수기간 2026-04-20 00:00 ~ 2026-12-31 00:00'
+    status: 일치
+  - claim: 소상공인통합콜센터
+    value: 1533-0100
+    source: https://www.sbiz24.kr/#/pbanc/679
+    evidence: 공고문(중기부 공고 제2026-271호, 2026.4.16.) 5쪽 문의처 '소상공인통합콜센터(1533-0100)'
+    status: 일치
