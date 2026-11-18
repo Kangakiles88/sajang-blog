@@ -1,0 +1,87 @@
+{
+  "id": "tax-exempt-report-penalty",
+  "name": "면세사업자 사업장현황신고 가산세 계산기",
+  "blurb": "사업장현황신고를 빠뜨렸거나 계산서합계표를 늦게 냈을 때 붙는 가산세를 어림합니다",
+  "category": "tax",
+  "headline": "사업장현황신고·계산서합계표를 놓치면 가산세가 얼마일까?",
+  "description": "면세 개인사업자가 사업장현황신고를 안 했거나 덜 신고했을 때(의료업·수의업·약국)의 0.5% 가산세와, 계산서합계표·매입처별 세금계산서합계표를 안 냈을 때의 0.5%(1개월 안에 내면 0.3%) 가산세를 소득세법 원문 기준으로 계산합니다.",
+  "inputs": [
+    { "key": "bizType", "label": "업종", "type": "select", "default": 1,
+      "help": "사업장현황신고 불성실 가산세는 의료업·수의업·약국에만 붙습니다.",
+      "options": [
+        { "label": "의료업·수의업·약국", "value": 0 },
+        { "label": "그 밖의 면세업 (학원, 농축수산물, 주택임대 등)", "value": 1 }
+      ] },
+    { "key": "missingIncome", "label": "신고하지 않았거나 덜 신고한 수입금액", "type": "money", "default": 30000000,
+      "help": "사업장현황신고를 안 했다면 1년 수입금액 전체, 덜 신고했다면 모자란 금액" },
+    { "key": "small", "label": "소규모사업자 해당 여부", "type": "select", "default": 0,
+      "help": "그해 새로 개업했거나, 간편장부대상자로서 직전 연도 사업소득 수입금액이 4,800만 원 미만이면 '해당'입니다.",
+      "options": [
+        { "label": "해당 안 됨", "value": 0 },
+        { "label": "해당 (신규 개업 또는 직전 연도 수입 4,800만 원 미만 간편장부대상자 등)", "value": 1 }
+      ] },
+    { "key": "invoiceAmount", "label": "내지 않은 합계표의 공급가액", "type": "money", "default": 20000000,
+      "help": "제출하지 않은 매출·매입처별 계산서합계표와 매입처별 세금계산서합계표에 들어갈 공급가액 합계. 전자계산서로 발급·전송된 분은 빼세요." },
+    { "key": "invoiceStatus", "label": "합계표 제출 상황", "type": "select", "default": 2,
+      "help": "합계표 제출기한은 사업장현황신고 기한(다음 연도 2월 10일)과 같습니다.",
+      "options": [
+        { "label": "기한 안에 냈음", "value": 0 },
+        { "label": "기한 후 1개월 이내에 냄", "value": 1 },
+        { "label": "1개월을 넘겨 냈거나 아직 안 냄", "value": 2 }
+      ] }
+  ],
+  "constants": [
+    { "key": "statusRate", "value": 0.005, "label": "사업장현황신고 불성실 가산세 0.5%",
+      "source": "https://www.law.go.kr/법령/소득세법/제81조의3", "evidence": "제81조의3제1항 '그 신고하지 아니한 수입금액 또는 미달하게 신고한 수입금액의 1천분의 5'" },
+    { "key": "sumRate", "value": 0.005, "label": "계산서합계표·매입처별 세금계산서합계표 미제출 가산세 0.5%",
+      "source": "https://www.law.go.kr/법령/소득세법/제81조의10", "evidence": "제81조의10제1항제2호가목·제3호가목 '공급가액의 1천분의 5'" },
+    { "key": "sumLateRate", "value": 0.003, "label": "기한 후 1개월 이내 제출 시 0.3%",
+      "source": "https://www.law.go.kr/법령/소득세법/제81조의10", "evidence": "제81조의10제1항제2호가목·제3호가목 괄호 '제출기한이 지난 후 1개월 이내에 제출하는 경우에는 공급가액의 1천분의 3'" },
+    { "key": "cap", "value": 50000000, "label": "중소기업 가산세 한도 5천만 원",
+      "source": "https://www.law.go.kr/법령/국세기본법/제49조", "evidence": "제49조제1항 '의무위반의 종류별로 각각 5천만원(중소기업이 아닌 기업은 1억원)을 한도', 제1호에 소득세법 제81조의3·제81조의10 포함" }
+  ],
+  "steps": [
+    { "key": "statusPenalty", "expr": "bizType == 0 ? floor(min(missingIncome * statusRate, cap) + 0.0001) : 0" },
+    { "key": "sumApplied", "expr": "small == 1 ? 0 : (invoiceStatus == 1 ? sumLateRate : (invoiceStatus == 2 ? sumRate : 0))" },
+    { "key": "sumPenalty", "expr": "floor(min(invoiceAmount * sumApplied, cap) + 0.0001)" },
+    { "key": "total", "expr": "statusPenalty + sumPenalty" }
+  ],
+  "outputs": [
+    { "key": "total", "label": "가산세 합계 (어림값)", "format": "won", "primary": true },
+    { "key": "statusPenalty", "label": "사업장현황신고 불성실 가산세", "format": "won" },
+    { "key": "sumPenalty", "label": "계산서·세금계산서합계표 제출 불성실 가산세", "format": "won" }
+  ],
+  "notes": [
+    { "when": "bizType == 1 && missingIncome > 0", "text": "의료업·수의업·약국이 아니면 사업장현황신고를 안 해도 이 가산세는 붙지 않습니다. 다만 5월 종합소득세 신고 때 수입금액은 빠짐없이 신고해야 합니다." },
+    { "when": "small == 1 && invoiceAmount > 0", "text": "소규모사업자는 합계표 제출 불성실 가산세 대상에서 빠집니다. 그래도 합계표는 내는 것이 원칙입니다." },
+    { "when": "missingIncome * statusRate > cap || invoiceAmount * sumApplied > cap", "text": "중소기업 한도 5천만 원을 적용했습니다. 일부러 의무를 어긴 경우에는 한도가 없습니다." }
+  ],
+  "fine": "세무서가 결정하기 전에 스스로 바로잡는 경우를 가정한 단순 어림값입니다. 계산서를 늦게 발급하거나 발급하지 않은 경우의 가산세(1~2%), 합계표 기재 내용이 틀린 경우, 전자계산서 전송 지연 가산세, 종합소득세 무신고·과소신고 가산세, 원 단위 끝수 처리는 반영하지 않았습니다. 한도는 중소기업 기준(5천만 원)입니다.",
+  "method": [
+    { "heading": "사업장현황신고 불성실 가산세", "text": "소득세법 제81조의3과 시행령 제147조의2에 따라 의료업·수의업·약국을 하는 사업자가 사업장현황신고를 안 했거나 수입금액을 덜 신고하면, 신고하지 않은(모자란) 수입금액의 0.5%를 종합소득 결정세액에 더합니다. 그 밖의 업종에는 이 가산세가 없습니다." },
+    { "heading": "합계표 제출 불성실 가산세", "text": "소득세법 제81조의10제1항제2호·제3호에 따라 매출·매입처별 계산서합계표나 매입처별 세금계산서합계표를 기한까지 내지 않으면 공급가액의 0.5%, 기한 후 1개월 이내에 내면 0.3%입니다. 시행령 제147조의6의 소규모사업자(신규 개업, 직전 연도 수입금액 4,800만 원 미만 간편장부대상자 등)는 빠집니다. 국세기본법 제49조에 따라 중소기업은 의무 종류별 5천만 원이 한도입니다." }
+  ],
+  "tests": [
+    { "inputs": { "bizType": 0, "missingIncome": 30000000, "small": 0, "invoiceAmount": 0, "invoiceStatus": 0 },
+      "expect": { "statusPenalty": 150000, "sumPenalty": 0, "total": 150000 },
+      "why": "의원이 수입금액 3,000만 원을 빠뜨림: 3,000만 × 0.5% = 150,000원. 합계표는 기한 안에 냄" },
+    { "inputs": { "bizType": 1, "missingIncome": 30000000, "small": 0, "invoiceAmount": 20000000, "invoiceStatus": 2 },
+      "expect": { "statusPenalty": 0, "sumPenalty": 100000, "total": 100000 },
+      "why": "학원은 현황신고 불성실 가산세 대상 아님 → 0. 합계표 미제출 2,000만 × 0.5% = 100,000원" },
+    { "inputs": { "bizType": 1, "missingIncome": 0, "small": 0, "invoiceAmount": 20000000, "invoiceStatus": 1 },
+      "expect": { "statusPenalty": 0, "sumPenalty": 60000, "total": 60000 },
+      "why": "기한 후 1개월 이내 제출: 2,000만 × 0.3% = 60,000원" },
+    { "inputs": { "bizType": 1, "missingIncome": 0, "small": 1, "invoiceAmount": 20000000, "invoiceStatus": 2 },
+      "expect": { "statusPenalty": 0, "sumPenalty": 0, "total": 0 },
+      "why": "소규모사업자는 합계표 가산세 제외 → 0원" },
+    { "inputs": { "bizType": 0, "missingIncome": 10000000000, "small": 0, "invoiceAmount": 0, "invoiceStatus": 0 },
+      "expect": { "statusPenalty": 50000000, "sumPenalty": 0, "total": 50000000 },
+      "why": "100억 × 0.5% = 5,000만 원. 한도 5,000만 원과 같아 그대로(경계값)" },
+    { "inputs": { "bizType": 0, "missingIncome": 12000000000, "small": 0, "invoiceAmount": 0, "invoiceStatus": 0 },
+      "expect": { "statusPenalty": 50000000, "sumPenalty": 0, "total": 50000000 },
+      "why": "120억 × 0.5% = 6,000만 원이지만 중소기업 한도 5,000만 원으로 제한" },
+    { "inputs": { "bizType": 0, "missingIncome": 12345678, "small": 0, "invoiceAmount": 1000000, "invoiceStatus": 2 },
+      "expect": { "statusPenalty": 61728, "sumPenalty": 5000, "total": 66728 },
+      "why": "1,234만 5,678 × 0.5% = 61,728.39 → 원 미만 버림 61,728. 합계표 100만 × 0.5% = 5,000. 합계 66,728원" }
+  ]
+}
