@@ -1,0 +1,340 @@
+slug: self-employed-employment-insurance-support
+title: "소상공인 고용보험료 지원 2026: 1인 자영업자 보험료 최대 80% 환급, 신규 접수는 8월 마감"
+publishedOn: 2026-11-19
+checkedAt: 2026-11-18
+items:
+  - claim: 2026년 기존가입자 지원신청 접수마감
+    value: 8월 13일
+    source: https://www.semas.or.kr/web/SUP01/SUP0117/SUP011704.kmdc
+    evidence: "소진공 페이지 '접수마감 일정 안내' — 자영업자 고용보험 기존가입자 지원신청 접수마감: '26.8.13일 00시"
+    status: 일치
+  - claim: 2026년 신규가입자 지원신청 접수마감
+    value: 8월 18일
+    source: https://www.semas.or.kr/web/SUP01/SUP0117/SUP011704.kmdc
+    evidence: "같은 안내 — 신규가입자 지원신청 접수마감: '26.8.18일 18시 (신청기간 '26.1.1.~예산 소진으로 신청 접수마감)"
+    status: 일치
+  - claim: 근로복지공단의 사업 종료 표기
+    value: 26년 예산 소진으로 지원사업 종료
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: 근로복지공단 '보험료 산정 및 부과등' 페이지 '소상공인 고용보험료 지원사업'(26년 예산 소진으로 지원사업 종료)
+    status: 일치
+  - claim: 지원 비율과 기간 — 50~80%
+    value: 50~80%
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117022
+    evidence: "2026년 공고문(기업마당 바로보기) 2쪽 '지원내용': 보험료 중 50~80%를 최대 5년(60개월)까지 지원(환급)"
+    status: 일치
+  - claim: 지원 비율과 기간 — 최대 5년(60개월)
+    value: 최대 5년(60개월)
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117022
+    evidence: "2026년 공고문(기업마당 바로보기) 2쪽 '지원내용': 보험료 중 50~80%를 최대 5년(60개월)까지 지원(환급)"
+    status: 일치
+  - claim: 2026년 공고일
+    value: 2025년 12월 29일
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117022
+    evidence: 공고문 1쪽 '중소벤처기업부 공고 제2025-660호 … 2025년 12월 29일 중소벤처기업부 장관'
+    status: 일치
+  - claim: 2026년 접수 시작일
+    value: 2026년 1월 1일
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117022
+    evidence: "공고문 2쪽 '신청기간: '26. 1. 1. ~ 예산 소진 시까지'"
+    status: 일치
+  - claim: 소상공인 상시근로자 기준
+    value: 5명 미만 (광업·제조업·건설업·운수업은 10명 미만)
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117022
+    evidence: "공고문 1쪽 소상공인 기준 박스 '상시근로자 수: 5명 미만 (단, 광업·제조업·건설업 및 운수업은 10명 미만)'"
+    status: 일치
+  - claim: 공동사업자 지원 인원
+    value: 1명만
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117022
+    evidence: 공고문 1쪽 '** 공동사업자인 경우 1인만 지원'
+    status: 일치
+  - claim: 자영업자 고용보험 가입 대상 근로자 수
+    value: 50명 미만
+    source: https://www.comwel.or.kr/comwel/paym/ownr/targ.jsp
+    evidence: 근로복지공단 '가입대상' — 근로자를 사용하지 아니하거나, 50인 미만 근로자를 사용하는 자영업자
+    status: 일치
+  - claim: 가입허용기간 삭제 시행일
+    value: 2019년 7월 1일
+    source: https://www.comwel.or.kr/comwel/paym/ownr/targ.jsp
+    evidence: 같은 페이지 요건 2 '(가입허용기간 삭제) … (시행일자 2019.7.1.)'
+    status: 일치
+  - claim: 구직급여 수급 후 재가입 제한
+    value: 2년
+    source: https://www.comwel.or.kr/comwel/paym/ownr/targ.jsp
+    evidence: 같은 페이지 '자영업자 구직급여 수급 종료일로부터 2년이 경과한 사람'
+    status: 일치
+  - claim: 보험요율
+    value: 2.25%
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: "'보험요율: 2.25%(실업급여: 2%, 고용안정ㆍ직업능력개발사업: 0.25%)'"
+    status: 일치
+  - claim: 보험요율 중 실업급여·고용안정 몫 — 2%가 실업급여 몫
+    value: 2%가 실업급여 몫
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: "같은 줄 '실업급여: 2%, 고용안정ㆍ직업능력개발사업: 0.25%'"
+    status: 일치
+  - claim: 보험요율 중 실업급여·고용안정 몫 — 0.25%가 고용안정
+    value: 0.25%가 고용안정
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: "같은 줄 '실업급여: 2%, 고용안정ㆍ직업능력개발사업: 0.25%'"
+    status: 일치
+  - claim: 1등급 기준보수
+    value: 182만 원
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: 등급별 월 보험료 표 '1등급 1,820,000원 40,950원'
+    status: 일치
+  - claim: 1등급 월 보험료
+    value: 40,950원
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: 등급별 월 보험료 표 '1등급 1,820,000원 40,950원'
+    status: 일치
+  - claim: 2등급 기준보수
+    value: 208만 원
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: 같은 표 '2등급 2,080,000원 46,800원'
+    status: 일치
+  - claim: 2등급 월 보험료
+    value: 46,800원
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: 같은 표 '2등급 2,080,000원 46,800원'
+    status: 일치
+  - claim: 3등급 기준보수
+    value: 234만 원
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: 같은 표 '3등급 2,340,000원 52,650원'
+    status: 일치
+  - claim: 3등급 월 보험료
+    value: 52,650원
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: 같은 표 '3등급 2,340,000원 52,650원'
+    status: 일치
+  - claim: 4등급 기준보수
+    value: 260만 원
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: 같은 표 '4등급 2,600,000원 58,500원'
+    status: 일치
+  - claim: 4등급 월 보험료
+    value: 58,500원
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: 같은 표 '4등급 2,600,000원 58,500원'
+    status: 일치
+  - claim: 5등급 기준보수
+    value: 286만 원
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: 같은 표 '5등급 2,860,000원 64,350원'
+    status: 일치
+  - claim: 5등급 월 보험료
+    value: 64,350원
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: 같은 표 '5등급 2,860,000원 64,350원'
+    status: 일치
+  - claim: 6등급 기준보수
+    value: 312만 원
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: 같은 표 '6등급 3,120,000원 70,200원'
+    status: 일치
+  - claim: 6등급 월 보험료
+    value: 70,200원
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: 같은 표 '6등급 3,120,000원 70,200원'
+    status: 일치
+  - claim: 7등급 기준보수
+    value: 338만 원
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: 같은 표 '7등급 3,380,000원 76,050원'
+    status: 일치
+  - claim: 7등급 월 보험료
+    value: 76,050원
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: 같은 표 '7등급 3,380,000원 76,050원'
+    status: 일치
+  - claim: 등급별 지원 비율 — 80%
+    value: 80%
+    source: https://www.semas.or.kr/web/SUP01/SUP0117/SUP011704.kmdc
+    evidence: 소진공 '가입 등급별 보험료 지원금액' 표 지원비율 80%(1~2등급)·60%(3~4등급)·50%(5~7등급). 공고문 2쪽 표도 같음
+    status: 일치
+  - claim: 등급별 지원 비율 — 60%
+    value: 60%
+    source: https://www.semas.or.kr/web/SUP01/SUP0117/SUP011704.kmdc
+    evidence: 소진공 '가입 등급별 보험료 지원금액' 표 지원비율 80%(1~2등급)·60%(3~4등급)·50%(5~7등급). 공고문 2쪽 표도 같음
+    status: 일치
+  - claim: 등급별 지원 비율 — 50%
+    value: 50%
+    source: https://www.semas.or.kr/web/SUP01/SUP0117/SUP011704.kmdc
+    evidence: 소진공 '가입 등급별 보험료 지원금액' 표 지원비율 80%(1~2등급)·60%(3~4등급)·50%(5~7등급). 공고문 2쪽 표도 같음
+    status: 일치
+  - claim: 등급별 월 지원액 — 32,760원
+    value: 32,760원
+    source: https://www.semas.or.kr/web/SUP01/SUP0117/SUP011704.kmdc
+    evidence: 같은 표 '월 지원금액 32,760 37,440 31,590 35,100 32,175 35,100 38,025'. 공고문 2쪽 '지원액' 행과 같음
+    status: 일치
+  - claim: 등급별 월 지원액 — 37,440원
+    value: 37,440원
+    source: https://www.semas.or.kr/web/SUP01/SUP0117/SUP011704.kmdc
+    evidence: 같은 표 '월 지원금액 32,760 37,440 31,590 35,100 32,175 35,100 38,025'. 공고문 2쪽 '지원액' 행과 같음
+    status: 일치
+  - claim: 등급별 월 지원액 — 31,590원
+    value: 31,590원
+    source: https://www.semas.or.kr/web/SUP01/SUP0117/SUP011704.kmdc
+    evidence: 같은 표 '월 지원금액 32,760 37,440 31,590 35,100 32,175 35,100 38,025'. 공고문 2쪽 '지원액' 행과 같음
+    status: 일치
+  - claim: 등급별 월 지원액 — 35,100원
+    value: 35,100원
+    source: https://www.semas.or.kr/web/SUP01/SUP0117/SUP011704.kmdc
+    evidence: 같은 표 '월 지원금액 32,760 37,440 31,590 35,100 32,175 35,100 38,025'. 공고문 2쪽 '지원액' 행과 같음
+    status: 일치
+  - claim: 등급별 월 지원액 — 32,175원
+    value: 32,175원
+    source: https://www.semas.or.kr/web/SUP01/SUP0117/SUP011704.kmdc
+    evidence: 같은 표 '월 지원금액 32,760 37,440 31,590 35,100 32,175 35,100 38,025'. 공고문 2쪽 '지원액' 행과 같음
+    status: 일치
+  - claim: 등급별 월 지원액 — 38,025원
+    value: 38,025원
+    source: https://www.semas.or.kr/web/SUP01/SUP0117/SUP011704.kmdc
+    evidence: 같은 표 '월 지원금액 32,760 37,440 31,590 35,100 32,175 35,100 38,025'. 공고문 2쪽 '지원액' 행과 같음
+    status: 일치
+  - claim: 등급별 사장님 부담 — 8,190원
+    value: 8,190원
+    source: https://www.semas.or.kr/web/SUP01/SUP0117/SUP011704.kmdc
+    evidence: "원문 표의 월 보험료 − 월 지원금액으로 계산 (예: 4등급 58,500 − 35,100 = 23,400). 원문에 직접 쓰인 값이 아니라 계산값"
+    status: 일치
+  - claim: 등급별 사장님 부담 — 9,360원
+    value: 9,360원
+    source: https://www.semas.or.kr/web/SUP01/SUP0117/SUP011704.kmdc
+    evidence: "원문 표의 월 보험료 − 월 지원금액으로 계산 (예: 4등급 58,500 − 35,100 = 23,400). 원문에 직접 쓰인 값이 아니라 계산값"
+    status: 일치
+  - claim: 등급별 사장님 부담 — 21,060원
+    value: 21,060원
+    source: https://www.semas.or.kr/web/SUP01/SUP0117/SUP011704.kmdc
+    evidence: "원문 표의 월 보험료 − 월 지원금액으로 계산 (예: 4등급 58,500 − 35,100 = 23,400). 원문에 직접 쓰인 값이 아니라 계산값"
+    status: 일치
+  - claim: 등급별 사장님 부담 — 23,400원
+    value: 23,400원
+    source: https://www.semas.or.kr/web/SUP01/SUP0117/SUP011704.kmdc
+    evidence: "원문 표의 월 보험료 − 월 지원금액으로 계산 (예: 4등급 58,500 − 35,100 = 23,400). 원문에 직접 쓰인 값이 아니라 계산값"
+    status: 일치
+  - claim: 환급 시기 — 약 2개월 뒤
+    value: 약 2개월 뒤
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117022
+    evidence: 공고문 2쪽 '** 납부 약 2개월 후 환급 - 예) '26.1월 고용보험료를 법정기한(2월10일)까지 납부 시 3월23일경 환급(계좌이체)'
+    status: 일치
+  - claim: 환급 시기 — 2월 10일
+    value: 2월 10일
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117022
+    evidence: 공고문 2쪽 '** 납부 약 2개월 후 환급 - 예) '26.1월 고용보험료를 법정기한(2월10일)까지 납부 시 3월23일경 환급(계좌이체)'
+    status: 일치
+  - claim: 환급 시기 — 3월 23일경
+    value: 3월 23일경
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117022
+    evidence: 공고문 2쪽 '** 납부 약 2개월 후 환급 - 예) '26.1월 고용보험료를 법정기한(2월10일)까지 납부 시 3월23일경 환급(계좌이체)'
+    status: 일치
+  - claim: 2026년 지원 규모
+    value: 42,200명 내외
+    source: https://www.semas.or.kr/web/SUP01/SUP0117/SUP011704.kmdc
+    evidence: "소진공 페이지 '지원규모: 총 42,200명 내외'"
+    status: 일치
+  - claim: "구직급여 요건: 매출 감소 기준 — 6개월 연속 적자"
+    value: 6개월 연속 적자
+    source: https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp
+    evidence: 근로복지공단 '실업급여' 수급요건 1 '(6개월 연속하여 적자발생, 3개월 월평균 매출액 20%이상감소, …)'
+    status: 일치
+  - claim: "구직급여 요건: 매출 감소 기준 — 3개월 월평균 매출액 20% 이상 감소"
+    value: 3개월 월평균 매출액 20% 이상 감소
+    source: https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp
+    evidence: 근로복지공단 '실업급여' 수급요건 1 '(6개월 연속하여 적자발생, 3개월 월평균 매출액 20%이상감소, …)'
+    status: 일치
+  - claim: "구직급여 요건: 납부 기간 — 24개월 동안 보험료를 1년 이상"
+    value: 24개월 동안 보험료를 1년 이상
+    source: https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp
+    evidence: 수급요건 2 '폐업일 이전 24개월간 1년 이상 보험료를 납부하였을 것'
+    status: 일치
+  - claim: 가입 기간별 구직급여 일수 — 120일
+    value: 120일
+    source: https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp
+    evidence: 소정급여일수 표 '1년이상-3년미만 120일, 3년이상-5년미만 150일, 5년이상-10년미만 180일, 10년이상 210일'
+    status: 일치
+  - claim: 가입 기간별 구직급여 일수 — 150일
+    value: 150일
+    source: https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp
+    evidence: 소정급여일수 표 '1년이상-3년미만 120일, 3년이상-5년미만 150일, 5년이상-10년미만 180일, 10년이상 210일'
+    status: 일치
+  - claim: 가입 기간별 구직급여 일수 — 180일
+    value: 180일
+    source: https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp
+    evidence: 소정급여일수 표 '1년이상-3년미만 120일, 3년이상-5년미만 150일, 5년이상-10년미만 180일, 10년이상 210일'
+    status: 일치
+  - claim: 가입 기간별 구직급여 일수 — 210일
+    value: 210일
+    source: https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp
+    evidence: 소정급여일수 표 '1년이상-3년미만 120일, 3년이상-5년미만 150일, 5년이상-10년미만 180일, 10년이상 210일'
+    status: 일치
+  - claim: 등급별 구직급여일액 — 35,900원
+    value: 35,900원
+    source: https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp
+    evidence: 등급별 표 '구직급여일액 35,900 … 51,200 … 66,600'
+    status: 일치
+  - claim: 등급별 구직급여일액 — 51,200원
+    value: 51,200원
+    source: https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp
+    evidence: 등급별 표 '구직급여일액 35,900 … 51,200 … 66,600'
+    status: 일치
+  - claim: 등급별 구직급여일액 — 66,600원
+    value: 66,600원
+    source: https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp
+    evidence: 등급별 표 '구직급여일액 35,900 … 51,200 … 66,600'
+    status: 일치
+  - claim: 등급별 월 실업급여 — 1,092,000원
+    value: 1,092,000원
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: "'등급별 지원비율 및 지원액' 표 '실업급여(월) 1,092,000 … 1,560,000 … 2,028,000' (1·4·7등급)"
+    status: 일치
+  - claim: 등급별 월 실업급여 — 1,560,000원
+    value: 1,560,000원
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: "'등급별 지원비율 및 지원액' 표 '실업급여(월) 1,092,000 … 1,560,000 … 2,028,000' (1·4·7등급)"
+    status: 일치
+  - claim: 등급별 월 실업급여 — 2,028,000원
+    value: 2,028,000원
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: "'등급별 지원비율 및 지원액' 표 '실업급여(월) 1,092,000 … 1,560,000 … 2,028,000' (1·4·7등급)"
+    status: 일치
+  - claim: 내일배움카드 훈련비 한도
+    value: 300만~500만 원
+    source: https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp
+    evidence: "'직업능력개발 지원' — 훈련비용은 300~500만원 한도로 지원"
+    status: 일치
+  - claim: 서울시 고용보험료 환급 비율
+    value: 20%
+    source: https://news.seoul.go.kr/economy/archives/568900
+    evidence: 서울시 '소상공인 고용보험료 지원' 지원내용 '납부 보험료의 20%를 최대 5년간 환급 지원' (2026-03-12 수정)
+    status: 일치
+  - claim: 지자체 지원 운영 지역
+    value: 서울·경기·인천·부산·대구·대전 등
+    source: https://www.comwel.or.kr/comwel/paym/ownr/jizache.jsp
+    evidence: 근로복지공단 '지자체 지원사업 안내' 표에 서울시·경기도·인천·부산시·대구시·대전시 등 고용보험료 지원 지자체 목록
+    status: 일치
+  - claim: 다음 해 기준보수 변경 신청 기한
+    value: 12월 20일
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: "'다음연도 기준보수액은 12월 20일까지 공단에 변경을 신청할 수 있음', 미신청 시 종전 기준보수액 적용·당해 연도말까지 변경 불가"
+    status: 일치
+  - claim: "가입자 우대: 정책자금 금리"
+    value: 0.1% 감면
+    source: https://www.bizinfo.go.kr/sii/siia/selectSIIA200Detail.do?pblancId=PBLN_000000000117022
+    evidence: 공고문 3쪽 '자영업자 고용보험 가입 소상공인 우대사항' — 소상공인 정책자금 융자사업 대출금리 0.1% 감면
+    status: 일치
+  - claim: 보험료 납부기한
+    value: 다음 달 10일
+    source: https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp
+    evidence: "'납부기한: 매월 부과된 보험료를 다음 달 10일까지 납부', 공단 부과·건강보험공단 징수"
+    status: 일치
+  - claim: 문의처 전화 — 1588-0075
+    value: 1588-0075
+    source: https://www.semas.or.kr/web/SUP01/SUP0117/SUP011704.kmdc
+    evidence: 소진공 페이지 문의처 '1588-0075(근로복지공단 고객센터)', '1533-0100(통합콜센터)'
+    status: 일치
+  - claim: 문의처 전화 — 1533-0100
+    value: 1533-0100
+    source: https://www.semas.or.kr/web/SUP01/SUP0117/SUP011704.kmdc
+    evidence: 소진공 페이지 문의처 '1588-0075(근로복지공단 고객센터)', '1533-0100(통합콜센터)'
+    status: 일치

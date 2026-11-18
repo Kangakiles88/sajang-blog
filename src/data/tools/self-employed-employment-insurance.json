@@ -1,0 +1,102 @@
+{
+  "id": "self-employed-employment-insurance",
+  "name": "자영업자 고용보험료·실업급여 계산기",
+  "blurb": "기준보수 등급을 고르면 정부 보험료 지원(50~80%)과 지자체 지원을 뺀 매달 실부담, 폐업 때 받을 수 있는 실업급여(구직급여) 총액을 보여 줍니다",
+  "category": "support",
+  "headline": "자영업자 고용보험, 한 달에 얼마 내고 폐업 땐 얼마 받을까?",
+  "description": "자영업자 고용보험 기준보수 1~7등급별 월 보험료, 소상공인 고용보험료 지원(80·60·50%)과 지자체 지원을 뺀 실부담, 가입 기간별 구직급여 일수·총액을 2026년 근로복지공단·소상공인시장진흥공단 안내 기준으로 계산합니다.",
+  "inputs": [
+    { "key": "grade", "label": "기준보수 등급", "type": "select", "default": 1, "help": "가입할 때 사장님이 직접 고르는 등급입니다. 등급이 높을수록 보험료와 실업급여가 함께 커집니다",
+      "options": [
+        { "label": "1등급 (기준보수 182만 원)", "value": 1 },
+        { "label": "2등급 (기준보수 208만 원)", "value": 2 },
+        { "label": "3등급 (기준보수 234만 원)", "value": 3 },
+        { "label": "4등급 (기준보수 260만 원)", "value": 4 },
+        { "label": "5등급 (기준보수 286만 원)", "value": 5 },
+        { "label": "6등급 (기준보수 312만 원)", "value": 6 },
+        { "label": "7등급 (기준보수 338만 원)", "value": 7 }
+      ] },
+    { "key": "govOn", "label": "정부(소상공인시장진흥공단) 보험료 지원", "type": "select", "default": 1, "help": "2026년 신규 접수는 8월에 마감됐습니다. 이미 지원 대상인 분, 또는 2027년 공고에서 같은 비율로 지원된다고 가정할 때 '받음'을 고르세요",
+      "options": [ { "label": "받음", "value": 1 }, { "label": "안 받음", "value": 0 } ] },
+    { "key": "localRate", "label": "지자체 추가 지원 비율", "type": "percent", "default": 0, "help": "시·도가 따로 돌려주는 비율. 예: 서울시는 20%. 지역마다 다르니 해당 지자체 공고를 확인하세요" },
+    { "key": "years", "label": "폐업 전 보험료를 낸 기간 (년)", "type": "number", "default": 1, "help": "실업급여 일수 계산용. 폐업일 전 24개월 동안 1년 이상 내야 받을 수 있습니다" }
+  ],
+  "constants": [
+    { "key": "prem1", "value": 40950, "label": "1등급 월 보험료", "source": "https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp", "evidence": "근로복지공단 '보험료 산정 및 부과등' 등급별 월 보험료 표 '1등급 1,820,000원 40,950원'" },
+    { "key": "prem2", "value": 46800, "label": "2등급 월 보험료", "source": "https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp", "evidence": "같은 표 '2등급 2,080,000원 46,800원'" },
+    { "key": "prem3", "value": 52650, "label": "3등급 월 보험료", "source": "https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp", "evidence": "같은 표 '3등급 2,340,000원 52,650원'" },
+    { "key": "prem4", "value": 58500, "label": "4등급 월 보험료", "source": "https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp", "evidence": "같은 표 '4등급 2,600,000원 58,500원'" },
+    { "key": "prem5", "value": 64350, "label": "5등급 월 보험료", "source": "https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp", "evidence": "같은 표 '5등급 2,860,000원 64,350원'" },
+    { "key": "prem6", "value": 70200, "label": "6등급 월 보험료", "source": "https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp", "evidence": "같은 표 '6등급 3,120,000원 70,200원'" },
+    { "key": "prem7", "value": 76050, "label": "7등급 월 보험료", "source": "https://www.comwel.or.kr/comwel/paym/ownr/insu.jsp", "evidence": "같은 표 '7등급 3,380,000원 76,050원'" },
+    { "key": "govHigh", "value": 0.8, "label": "정부 지원 비율 (1~2등급)", "source": "https://www.semas.or.kr/web/SUP01/SUP0117/SUP011704.kmdc", "evidence": "소진공 '소상공인 고용보험료 지원' 가입 등급별 보험료 지원금액 표 '지원비율 80%'(1~2등급), 1등급 월 지원금액 32,760원 = 40,950원×80%" },
+    { "key": "govMid", "value": 0.6, "label": "정부 지원 비율 (3~4등급)", "source": "https://www.semas.or.kr/web/SUP01/SUP0117/SUP011704.kmdc", "evidence": "같은 표 '60%'(3~4등급), 3등급 31,590원 = 52,650원×60%" },
+    { "key": "govLow", "value": 0.5, "label": "정부 지원 비율 (5~7등급)", "source": "https://www.semas.or.kr/web/SUP01/SUP0117/SUP011704.kmdc", "evidence": "같은 표 '50%'(5~7등급), 7등급 38,025원 = 76,050원×50%" },
+    { "key": "day1", "value": 35900, "label": "1등급 구직급여일액", "source": "https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp", "evidence": "근로복지공단 '실업급여 지급 및 직업능력개발 지원' 등급별 표 '구직급여일액 1등급 35,900'" },
+    { "key": "day2", "value": 41000, "label": "2등급 구직급여일액", "source": "https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp", "evidence": "같은 표 '2등급 41,000'" },
+    { "key": "day3", "value": 46100, "label": "3등급 구직급여일액", "source": "https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp", "evidence": "같은 표 '3등급 46,100'" },
+    { "key": "day4", "value": 51200, "label": "4등급 구직급여일액", "source": "https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp", "evidence": "같은 표 '4등급 51,200'" },
+    { "key": "day5", "value": 56400, "label": "5등급 구직급여일액", "source": "https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp", "evidence": "같은 표 '5등급 56,400'" },
+    { "key": "day6", "value": 61500, "label": "6등급 구직급여일액", "source": "https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp", "evidence": "같은 표 '6등급 61,500'" },
+    { "key": "day7", "value": 66600, "label": "7등급 구직급여일액", "source": "https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp", "evidence": "같은 표 '7등급 66,600'" },
+    { "key": "yMin", "value": 1, "label": "구직급여를 받기 위한 최소 납부 기간(년)", "source": "https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp", "evidence": "수급요건 2 '폐업일 이전 24개월간 1년 이상 보험료를 납부하였을 것', 소정급여일수 표 '1년이상 - 3년미만'" },
+    { "key": "yMid1", "value": 3, "label": "소정급여일수 구간 경계 3년", "source": "https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp", "evidence": "소정급여일수 표 '3년이상 - 5년미만'" },
+    { "key": "yMid2", "value": 5, "label": "소정급여일수 구간 경계 5년", "source": "https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp", "evidence": "소정급여일수 표 '5년이상 - 10년미만'" },
+    { "key": "yMax", "value": 10, "label": "소정급여일수 구간 경계 10년", "source": "https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp", "evidence": "소정급여일수 표 '10년이상'" },
+    { "key": "daysA", "value": 120, "label": "가입 1년 이상 3년 미만 구직급여 일수", "source": "https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp", "evidence": "소정급여일수 표 '1년이상 - 3년미만 120일'" },
+    { "key": "daysB", "value": 150, "label": "가입 3년 이상 5년 미만 구직급여 일수", "source": "https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp", "evidence": "소정급여일수 표 '3년이상 - 5년미만 150일'" },
+    { "key": "daysC", "value": 180, "label": "가입 5년 이상 10년 미만 구직급여 일수", "source": "https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp", "evidence": "소정급여일수 표 '5년이상 - 10년미만 180일'" },
+    { "key": "daysD", "value": 210, "label": "가입 10년 이상 구직급여 일수", "source": "https://www.comwel.or.kr/comwel/paym/ownr/hrd.jsp", "evidence": "소정급여일수 표 '10년이상 210일'" }
+  ],
+  "steps": [
+    { "key": "premium", "expr": "grade == 1 ? prem1 : grade == 2 ? prem2 : grade == 3 ? prem3 : grade == 4 ? prem4 : grade == 5 ? prem5 : grade == 6 ? prem6 : prem7" },
+    { "key": "govRate", "expr": "grade <= 2 ? govHigh : grade <= 4 ? govMid : govLow" },
+    { "key": "gov", "expr": "govOn == 1 ? round(premium * govRate) : 0" },
+    { "key": "local", "expr": "min(round(premium * localRate / 100), premium - gov)" },
+    { "key": "net", "expr": "max(premium - gov - local, 0)" },
+    { "key": "netYear", "expr": "net * 12" },
+    { "key": "dayAmount", "expr": "grade == 1 ? day1 : grade == 2 ? day2 : grade == 3 ? day3 : grade == 4 ? day4 : grade == 5 ? day5 : grade == 6 ? day6 : day7" },
+    { "key": "benefitDays", "expr": "years < yMin ? 0 : years < yMid1 ? daysA : years < yMid2 ? daysB : years < yMax ? daysC : daysD" },
+    { "key": "benefitTotal", "expr": "dayAmount * benefitDays" }
+  ],
+  "outputs": [
+    { "key": "net", "label": "매달 실제로 내는 보험료", "format": "won", "primary": true },
+    { "key": "premium", "label": "월 보험료 (지원 전)", "format": "won" },
+    { "key": "gov", "label": "정부 지원 (월)", "format": "won" },
+    { "key": "local", "label": "지자체 지원 (월)", "format": "won" },
+    { "key": "netYear", "label": "1년 실부담 합계", "format": "won" },
+    { "key": "dayAmount", "label": "구직급여 하루 금액", "format": "won" },
+    { "key": "benefitDays", "label": "구직급여 받는 날 수", "format": "number" },
+    { "key": "benefitTotal", "label": "비자발적 폐업 시 구직급여 총액", "format": "won" }
+  ],
+  "notes": [
+    { "when": "govOn == 1", "text": "정부 보험료 지원은 2026년 예산 소진으로 8월에 신규 접수가 마감됐습니다. 이미 지원 대상이 된 분이 아니라면 2027년 공고를 확인해야 합니다." },
+    { "when": "years < yMin", "text": "폐업일 전 24개월 동안 보험료를 1년 이상 내지 않으면 구직급여를 받을 수 없습니다." },
+    { "when": "net == 0", "text": "정부 지원과 지자체 지원을 합쳐 보험료 전액이 지원되는 경우입니다." }
+  ],
+  "fine": "2026년 근로복지공단·소상공인시장진흥공단 안내 표를 옮긴 추정치입니다. 같은 등급을 계속 유지했다고 가정했고, 등급을 바꾼 경우 구직급여는 최근 3년 평균 보수로 다시 계산됩니다. 구직급여는 6개월 연속 적자, 3개월 월평균 매출 20% 이상 감소 같은 정당한 폐업 사유가 인정되고 재취업 활동을 해야 받을 수 있습니다. 정부·지자체 지원은 예산과 심사에 따라 달라집니다.",
+  "method": [
+    { "heading": "계산 방식", "text": "고른 등급의 월 보험료(기준보수의 2.25%)에서 정부 지원(1~2등급 80%, 3~4등급 60%, 5~7등급 50%)과 입력한 지자체 지원 비율을 빼 실부담을 구합니다. 1년 합계는 실부담 × 12개월입니다. 구직급여 총액은 등급별 구직급여일액 × 가입 기간별 일수(1년 이상 120일, 3년 이상 150일, 5년 이상 180일, 10년 이상 210일)입니다." },
+    { "heading": "기준 자료", "text": "근로복지공단 자영업자 고용보험 '보험료 산정 및 부과등'·'실업급여 지급 및 직업능력개발 지원' 페이지, 소상공인시장진흥공단 '소상공인 고용보험료 지원' 페이지 (2026년 기준)." }
+  ],
+  "tests": [
+    { "inputs": { "grade": 1, "govOn": 1, "localRate": 0, "years": 1 },
+      "expect": { "premium": 40950, "gov": 32760, "local": 0, "net": 8190, "netYear": 98280, "dayAmount": 35900, "benefitDays": 120, "benefitTotal": 4308000 },
+      "why": "1등급, 가입 1년(경계값): 40,950 × 0.8 = 32,760 → 실부담 40,950 − 32,760 = 8,190원, 1년 8,190 × 12 = 98,280원. 구직급여 35,900 × 120일 = 4,308,000원" },
+    { "inputs": { "grade": 4, "govOn": 1, "localRate": 20, "years": 3 },
+      "expect": { "premium": 58500, "gov": 35100, "local": 11700, "net": 11700, "netYear": 140400, "dayAmount": 51200, "benefitDays": 150, "benefitTotal": 7680000 },
+      "why": "60% 구간 마지막 등급, 지자체 20%, 가입 3년(경계값): 58,500 × 0.6 = 35,100, × 0.2 = 11,700 → 58,500 − 35,100 − 11,700 = 11,700원, 1년 140,400원. 51,200 × 150일 = 7,680,000원" },
+    { "inputs": { "grade": 2, "govOn": 1, "localRate": 20, "years": 5 },
+      "expect": { "premium": 46800, "gov": 37440, "local": 9360, "net": 0, "netYear": 0, "dayAmount": 41000, "benefitDays": 180, "benefitTotal": 7380000 },
+      "why": "80% 구간 마지막 등급 + 지자체 20% = 전액 지원: 46,800 × 0.8 = 37,440, × 0.2 = 9,360 → 실부담 0원. 가입 5년(경계값) 180일 × 41,000 = 7,380,000원" },
+    { "inputs": { "grade": 5, "govOn": 0, "localRate": 0, "years": 0.5 },
+      "expect": { "premium": 64350, "gov": 0, "local": 0, "net": 64350, "netYear": 772200, "dayAmount": 56400, "benefitDays": 0, "benefitTotal": 0 },
+      "why": "지원 없이 5등급: 실부담 64,350원, 1년 64,350 × 12 = 772,200원. 납부 1년 미만이라 구직급여 0일 → 0원" },
+    { "inputs": { "grade": 7, "govOn": 1, "localRate": 0, "years": 10 },
+      "expect": { "premium": 76050, "gov": 38025, "local": 0, "net": 38025, "netYear": 456300, "dayAmount": 66600, "benefitDays": 210, "benefitTotal": 13986000 },
+      "why": "최고 등급, 가입 10년(경계값): 76,050 × 0.5 = 38,025 → 실부담 38,025원, 1년 456,300원. 66,600 × 210일 = 13,986,000원" },
+    { "inputs": { "grade": 3, "govOn": 1, "localRate": 0, "years": 9.9 },
+      "expect": { "premium": 52650, "gov": 31590, "local": 0, "net": 21060, "netYear": 252720, "dayAmount": 46100, "benefitDays": 180, "benefitTotal": 8298000 },
+      "why": "60% 구간 첫 등급: 52,650 × 0.6 = 31,590 → 21,060원, 1년 252,720원. 10년 바로 아래라 180일 × 46,100 = 8,298,000원" }
+  ]
+}
