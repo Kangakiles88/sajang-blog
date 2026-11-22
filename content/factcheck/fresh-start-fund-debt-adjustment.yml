@@ -1,0 +1,260 @@
+slug: fresh-start-fund-debt-adjustment
+title: "새출발기금 채무조정 신청 조건과 원금감면: 최대 90%, 2026년 재산심사 강화까지 정리"
+publishedOn: 2026-11-22
+checkedAt: 2026-11-22
+items:
+  - claim: 지원 대상 사업 기간
+    value: 2020년 4월~2025년 6월
+    source: https://www.newstartfund.or.kr/
+    evidence: "누리집 '새출발기금 제도 안내': '’20. 4월~ ’25. 6월 중 사업을 영위한(휴업 및 폐업 포함) 개인사업자 또는 법인 소상공인'"
+    status: 일치
+  - claim: 폐업 법인 신청 불가
+    value: 폐업한 법인은 신청할 수 없습니다
+    source: https://www.newstartfund.or.kr/
+    evidence: "누리집 제도 안내: '(단, 폐업 법인 신청 불가)'"
+    status: 일치
+  - claim: 지원 대상 확대 시행일
+    value: 2025년 9월 22일
+    source: https://www.fsc.go.kr/no010101/85314
+    evidence: 보도자료 부제 '9.22일 제도개선 시행', 본문 '9월 22일부터 시행되는 이번 제도개선'
+    status: 일치
+  - claim: 확대 전 사업 기간 끝
+    value: 2024년 11월
+    source: https://www.fsc.go.kr/no010101/85314
+    evidence: "보도자료 '첫째' 표: 지원 대상 ’20년 4월~’24년 11월 ⇒ ’20년 4월~’25년 6월"
+    status: 일치
+  - claim: 부실차주 연체 기준
+    value: 3개월 이상
+    source: https://www.newstartfund.or.kr/
+    evidence: "누리집 제도 안내: '부실차주(3개월 이상 대출상환금을 연체한 차주)'. 금융위 2025.9.18 각주도 '3개월 이상 연체된 자'"
+    status: 일치
+  - claim: 부실우려차주 연체 기준
+    value: 90일 미만
+    source: https://www.fsc.go.kr/no010101/86357
+    evidence: "III-①-2: '부실우려차주(90일미만 연체)'"
+    status: 일치
+  - claim: 채무조정 한도
+    value: 최대 15억 원(담보 10억 원 + 무담보 5억 원)
+    source: https://www.newstartfund.or.kr/
+    evidence: "누리집 제도 안내: '사업자대출 ‧ 가계대출 최대 15억원(담보 10억원 + 무담보 5억원)'"
+    status: 일치
+  - claim: 제외되는 신규 대출
+    value: 6개월 안에 새로 받은 대출
+    source: https://www.newstartfund.or.kr/
+    evidence: "누리집 제도 안내: '6개월 내 신규 대출 등 제외'"
+    status: 일치
+  - claim: 부실차주 원금 조정 범위
+    value: 0~80%
+    source: https://www.newstartfund.or.kr/
+    evidence: "누리집 제도 안내: '부실차주 : 보유재산을 반영해 원금 조정(0~80%)'"
+    status: 일치
+  - claim: 취약계층 원금감면 최대
+    value: 순부채의 최대 90%
+    source: https://www.newstartfund.or.kr/
+    evidence: "누리집 제도 안내: '기초수급자 등 상환능력이 거의없는 취약계층은 순부채의 최대 90%까지 조정'"
+    status: 일치
+  - claim: 거치기간 최대
+    value: 최대 3년
+    source: https://www.newstartfund.or.kr/
+    evidence: "누리집 제도 안내: '거치기간 최대 3년(신용대출 1년) 부여'"
+    status: 일치
+  - claim: 상환기간 최장
+    value: 최장 20년
+    source: https://www.newstartfund.or.kr/
+    evidence: "누리집 제도 안내: '최장 20년 분할상환(신용대출 10년)'"
+    status: 일치
+  - claim: 신용대출 거치·상환기간
+    value: 신용대출 10년
+    source: https://www.newstartfund.or.kr/
+    evidence: "누리집 제도 안내: '(신용대출 1년)', '(신용대출 10년)'"
+    status: 일치
+  - claim: 저소득 부실차주 총 채무액 기준
+    value: 총 채무액 1억 원 이하
+    source: https://www.fsc.go.kr/no010101/85314
+    evidence: "보도자료 '둘째' 표: '저소득층 부실차주 무담보채무 (총 채무액 1억원이하)'"
+    status: 일치
+  - claim: 저소득 기준
+    value: 중위소득 60% 이하
+    source: https://www.fsc.go.kr/no010101/85314
+    evidence: "보도자료 '둘째' 각주 '*저소득 : 중위소득 60% 이하'"
+    status: 일치
+  - claim: 저소득 부실차주 원금감면율 변경
+    value: 최대 80%에서 90%로
+    source: https://www.fsc.go.kr/no010101/85314
+    evidence: "보도자료 '둘째' 표: 원금감면율 최대 80% ⇒ 최대 90%"
+    status: 일치
+  - claim: 사회취약계층 고령자 기준
+    value: 70세 이상
+    source: https://www.fsc.go.kr/no010101/85314
+    evidence: "보도자료 '둘째': '사회취약계층(기초생활수급자, 중증장애인, 70세 이상 고령자 등)'"
+    status: 일치
+  - claim: 금리 상한 인하 대상 연체 기간
+    value: 30일 이하
+    source: https://www.fsc.go.kr/no010101/85314
+    evidence: "보도자료 '둘째': '30일 이하 연체자의 채무조정 후 적용금리 상한을 인하'"
+    status: 일치
+  - claim: 사회취약계층 금리 상한
+    value: 9%에서 3.9~4.7%
+    source: https://www.fsc.go.kr/no010101/85314
+    evidence: "보도자료 '둘째': '(현행 9%→3.9~4.7%)'"
+    status: 일치
+  - claim: 2026년 제도개선 시행일
+    value: 2026년 3월 25일
+    source: https://www.newstartfund.or.kr/
+    evidence: 누리집 팝업 '새출발기금 제도개선 시행('26.3.25) 안내'
+    status: 일치
+  - claim: 조기상환 인센티브 조건
+    value: 연체 없이 1년 이상
+    source: https://www.fsc.go.kr/no010101/86357
+    evidence: "III-①-1: '채무조정 변제계획을 연체 없이 1년 이상 성실히 상환한…'"
+    status: 일치
+  - claim: 조기상환 추가감면 12~23개월
+    value: 12~23개월 | 10%
+    source: https://www.fsc.go.kr/no010101/86357
+    evidence: "III-①-1 각주 '1. 변제계획 12개월 ~ 23개월 이행 후 조기상환시 : 잔여채무부담액의 10%'"
+    status: 일치
+  - claim: 조기상환 추가감면 24~35개월
+    value: 24~35개월 | 8%
+    source: https://www.fsc.go.kr/no010101/86357
+    evidence: 같은 각주 '2. … 24개월 ~ 35개월 … 8%'
+    status: 일치
+  - claim: 조기상환 추가감면 36~47개월
+    value: 36~47개월 | 6%
+    source: https://www.fsc.go.kr/no010101/86357
+    evidence: 같은 각주 '3. … 36개월 ~ 47개월 … 6%'
+    status: 일치
+  - claim: 조기상환 추가감면 48개월 이상
+    value: 48개월 이상 | 5%
+    source: https://www.fsc.go.kr/no010101/86357
+    evidence: 같은 각주 '4. … 48개월 이상 … 5%'
+    status: 일치
+  - claim: 조기상환 예시 채무부담액
+    value: 3,000만 원
+    source: https://www.fsc.go.kr/no010101/86357
+    evidence: "III-①-1 예시: '채무원금 1억원, 원금감면율 70% … 채무부담액(3,000만원)'"
+    status: 일치
+  - claim: 조기상환 예시 기변제액
+    value: 450만 원
+    source: https://www.fsc.go.kr/no010101/86357
+    evidence: "같은 예시: '기 변제금액(450만원)'"
+    status: 일치
+  - claim: 조기상환 예시 잔여액
+    value: 2,550만 원
+    source: https://www.fsc.go.kr/no010101/86357
+    evidence: "같은 예시: '= 2,550만원 조기상환'"
+    status: 일치
+  - claim: 조기상환 예시 추가감면액
+    value: 255만 원
+    source: https://www.fsc.go.kr/no010101/86357
+    evidence: "같은 예시: '10% 추가감면(255만원)'"
+    status: 일치
+  - claim: 조기상환 예시 최종 상환액
+    value: 2,295만 원
+    source: https://www.fsc.go.kr/no010101/86357
+    evidence: "같은 예시: '= 2,295만원 조기상환'"
+    status: 일치
+  - claim: 중개형 금리 인하 폭
+    value: 처음 정한 금리의 10%씩
+    source: https://www.fsc.go.kr/no010101/86357
+    evidence: "III-①-2: '최초 적용금리(채무조정 이후금리)의 10%를 추가로 인하'"
+    status: 일치
+  - claim: 중개형 금리 인하 기간
+    value: 최대 4년간
+    source: https://www.fsc.go.kr/no010101/86357
+    evidence: "III-①-2: '1년간 성실상환 할 때마다(최대 4년간)'"
+    status: 일치
+  - claim: 중개형 금리 하한
+    value: 3.25%
+    source: https://www.fsc.go.kr/no010101/86357
+    evidence: "III-①-2: '(하한 3.25%까지)'"
+    status: 일치
+  - claim: 기존 상환유예 기간
+    value: 최장 3년
+    source: https://www.fsc.go.kr/no010101/86357
+    evidence: "III-②: '최장 3년간 채무상환을 유예하고 있으나'"
+    status: 일치
+  - claim: 출산 상환유예 기간
+    value: 출생일 기준 1년
+    source: https://www.fsc.go.kr/no010101/86357
+    evidence: "III-②: '출산(예 : 출생일 기준 1년간)'"
+    status: 일치
+  - claim: 긴급 상환유예
+    value: 2개월 안의 긴급 상환유예
+    source: https://www.fsc.go.kr/no010101/86357
+    evidence: "III-②: '긴급 상환유예(2개월 내)를 신청할 수 있다'"
+    status: 일치
+  - claim: 취·창업 프로그램 우대 감면
+    value: 최대 10%p
+    source: https://www.fsc.go.kr/no010101/86357
+    evidence: "III-③: '최대 10%p 우대, 최대 감면율 90%'. 연계 프로그램에 희망리턴패키지 포함"
+    status: 일치
+  - claim: 우대 포함 최대 감면율
+    value: 최대 감면율 90%
+    source: https://www.fsc.go.kr/no010101/86357
+    evidence: "III-③: '최대 감면율 90%'"
+    status: 일치
+  - claim: 지역연계 확대
+    value: 전국 9개 지자체
+    source: https://www.fsc.go.kr/no010101/86357
+    evidence: "III-③: '부산으로 한정되었던 지역연계 범위를 전국 9개 지자체로 확대'"
+    status: 일치
+  - claim: 가상자산 제출 의무화 시점
+    value: 2026년 1월부터
+    source: https://www.fsc.go.kr/no010101/87188
+    evidence: 참고 비교표 ➊ '가상자산(’26.1월 시행)'
+    status: 일치
+  - claim: 비상장주식 제출 의무화 시점
+    value: 2026년 5월 6일
+    source: https://www.newstartfund.or.kr/
+    evidence: 누리집 팝업 '비상장주식 보유여부 제출 의무화 시행('26.5.6.)'. 금융위 2026.6.25 비교표 '비상장주식(’26.5월 시행)'
+    status: 일치
+  - claim: 개정 신용정보법 시행일
+    value: 2026년 8월 13일
+    source: https://www.fsc.go.kr/no010101/87188
+    evidence: "➊ 본문 '신용정보법 개정*(시행일 : ‘26.8.13.)'"
+    status: 일치
+  - claim: 감면기준 차등화 방향
+    value: 최소 감면율을 60%에서 30%로
+    source: https://www.fsc.go.kr/no010101/87188
+    evidence: ➋ '변제가능률 100% 초과시 … 최소감면율을 하향(60→30%)'
+    status: 일치
+  - claim: 차등화 기준
+    value: 변제가능률 100% 초과
+    source: https://www.fsc.go.kr/no010101/87188
+    evidence: ➋ '상대적으로 변제능력이 높은 채무자(변제가능률 100% 초과시)'
+    status: 일치
+  - claim: 차등화 일정
+    value: 6월 말 협약 개정 등
+    source: https://www.fsc.go.kr/no010101/87188
+    evidence: 참고 비교표 ➋ 추진일정 '협약개정 등 (‘26.6월말)'
+    status: 일치
+  - claim: 추심 중단 시점
+    value: 다음 날부터
+    source: https://www.newstartfund.or.kr/
+    evidence: "누리집 제도 안내: '채무조정 신청 즉시(익일부터) 추심중단, 강제집행 중지'"
+    status: 일치
+  - claim: 신청 취소 기한
+    value: 신청일 다음 달 15일까지
+    source: https://www.newstartfund.or.kr/
+    evidence: "누리집 제도 안내: '신청일 익월 15일 까지 신청취소 기한'"
+    status: 일치
+  - claim: 취소 후 재신청 제한
+    value: 3개월(90일)
+    source: https://www.newstartfund.or.kr/
+    evidence: "누리집 제도 안내: '신청취소일로부터 3개월(90일)간 재신청이 불가'"
+    status: 일치
+  - claim: 공공정보 해제 조건
+    value: 1년간 성실하게 갚으면
+    source: https://www.newstartfund.or.kr/
+    evidence: "누리집 제도 안내: '1년간 성실상환 시 채무조정 정보(공공정보)는 해제'"
+    status: 일치
+  - claim: 부실차주 문의 전화
+    value: 1660-1378
+    source: https://www.fsc.go.kr/no010101/85314
+    evidence: "보도자료 하단 '부실차주 : 1660-1378(새출발기금)'. 누리집 문의처도 같음"
+    status: 일치
+  - claim: 부실우려차주 문의 전화
+    value: 1600-5500
+    source: https://www.fsc.go.kr/no010101/85314
+    evidence: "보도자료 하단 '부실우려차주 : 1600-5500(신용회복위원회)'"
+    status: 일치
