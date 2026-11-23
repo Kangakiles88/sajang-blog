@@ -1,0 +1,120 @@
+slug: policy-fund-repayment-extension
+title: "소상공인 정책자금 상환연장 신청 조건: 최대 7년, 폐업 후 취업해도 가능 (2026년 기준)"
+publishedOn: 2026-11-23
+checkedAt: 2026-11-23
+items:
+  - claim: 상환연장 지원 대상 대출 상태
+    value: 직접대출을 정상 상환 중이거나 단기 연체(30일 이하) 중
+    source: https://ols.semas.or.kr/ols/man/SMAN051M/page.do
+    evidence: "공지 '2026년 「정책자금 상환연장」 신청 안내'(2026-07-16) □(지원대상): '직접대출을 정상 상환 중이거나 단기 연체(30일 이하) 중인 차주'"
+    status: 일치
+  - claim: 상환연장 최대 기간
+    value: 최대 7년
+    source: https://ols.semas.or.kr/ols/man/SMAN051M/page.do
+    evidence: "같은 공지 □지원내용: '(일시적 경영애로 소상공인) 상환기간 최대 7년 연장', '(취업 시) 상환기간 최대 7년 연장'"
+    status: 일치
+  - claim: 임금근로자 전환 폐업 소상공인 1년 근속 시 금리감면
+    value: 0.5%p
+    source: https://ols.semas.or.kr/ols/man/SMAN051M/page.do
+    evidence: "같은 공지 □지원내용: '(1년 근속 시) 0.5%p 금리감면 지원'"
+    status: 일치
+  - claim: 일시적 경영애로 소상공인 사업기간
+    value: 2026년 7월 1일(수)부터 상시
+    source: https://ols.semas.or.kr/ols/man/SMAN051M/page.do
+    evidence: "같은 공지 □(사업기간) ②: '일시적 경영애로 소상공인 : ’26.7.1(수) ~ 상시'"
+    status: 일치
+  - claim: 임금근로자 전환 폐업 소상공인 사업기간
+    value: 2026년 7월 20일(월)부터 상시
+    source: https://ols.semas.or.kr/ols/man/SMAN051M/page.do
+    evidence: "같은 공지 □(사업기간) ①: '임금근로자 전환 폐업 소상공인 : ‘26.7.20(월) ~ 상시'"
+    status: 일치
+  - claim: 폐업 후 취업 상환연장 대상 대출·폐업 시기
+    value: 2023년 이후
+    source: https://www.korea.kr/news/policyNewsView.do?newsId=148967360
+    evidence: "정책브리핑 2026.06.30 기사 본문: '2023년 이후 소상공인 정책자금 직접대출을 받은 뒤 2025년 폐업한 소상공인이 취업에 성공하면 상환연장 지원 대상에 포함'"
+    status: 일치
+  - claim: 폐업 시기
+    value: 2025년에 폐업
+    source: https://www.korea.kr/news/policyNewsView.do?newsId=148967360
+    evidence: "같은 기사 같은 문장: '2025년 폐업한 소상공인'"
+    status: 일치
+  - claim: 분할상환 특례 운영 시작
+    value: 2025년 7월 30일
+    source: https://www.semas.or.kr/web/SUP01/SUP0103/SUP010302.kmdc
+    evidence: "소진공 상환연장 메뉴 페이지 사업기간: '’25. 7. 30(수) ~ ‘26. 6. 30.(화)'"
+    status: 일치
+  - claim: 분할상환 특례 신청 마감
+    value: 2026년 6월 30일
+    source: https://www.semas.or.kr/web/SUP01/SUP0103/SUP010302.kmdc
+    evidence: "같은 페이지 지원내용 ①: '분할상환 특례 지원(상환연장 최대 7년 + 1%p 금리감면)은 ‘26.6.30.까지 신청이 가능'"
+    status: 일치
+  - claim: 분할상환 특례 금리감면 폭
+    value: 1%p
+    source: https://www.semas.or.kr/web/SUP01/SUP0103/SUP010302.kmdc
+    evidence: "같은 페이지 지원내용 ①: '상환연장 최대 7년 + 1%p 금리감면'. ②: '정책자금 상환연장(최대 7년)은 지속 운영(’26.6.30. 이후에도 신청 가능)'"
+    status: 일치
+  - claim: 정책자금 연체 신청 제한
+    value: 30일 넘게
+    source: https://www.semas.or.kr/web/SUP01/SUP0103/SUP010302.kmdc
+    evidence: "같은 페이지 제한기준 3: '현재 소상공인 정책자금 대출금을 30일 초과 연체중인 경우'"
+    status: 일치
+  - claim: 권리침해 해제 후 제한 기간
+    value: 3개월
+    source: https://www.semas.or.kr/web/SUP01/SUP0103/SUP010302.kmdc
+    evidence: "같은 페이지 제한기준 5: '권리침해 해제시점(등기접수일자 기준)이 3개월 이내인 경우'"
+    status: 일치
+  - claim: 방문 신청 가능한 소상공인 지원센터 수
+    value: 78개
+    source: https://www.semas.or.kr/web/SUP01/SUP0103/SUP010302.kmdc
+    evidence: "같은 페이지 신청·접수: '전국 78개 소상공인 지원센터를 통해 방문신청 가능'"
+    status: 일치
+  - claim: 홈플러스 피해 직접대출 만기연장·상환유예 신청기간
+    value: 2026년 10월 6일(화) 14:00 ~ 12월 31일(목) 18:00
+    source: https://ols.semas.or.kr/ols/man/SMAN051M/page.do
+    evidence: "공지 '홈플러스 피해 소상공인을 위한 소상공인정책자금(직접대출) 만기연장‧상환유예 안내'(2026-10-02) □신청기간: '2026년 10월 6일(화) 14:00 ~ 2026년 12월 31일(목) 18:00'"
+    status: 일치
+  - claim: 홈플러스 입점·거래 확인 기간
+    value: 2025년 3월 4일~2026년 7월 3일
+    source: https://ols.semas.or.kr/ols/man/SMAN051M/page.do
+    evidence: "같은 공지 □지원대상 ② 각주: '‘25.3.4.~‘26.7.3. 기간 내 홈플러스에서 영업사실이 확인', 거래업체 '’25.3.4.~‘26.7.3.까지'"
+    status: 일치
+  - claim: 호우피해 직접대출 만기연장·상환유예 신청기간
+    value: 2026년 10월 12일(월) 14:00 ~ 12월 31일(목) 18:00
+    source: https://ols.semas.or.kr/ols/man/SMAN051M/page.do
+    evidence: "공지 '2026년 특별재난지역 호우피해 소상공인을 위한 소상공인정책자금(직접대출) 만기연장·상환유예 안내'(2026-10-08) □신청기간: '2026년 10월 12일(월) 14:00 ~ 2026년 12월 31일(목) 18:00'"
+    status: 일치
+  - claim: 호우피해 특별재난지역
+    value: 2곳(경남 거제시·통영시)
+    source: https://ols.semas.or.kr/ols/man/SMAN051M/page.do
+    evidence: "같은 공지 □지원대상 ① 각주: '호우피해 특별재난지역 총 2곳(경남 거제시·통영시)'"
+    status: 일치
+  - claim: 대환대출 신청대상 신용점수
+    value: NCB 919점 이하
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: "공고 제2026-576호(2026.10.1) 11쪽 '23 대환대출' □신청대상: '중‧저신용소상공인(NCB919점이하)'"
+    status: 일치
+  - claim: 상환연장 이용자의 대환대출 신용평점 미적용 조건
+    value: 연속 10일 이상 연체 없이 3회차 이상
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: "같은 쪽 ①: '정책자금 상환연장제도를 지원받고 연속10일이상 연체이력이 없이 3회차 이상 상환중이거나 완제한 소상공인' → 개인신용평점 미적용"
+    status: 일치
+  - claim: 대환대출 금리
+    value: 연 4.5% 고정금리
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: "같은 공고 12쪽 □융자조건: '대출금리: 연4.5% 고정금리'"
+    status: 일치
+  - claim: 대환대출 기간·한도
+    value: 10년, 한도 5천만 원
+    source: https://www.mss.go.kr/site/smba/ex/bbs/View.do?cbIdx=310&bcIdx=1071565&parentSeq=1071565
+    evidence: "같은 쪽: '대출기간: 10년(2년거치·8년분할상환 또는 10년분할상환 중 택1)', '대출한도: 5천만원'"
+    status: 일치
+  - claim: 계산기 예시 기준 최대 연장 기간(예시는 가정값)
+    value: 120개월
+    source: https://ols.semas.or.kr/ols/man/SMAN051M/page.do
+    evidence: 7년 연장 근거는 2026-07-16 공지 '최대 7년 연장'. 남은 원금 3천만 원·36개월·연 4%는 가정값이며 36+84=120개월. 첫 달 933,333원→350,000원, 총 이자 1,850,000원→6,050,000원은 계산기 tests 1번과 같은 손계산
+    status: 일치
+  - claim: 계산기 예시 월 부담 감소액(가정값 기준)
+    value: 약 58만 원
+    source: https://ols.semas.or.kr/ols/man/SMAN051M/page.do
+    evidence: "가정값(남은 원금 3천만 원·36개월·연 4%)으로 손계산: 933,333원-350,000원=583,333원 → 약 58만 원. 7년 상한만 공지 '최대 7년 연장'에서 확인"
+    status: 일치

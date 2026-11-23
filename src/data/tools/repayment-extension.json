@@ -1,0 +1,68 @@
+{
+  "id": "repayment-extension",
+  "name": "정책자금 상환연장 월 상환액 비교 계산기",
+  "blurb": "소상공인 정책자금 직접대출의 상환기간을 늘리면 매달 내는 돈과 총 이자가 어떻게 바뀌는지 비교합니다",
+  "category": "loan",
+  "headline": "상환기간을 늘리면 매달 얼마나 덜 낼까?",
+  "description": "소상공인 정책자금 직접대출의 남은 원금과 남은 상환 개월 수, 금리를 넣고 상환기간을 최대 7년까지 늘렸을 때 원금균등 기준 첫 달 상환액과 총 이자를 연장 전후로 비교합니다. 2026년 상환연장 기준입니다.",
+  "inputs": [
+    { "key": "remain", "label": "지금 남은 대출 원금", "type": "money", "default": 30000000, "help": "소상공인정책자금 누리집 상환내역조회나 약정서에서 확인하세요." },
+    { "key": "months", "label": "지금 남은 상환 개월 수", "type": "number", "default": 36, "help": "원금을 나눠 갚을 남은 개월 수입니다. 거치기간 중이라면 거치 후 상환 개월 수를 넣으세요." },
+    { "key": "rate", "label": "현재 대출금리", "type": "percent", "default": 4, "help": "연 금리(%)입니다. 변동금리라면 지금 적용 중인 금리를 넣으세요." },
+    { "key": "extYears", "label": "늘릴 기간(년)", "type": "number", "default": 7, "help": "2026년 상환연장은 최대 7년까지입니다. 7을 넘게 넣어도 7년으로 계산합니다." },
+    { "key": "cut", "label": "1년 근속 금리감면", "type": "select", "default": 0,
+      "options": [ { "label": "해당 없음", "value": 0 }, { "label": "적용 (임금근로자 전환 후 1년 근속)", "value": 1 } ],
+      "help": "임금근로자로 전환한 폐업 소상공인이 1년 근속하면 받는 금리감면입니다." }
+  ],
+  "constants": [
+    { "key": "maxExt", "value": 7, "label": "상환연장 최대 기간 7년",
+      "source": "https://ols.semas.or.kr/ols/man/SMAN051M/page.do", "evidence": "공지사항 '2026년 「정책자금 상환연장」 신청 안내'(2026-07-16) 지원내용: '(일시적 경영애로 소상공인) 상환기간 최대 7년 연장', '(취업 시) 상환기간 최대 7년 연장'" },
+    { "key": "cutPct", "value": 0.5, "label": "1년 근속 시 금리감면 0.5%p",
+      "source": "https://ols.semas.or.kr/ols/man/SMAN051M/page.do", "evidence": "같은 공지 지원내용: '(1년 근속 시) 0.5%p 금리감면 지원'" }
+  ],
+  "steps": [
+    { "key": "ext", "expr": "clamp(floor(extYears), 0, maxExt)" },
+    { "key": "newMonths", "expr": "months + ext * 12" },
+    { "key": "newRate", "expr": "max(rate - cut * cutPct, 0)" },
+    { "key": "before", "expr": "round(remain / months + remain * rate / 100 / 12)" },
+    { "key": "after", "expr": "round(remain / newMonths + remain * newRate / 100 / 12)" },
+    { "key": "save", "expr": "before - after" },
+    { "key": "intBefore", "expr": "round(remain * rate / 100 / 12 * (months + 1) / 2)" },
+    { "key": "intAfter", "expr": "round(remain * newRate / 100 / 12 * (newMonths + 1) / 2)" },
+    { "key": "intMore", "expr": "intAfter - intBefore" }
+  ],
+  "outputs": [
+    { "key": "save", "label": "첫 달 상환액이 줄어드는 금액", "format": "won", "primary": true },
+    { "key": "before", "label": "연장 전 첫 달 상환액", "format": "won" },
+    { "key": "after", "label": "연장 후 첫 달 상환액", "format": "won" },
+    { "key": "newMonths", "label": "연장 후 남은 상환 개월 수", "format": "months" },
+    { "key": "intMore", "label": "늘어나는 총 이자 (어림값)", "format": "won" }
+  ],
+  "notes": [
+    { "when": "extYears > maxExt", "text": "2026년 상환연장은 최대 7년까지라 7년으로 계산했습니다." },
+    { "when": "intMore > 0", "text": "매달 부담은 줄지만 갚는 기간이 길어져 총 이자는 늘어납니다." }
+  ],
+  "fine": "매달 같은 원금을 갚는 원금균등 상환에 금리가 끝까지 같다고 가정한 어림값입니다. 상환연장 때 적용되는 금리, 상환 방식, 거치기간 처리, 연장 가능 기간은 심사와 약정에 따라 정해지므로 소상공인정책자금 누리집의 신청 결과와 약정서를 확인하세요. 1년 근속 금리감면이 언제부터 어느 기간에 적용되는지는 반영하지 않고 남은 기간 전체에 적용했습니다.",
+  "method": [
+    { "heading": "첫 달 상환액", "text": "남은 원금 ÷ 남은 상환 개월 수에 남은 원금 × 연 금리 ÷ 12를 더합니다(원 단위 반올림). 연장 후에는 개월 수에 늘린 연수 × 12를 더해 같은 방식으로 계산합니다." },
+    { "heading": "총 이자", "text": "원금균등 상환의 총 이자를 남은 원금 × 연 금리 ÷ 12 × (개월 수 + 1) ÷ 2로 어림합니다. 금리감면을 고르면 연장 후 금리에서 0.5%p를 뺍니다." },
+    { "heading": "연장 기간", "text": "2026년 소진공 정책자금 상환연장 안내에 따라 늘릴 수 있는 기간을 최대 7년으로 제한했습니다." }
+  ],
+  "tests": [
+    { "inputs": { "remain": 30000000, "months": 36, "rate": 4, "extYears": 7, "cut": 0 },
+      "expect": { "ext": 7, "newMonths": 120, "before": 933333, "after": 350000, "save": 583333, "intBefore": 1850000, "intAfter": 6050000, "intMore": 4200000 },
+      "why": "연장 전: 3,000만÷36=833,333.33 + 3,000만×4%÷12=100,000 → 933,333원. 연장 후 36+84=120개월: 250,000+100,000=350,000원. 차이 583,333원. 이자: 100,000×37÷2=1,850,000, 100,000×121÷2=6,050,000, 차이 4,200,000원" },
+    { "inputs": { "remain": 30000000, "months": 36, "rate": 4, "extYears": 9, "cut": 0 },
+      "expect": { "ext": 7, "newMonths": 120, "after": 350000, "save": 583333 },
+      "why": "경계값: 9년을 넣어도 최대 7년으로 제한되어 첫 예시와 같음" },
+    { "inputs": { "remain": 30000000, "months": 36, "rate": 4, "extYears": 7, "cut": 1 },
+      "expect": { "newRate": 3.5, "after": 337500, "save": 595833, "intAfter": 5293750, "intMore": 3443750 },
+      "why": "금리감면 0.5%p 적용 → 3.5%. 이자 3,000만×3.5%÷12=87,500, 원금 250,000 → 337,500원. 933,333-337,500=595,833원. 이자 87,500×121÷2=5,293,750, 차이 5,293,750-1,850,000=3,443,750원" },
+    { "inputs": { "remain": 30000000, "months": 36, "rate": 4, "extYears": 0, "cut": 0 },
+      "expect": { "ext": 0, "newMonths": 36, "after": 933333, "save": 0, "intMore": 0 },
+      "why": "경계값: 연장하지 않으면 전후가 같아 차이 0원" },
+    { "inputs": { "remain": 10000000, "months": 24, "rate": 5, "extYears": 1, "cut": 0 },
+      "expect": { "newMonths": 36, "before": 458333, "after": 319444, "save": 138889, "intBefore": 520833, "intAfter": 770833, "intMore": 250000 },
+      "why": "연장 전: 1,000만÷24=416,666.67 + 1,000만×5%÷12=41,666.67 = 458,333.33 → 458,333원. 연장 후 36개월: 277,777.78+41,666.67=319,444.44 → 319,444원. 차이 138,889원. 이자: 41,666.67×25÷2=520,833.33 → 520,833, ×37÷2=770,833.33 → 770,833, 차이 250,000원" }
+  ]
+}
