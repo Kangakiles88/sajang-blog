@@ -1,0 +1,125 @@
+slug: durunuri-social-insurance-support
+title: "두루누리 사회보험료 지원 신청: 10인 미만 사업장 직원 고용보험·국민연금 80% 지원 조건 (2026년 기준)"
+publishedOn: 2026-11-24
+checkedAt: 2026-11-24
+items:
+  - claim: 지원 대상 사업장 근로자 수
+    value: 10명 미만
+    source: https://insurancesupport.or.kr/durunuri/intro.php
+    evidence: "두루누리 소개 '1. 지원대상': 근로자 수가 10명 미만인 사업에 고용된 근로자"
+    status: 일치
+  - claim: 지원 대상 직원 월평균보수 기준 (2026년)
+    value: 270만 원 미만
+    source: https://insurancesupport.or.kr/bbs/bbs_view.php?bbs_data=aWR4PTE4NjAyOSZzdGFydFBhZ2U9Jmxpc3RObz0mdGFibGU9JmNvZGU9aW5zdXJlJnNlYXJjaF9pdGVtPSZzZWFyY2hfb3JkZXI9JmNhdGVfbmFtZT0=&Vert
+    evidence: "2026년 카드뉴스 2쪽 '지원 대상': 월 평균보수 270만원 미만인 근로자와 그 사업주 (소개 페이지 '1. 지원대상'도 270만원 미만)"
+    status: 일치
+  - claim: 신규가입자 판단 기간
+    value: 신청일 직전 1년
+    source: https://insurancesupport.or.kr/durunuri/intro.php
+    evidence: "'1. 지원대상' 각주: 지원신청일 직전 1년간 고용보험과 국민연금 자격취득 이력이 없는 근로자"
+    status: 일치
+  - claim: 기가입자 지원 중단 시점
+    value: 2021년부터
+    source: https://insurancesupport.or.kr/durunuri/intro.php
+    evidence: "'1. 지원대상': 2021년부터는 신규가입자에 대해서만 지원"
+    status: 일치
+  - claim: 지원 비율
+    value: 80%
+    source: https://insurancesupport.or.kr/durunuri/intro.php
+    evidence: "'2. 지원수준': 고용보험과 국민연금 보험료의 80% / 카드뉴스 2쪽 '보험료의 80% 지원'"
+    status: 일치
+  - claim: 지원 기간
+    value: 36개월
+    source: https://insurancesupport.or.kr/durunuri/intro.php
+    evidence: "'2. 지원기간': 2018년 1월 1일부터 신규가입자 및 기가입자 지원을 합산하여 36개월까지만 지원 / 카드뉴스 2쪽 '(최대 36개월)'"
+    status: 일치
+  - claim: 고용보험 사업주 월 최대 지원액
+    value: 21,160원
+    source: https://insurancesupport.or.kr/durunuri/intro.php
+    evidence: "'2. 지원수준' 각주: 그 사업주는 월 최대 21,160원까지 지원 / 카드뉴스 3쪽 사업주 지원액 21,160원"
+    status: 일치
+  - claim: 고용보험 직원 월 최대 지원액
+    value: 16,560원
+    source: https://insurancesupport.or.kr/durunuri/intro.php
+    evidence: "'2. 지원수준' 각주: 근로자는 월 최대 16,560원 / 카드뉴스 3쪽 근로자 지원액 16,560원"
+    status: 일치
+  - claim: 국민연금 사업주·직원 각각 월 최대 지원액
+    value: 87,400원
+    source: https://insurancesupport.or.kr/durunuri/intro.php
+    evidence: "'2. 지원수준' 각주: 근로자와 그 사업주는 각각 월 최대 87,400원까지 지원"
+    status: 일치
+  - claim: 사업주 직원 1명당 월 최대 지원액
+    value: 108,560원
+    source: https://insurancesupport.or.kr/bbs/bbs_view.php?bbs_data=aWR4PTE4NjAyOSZzdGFydFBhZ2U9Jmxpc3RObz0mdGFibGU9JmNvZGU9aW5zdXJlJnNlYXJjaF9pdGVtPSZzZWFyY2hfb3JkZXI9JmNhdGVfbmFtZT0=&Vert
+    evidence: "카드뉴스 3쪽 '사업주 지원액: 근로자 1명 기준 월 최대 108,560원' / 소개 '5. 산정 예시' 월평균보수 230만원이면 매월 108,560원"
+    status: 일치
+  - claim: 직원 월 최대 지원액
+    value: 103,960원
+    source: https://insurancesupport.or.kr/bbs/bbs_view.php?bbs_data=aWR4PTE4NjAyOSZzdGFydFBhZ2U9Jmxpc3RObz0mdGFibGU9JmNvZGU9aW5zdXJlJnNlYXJjaF9pdGVtPSZzZWFyY2hfb3JkZXI9JmNhdGVfbmFtZT0=&Vert
+    evidence: "카드뉴스 3쪽 '근로자 지원액: 근로자 1명 기준 월 최대 103,960원' / 소개 '5. 산정 예시' 매월 103,960원"
+    status: 일치
+  - claim: 지원 상한 기준 보수
+    value: 230만 원 이상 270만 원 미만
+    source: https://insurancesupport.or.kr/bbs/bbs_view.php?bbs_data=aWR4PTE4NjAyOSZzdGFydFBhZ2U9Jmxpc3RObz0mdGFibGU9JmNvZGU9aW5zdXJlJnNlYXJjaF9pdGVtPSZzZWFyY2hfb3JkZXI9JmNhdGVfbmFtZT0=&Vert
+    evidence: "카드뉴스 3쪽 각주: 지원금 상한액 설정에 따라 월평균보수 230만원 이상~270만원 미만은 230만원 기준으로 지원"
+    status: 일치
+  - claim: 산정 예시 월평균보수
+    value: 230만 원
+    source: https://insurancesupport.or.kr/durunuri/intro.php
+    evidence: "'5. 지원금액 산정 예시': 월평균보수가 230만원이라면 사업주 108,560원, 근로자 103,960원"
+    status: 일치
+  - claim: "지원 제외: 재산 과세표준"
+    value: 6억 원 이상
+    source: https://insurancesupport.or.kr/durunuri/intro.php
+    evidence: "'3. 지원 제외대상': 전년도 재산의 과세표준액 합계가 6억원 이상인 자"
+    status: 일치
+  - claim: "지원 제외: 종합소득"
+    value: 4,300만 원 이상
+    source: https://insurancesupport.or.kr/durunuri/intro.php
+    evidence: "'3. 지원 제외대상': 전년도(또는 전전년도) 종합소득이 4,300만원 이상인 자"
+    status: 일치
+  - claim: 10명 미만 예외 판단 기간
+    value: 3개월 동안 계속 10명 미만
+    source: https://insurancesupport.or.kr/durunuri/intro.php
+    evidence: "'참고사항': 지원 신청일이 속한 달의 직전 3개월 동안 근로자인 피보험자 수가 연속하여 10명 미만인 사업"
+    status: 일치
+  - claim: "지원 제외신청 사유: 보수"
+    value: 110%
+    source: https://insurancesupport.or.kr/bbs/bbs_list.php?code=faq
+    evidence: "FAQ '지원제외 사유에 해당되면…': 연간 추정 월평균보수가 지원요건 상한액의 110%를 초과하게 되거나"
+    status: 일치
+  - claim: "지원 제외신청 사유: 인원"
+    value: 3개월 연속 10명 이상
+    source: https://insurancesupport.or.kr/bbs/bbs_list.php?code=faq
+    evidence: "FAQ 같은 답변: 고용보험 가입근로자수가 3개월 연속 10명 이상인 경우 '고용보험료 지원 제외신청서' 제출"
+    status: 일치
+  - claim: 다음 해 자동 연장 기준
+    value: 12월 말
+    source: https://insurancesupport.or.kr/bbs/bbs_list.php?code=faq
+    evidence: "FAQ '연도가 바뀔 때마다…': 재신청 절차 없이 다음 연도에도 계속 지원, 12월 말 기준 10명 이상이면 제외"
+    status: 일치
+  - claim: 소급 지원 여부
+    value: 신청한 날이 속한 달부터
+    source: https://insurancesupport.or.kr/bbs/bbs_list.php?code=faq
+    evidence: "FAQ '지원 신청을 늦게 하는 경우': 신청한 날이 속하는 달부터 지원, 소급하여 지원하지는 않음 / 취득신고 지연 시 신고한 달부터"
+    status: 일치
+  - claim: 근로복지공단 대표번호
+    value: 1588-0075
+    source: https://insurancesupport.or.kr/request/step.php
+    evidence: "신청 절차 페이지 하단: 근로복지공단 1588-0075 / 카드뉴스 4쪽 대표번호"
+    status: 일치
+  - claim: 국민연금공단 대표번호
+    value: "1355"
+    source: https://insurancesupport.or.kr/request/step.php
+    evidence: "신청 절차 페이지 하단: 국민연금공단 (국번없이)1355"
+    status: 일치
+  - claim: 2027년 정부안 두루누리 지원 인원
+    value: 180만 명
+    source: https://www.korea.kr/news/policyNewsView.do?newsId=148971226
+    evidence: "정책브리핑 2026.09.04 고용노동부: '두루누리 사업'을 180만 명으로 확대 (2027년 예산안)"
+    status: 일치
+  - claim: 2027년 예산안 발표일
+    value: 2026년 9월 4일
+    source: https://www.korea.kr/news/policyNewsView.do?newsId=148971226
+    evidence: 기사 날짜 2026.09.04, '2027년도 예산안을…편성했다고 4일 밝혔다'
+    status: 일치
