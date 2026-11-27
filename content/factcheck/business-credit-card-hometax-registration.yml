@@ -1,0 +1,70 @@
+slug: business-credit-card-hometax-registration
+title: "사업용 신용카드 홈택스 등록 방법과 매입세액공제: 최대 50개, 1월 부가세 신고 전에 (2026년 2기)"
+publishedOn: 2026-11-27
+checkedAt: 2026-11-25
+items:
+  - claim: 개인사업자가 등록할 수 있는 사업용 신용카드 수
+    value: 최대 50개
+    source: https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?mi=2475&cntntsId=7799
+    evidence: "'등록방법-개인사업자': 사업자 본인명의로 발급받은 신용카드(직불카드·가족카드 제외)를 최대 50개까지 등록"
+    status: 일치
+  - claim: 2026년 2기 확정신고 대상 기간
+    value: 2026년 7월 1일부터 12월 31일까지
+    source: https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7693&mi=22
+    evidence: "'과세기간 및 신고납부' 표: 제2기 확정신고 7.1.~12.31., 신고납부기간 다음해 1.1.~1.25., 법인·개인 일반사업자"
+    status: 일치
+  - claim: 확정신고 기한 (과세기간 끝난 후 25일 이내)
+    value: 2027년 1월 25일(월)
+    source: https://www.law.go.kr/법령/부가가치세법/제49조
+    evidence: 제49조제1항 '그 과세기간이 끝난 후 25일 … 이내에 … 신고하여야 한다'. 2027.1.25.은 월요일이라 기한 연장 없음(달력 확인)
+    status: 일치
+  - claim: 간이과세자 1년 과세기간과 신고 기한
+    value: 2026년 1월 1일부터 12월 31일까지 1년 치
+    source: https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?cntntsId=7693&mi=22
+    evidence: "간이과세자 표: 과세기간 1.1.~12.31., 신고납부기간 다음해 1.1.~1.25."
+    status: 일치
+  - claim: 영수증만 발급하는 간이과세자 기준 (직전 연도 공급대가)
+    value: 4,800만 원 미만
+    source: https://www.law.go.kr/법령/부가가치세법/제36조
+    evidence: 제36조제1항제2호가목 '직전 연도의 공급대가의 합계액 … 4천800만원 미만인 자', 나목 신규 개인사업자 최초 과세기간
+    status: 일치
+  - claim: 영수증 발급 간이과세자에게 받은 카드전표는 매입세액공제 제외
+    value: 매입세액공제가 되지 않습니다
+    source: https://www.law.go.kr/법령/부가가치세법/제46조
+    evidence: 제46조제3항제3호 '간이과세자가 제36조의2제1항 및 제2항에 따라 영수증을 발급하여야 하는 기간에 발급한 신용카드매출전표등이 아닐 것'
+    status: 일치
+  - claim: 카드 매입세액공제가 안 되는 공급자 업종
+    value: 목욕·이발·미용업, 여객운송업(전세버스는 제외), 입장권을 발행하는 사업
+    source: https://www.law.go.kr/법령/부가가치세법시행령/제88조
+    evidence: 시행령 제88조제5항제1~3호 '목욕ㆍ이발ㆍ미용업', '여객운송업(… 전세버스운송사업은 제외)', '입장권을 발행하여 경영하는 사업'
+    status: 일치
+  - claim: 사업자등록 전 매입세액 공제 예외
+    value: 20일 이내
+    source: https://www.law.go.kr/법령/부가가치세법/제39조
+    evidence: 제39조제1항제8호 단서 '공급시기가 속하는 과세기간이 끝난 후 20일 이내에 등록을 신청한 경우 … 제외'
+    status: 일치
+  - claim: 간이과세자의 매입 공제율
+    value: 0.5%
+    source: https://www.law.go.kr/법령/부가가치세법/제63조
+    evidence: 제63조제3항제1호 '세금계산서등을 발급받은 재화와 용역의 공급대가에 0.5퍼센트를 곱한 금액'. 국세청 '부가가치세란?'도 '매입액(공급대가)의 0.5%'
+    status: 일치
+  - claim: 부가세 증빙 보존 기간
+    value: 신고 기한 뒤 5년간 보관
+    source: https://www.law.go.kr/법령/부가가치세법/제71조
+    evidence: 제71조제3항 '확정신고 기한 후 5년간 보존하여야 한다'. 카드전표 보관은 제46조제3항제2호가 제71조제3항 준용
+    status: 일치
+  - claim: 종합소득세 경비 증빙 보관 기간
+    value: 신고 기한 뒤 5년간 보관
+    source: https://www.law.go.kr/법령/소득세법/제160조의2
+    evidence: 제160조의2제1항 '확정신고기간 종료일부터 5년간 보관', 제2항제3호 신용카드매출전표를 증명서류로 열거
+    status: 일치
+  - claim: 사업용 신용카드로 등록한 카드 매출전표는 보관 의무 면제
+    value: 따로 보관하지 않아도 된다
+    source: https://www.law.go.kr/법령/소득세법시행령/제208조의2
+    evidence: 시행령 제208조의2제5항제2호 '국세청 현금영수증홈페이지에 사업용신용카드로 등록한 신용카드 매출전표'는 보관하지 아니할 수 있음
+    status: 일치
+  - claim: 등록 후 사용내역 조회 시점
+    value: 등록한 다음 달부터
+    source: https://www.nts.go.kr/nts/cm/cntnts/cntntsView.do?mi=2475&cntntsId=7799
+    evidence: "'사용내역 조회': 사업용 신용카드를 등록한 다음달부터 홈택스 또는 손택스에서 월별 사용내역 조회 가능"
+    status: 일치
